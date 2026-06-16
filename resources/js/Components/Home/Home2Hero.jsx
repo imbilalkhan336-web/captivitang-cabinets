@@ -1,16 +1,13 @@
 import Icon from '@/Components/Home/Icon';
+import HeroGoogleBadge from '@/Components/Home/HeroGoogleBadge';
 
 const TRUST_BADGES = [
     {
-        label: 'Nationwide',
+        label: 'Nationwide Delivery',
         icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 16V6a1 1 0 00-1-1H4a1 1 0 00-1 1v10a1 1 0 001 1h1m8-1a1 1 0 01-1 1H9m4-1V8a1 1 0 011-1h2.586a1 1 0 01.707.293l3.414 3.414a1 1 0 01.293.707V16a1 1 0 01-1 1h-1m-6-1a1 1 0 001 1h1M5 17a2 2 0 104 0m-4 0a2 2 0 114 0m6 0a2 2 0 104 0m-4 0a2 2 0 114 0" />,
     },
     {
-        label: 'Discounted',
-        icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 5v2m0 4v2m0 4v2M5 5a2 2 0 00-2 2v3a2 2 0 110 4v3a2 2 0 002 2h14a2 2 0 002-2v-3a2 2 0 110-4V7a2 2 0 00-2-2H5z" />,
-    },
-    {
-        label: '9 Brands',
+        label: '9 Premium Brands',
         icon: <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />,
     },
 ];
@@ -33,7 +30,7 @@ function TrustBadges() {
 
 export default function Home2Hero({ bgImage = '/images/hero-bg-2.png' }) {
     return (
-        <section className="relative min-h-[60vh] flex flex-col overflow-hidden pt-20" aria-label="Hero">
+        <section className="relative min-h-[72vh] flex flex-col overflow-hidden pt-20" aria-label="Hero">
             {/* Full-width background image */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -54,30 +51,35 @@ export default function Home2Hero({ bgImage = '/images/hero-bg-2.png' }) {
             {/* Content */}
             <div className="relative z-10 flex-1 flex flex-col">
                 <div className="flex-1 flex items-center">
-                    <div className="w-full max-w-container mx-auto px-6 lg:px-8 py-10 lg:py-12">
+                    <div className="w-full max-w-container mx-auto py-10 lg:py-12">
                         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-end">
                             {/* LEFT — Heading, script, description */}
                             <div className="lg:col-span-8">
                                 {/* Heading */}
-                                <h1 className="font-alata font-normal text-white tracking-tight leading-[1.1] text-4xl md:text-5xl lg:text-[75px]">
+                                <h1 className="font-sans font-normal text-white tracking-tight text-3xl/[3.5rem] md:text-4xl/[3.5rem] lg:text-[56px]/[3.5rem]">
                                     Custom Cabinets,
                                     <br />
                                     <span className="text-amber-400 font-normal">Designed</span> for You
                                 </h1>
 
                                 {/* Script tagline */}
-                                <p className="font-italianno text-amber-400 text-4xl md:text-5xl lg:text-6xl leading-none mt-6">
+                                <p className="font-great-vibes text-amber-400 text-3xl md:text-4xl lg:text-5xl leading-[1.3] mt-6">
                                     Style Without Limits
                                 </p>
 
                                 {/* Description */}
                                 <p className="mt-3 text-white/85 text-lg leading-relaxed max-w-xl">
-                                    Premium cabinet brands with white-glove service — from 3D design to install.
+                                    Premium kitchen cabinetry with complimentary 3D design services, professional contractor pricing, and seamless delivery—transforming your vision into reality.
                                 </p>
 
                                 {/* Trust Badges */}
                                 <div className="mt-8">
                                     <TrustBadges />
+                                </div>
+
+                                {/* Google reviews trust badge */}
+                                <div className="mt-6">
+                                    <HeroGoogleBadge />
                                 </div>
                             </div>
 

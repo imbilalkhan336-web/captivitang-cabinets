@@ -12,7 +12,7 @@ const FEATURES = [
     },
     {
         title: 'Free Shipping',
-        desc: 'On all orders over $2,500',
+        desc: 'Fast, fully insured delivery on all orders over $2,500',
         icon: (
             <>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 17a2 2 0 11-4 0 2 2 0 014 0zM19 17a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -39,7 +39,7 @@ const FEATURES = [
 export default function FeatureHighlights() {
     return (
         <section className="bg-[#F5F7FB] py-8 lg:py-10" aria-label="Why choose us">
-            <div className="max-w-container mx-auto px-6 lg:px-8">
+            <div className="max-w-container mx-auto">
                 <div className="flex flex-wrap items-center justify-between gap-6">
                     {FEATURES.map(({ title, desc, icon }) => (
                         <div key={title} className="flex items-center gap-3 flex-1 min-w-[220px]">

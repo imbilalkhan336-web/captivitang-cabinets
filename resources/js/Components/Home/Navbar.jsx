@@ -26,18 +26,18 @@ export default function Navbar() {
 
     return (
         <nav
-            className={`fixed inset-x-0 z-50 px-6 lg:px-8 py-2 transition-all duration-300 ${
-                scrolled ? 'top-0 bg-white shadow-lg' : 'top-8 bg-transparent'
+            className={`fixed inset-x-0 z-50 py-2 transition-all duration-300 bg-white shadow-lg ${
+                scrolled ? 'top-0' : 'top-8'
             }`}
             aria-label="Primary"
         ><div className="max-w-container mx-auto">
             <div className="flex items-center justify-between">
-                {/* Logo — white over the transparent header, black once scrolled */}
+                {/* Logo */}
                 <a href="/" className="flex items-center" aria-label="Captivating Cabinets home">
                     <img
-                        src={scrolled ? '/images/black-logo.png' : '/images/white-logo.png'}
+                        src="/images/captivating-cabinets.svg"
                         alt="Captivating Cabinets"
-                        className="h-[64px] w-auto"
+                        className="h-[44px] w-auto"
                     />
                 </a>
 
@@ -45,7 +45,7 @@ export default function Navbar() {
                     {/* Nav Links */}
                     <div className="hidden lg:flex items-center gap-0">
                         {NAV_LINKS.map(({ label, href }) => (
-                            <AnimatedNavLink key={label} label={label} href={href} scrolled={scrolled} />
+                            <AnimatedNavLink key={label} label={label} href={href} scrolled={true} />
                         ))}
                     </div>
 
@@ -54,9 +54,7 @@ export default function Navbar() {
                         <a
                             href="#"
                             aria-label="Cart"
-                            className={`relative inline-flex items-center justify-center w-10 h-10 rounded-full transition-colors ${
-                                scrolled ? 'text-gray-900 hover:bg-gray-900/5' : 'text-white/85 hover:text-white hover:bg-white/10'
-                            }`}
+                            className="relative inline-flex items-center justify-center w-10 h-10 rounded-full transition-colors text-gray-900 hover:bg-gray-900/5"
                         >
                             <Icon>
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.6 3.2A1 1 0 006.3 18H19" />
@@ -70,11 +68,11 @@ export default function Navbar() {
 
                         {/* CTA */}
                         <a href="#" className="hidden md:inline-flex px-5 py-2.5 bg-amber-400 hover:bg-amber-500 text-gray-900 text-sm font-semibold rounded-full transition-colors">
-                            Get a Quote
+                            Free 3D Design
                         </a>
 
                         {/* Mobile Menu Button */}
-                        <button className={`md:hidden ${scrolled ? 'text-gray-900' : 'text-white'}`} aria-label="Open menu">
+                        <button className="md:hidden text-gray-900" aria-label="Open menu">
                             <Icon className="w-6 h-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                             </Icon>

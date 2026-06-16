@@ -13,12 +13,13 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['"DM Sans"', ...defaultTheme.fontFamily.sans],
+                sans: ['"Roboto Flex"', ...defaultTheme.fontFamily.sans],
                 display: ['Alata', ...defaultTheme.fontFamily.sans],
                 serif: ['"Playfair Display"', 'Georgia', 'serif'],
                 alata: ['Alata', ...defaultTheme.fontFamily.sans],
                 allura: ['Allura', 'cursive'],
                 italianno: ['Italianno', 'cursive'],
+                'great-vibes': ['"Great Vibes"', 'cursive'],
             },
             maxWidth: {
                 container: '1400px',
@@ -35,7 +36,7 @@ export default {
             },
             animation: {
                 'offer-in': 'offerIn 500ms ease-out',
-                marquee: 'marquee 45s linear infinite',
+                marquee: 'marquee 90s linear infinite',
             },
         },
     },

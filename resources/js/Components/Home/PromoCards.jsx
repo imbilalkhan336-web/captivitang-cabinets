@@ -47,7 +47,7 @@ function PromoCard({ line1, line2, description, ctaText, href }) {
 export default function PromoCards() {
     return (
         <section className="bg-white py-6 lg:py-8" aria-label="Promotions">
-            <div className="max-w-container mx-auto px-6 lg:px-8">
+            <div className="max-w-container mx-auto">
                 <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
                     {CARDS.map((card, i) => (
                         <PromoCard key={i} {...card} />

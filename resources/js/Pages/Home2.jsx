@@ -7,6 +7,10 @@ import PromoCards from '@/Components/Home/PromoCards';
 import FeatureHighlights from '@/Components/Home/FeatureHighlights';
 import SampleDoors from '@/Components/Home/SampleDoors';
 import Gallery from '@/Components/Home/Gallery';
+import AudiencePaths from '@/Components/Home/AudiencePaths';
+import HowItWorks from '@/Components/Home/HowItWorks';
+import Testimonials from '@/Components/Home/Testimonials';
+import StickyCTABar from '@/Components/Home/StickyCTABar';
 
 export default function Home2() {
     return (
@@ -29,25 +33,28 @@ export default function Home2() {
                     />
 
                     <ShopByCategory
-                        title="Shop Kitchen Cabinets By Type"
-                        description="Whether you love the timeless lines of a Shaker door or the seamless look of a slab front, find the style that fits the way you cook, gather, and live."
+                        title="Shop by Cabinet Type"
+                        description="From wall and base cabinets to tall pantries and vanities, find the right cabinet for every part of your kitchen, bath, and beyond."
                         items={TYPE_ITEMS}
-                        imageSrc="/images/ShopByCategory/shop-by-style.png"
-                        imageAlt="Two-tone wood and black contemporary kitchen"
-                        reverse
+                        centered
                     />
 
                     <ShopByCategory
                         title="Shop Kitchen Cabinets By Color"
                         description="Classic White Shaker Cabinets? Trendy Green Shades? Find the perfect kitchen cabinets to match your style. Browse by color to create a space that feels just right for you."
                         items={COLOR_ITEMS}
-                        imageSrc="/images/ShopByCategory/shop-by-color.png"
-                        imageAlt="Black and white modern kitchen with gold accents"
+                        imageSrc="/images/gallery/Gallery-8-Captivating-Cabinets.webp"
+                        imageAlt="Classic kitchen with cream cabinets and a dark granite island"
                     />
 
                     <SampleDoors />
                     <Gallery />
+                    <AudiencePaths />
+                    <HowItWorks />
+                    <Testimonials />
                 </main>
+
+                <StickyCTABar />
             </div>
         </>
     );

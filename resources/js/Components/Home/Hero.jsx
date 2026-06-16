@@ -45,7 +45,7 @@ export default function Hero({ bgImage = '/images/hero-bg.jpg' }) {
             <div className="relative z-10 flex-1 flex flex-col">
                 {/* Main Hero Content */}
                 <div className="flex-1 flex items-center">
-                    <div className="w-full max-w-container mx-auto px-6 lg:px-8 py-12">
+                    <div className="w-full max-w-container mx-auto py-12">
                         <div className="grid lg:grid-cols-2 gap-12 items-center">
                             {/* Left Column - Text Content */}
                             <div className="max-w-xl lg:mt-16">

@@ -1,14 +1,15 @@
 import Icon from '@/Components/Home/Icon';
 
-function CircleOption({ inner, label, href = '#' }) {
+function CircleOption({ inner, label, href = '#', large = false }) {
+    const size = large ? 'w-[140px] h-[140px]' : 'w-[88px] h-[88px]';
     return (
         <a href={href} className="group flex flex-col items-center gap-3 text-center">
-            <div className="w-[88px] h-[88px] rounded-full bg-white border border-[#14304E]/20 shadow-[0_10px_24px_rgba(20,48,78,0.12)] p-2 flex items-center justify-center transition-all group-hover:-translate-y-0.5 group-hover:border-[#14304E]/40">
+            <div className={`${size} rounded-full bg-white border border-[#14304E]/20 shadow-[0_10px_24px_rgba(20,48,78,0.12)] p-2 flex items-center justify-center transition-all group-hover:-translate-y-0.5 group-hover:border-[#14304E]/40`}>
                 <div className="w-full h-full rounded-full overflow-hidden ring-1 ring-black/5 flex items-center justify-center">
                     {inner}
                 </div>
             </div>
-            <span className="text-sm text-[#14304E] font-medium">{label}</span>
+            <span className={`${large ? 'text-base' : 'text-sm'} text-[#14304E] font-medium`}>{label}</span>
         </a>
     );
 }
@@ -21,10 +22,32 @@ export default function ShopByCategory({
     imageAlt = '',
     reverse = false,
     bgClass = 'bg-white',
+    centered = false,
 }) {
+    if (centered) {
+        return (
+            <section className={`${bgClass} py-10 lg:py-12`}>
+                <div className="max-w-container mx-auto text-center">
+                    <h2 className="font-display text-2xl md:text-3xl font-bold text-[#14304E] tracking-tight">
+                        {title}
+                    </h2>
+                    <p className="mt-3 text-[#14304E]/75 text-base leading-relaxed max-w-2xl mx-auto">
+                        {description}
+                    </p>
+
+                    <div className="mt-10 flex flex-wrap items-start justify-center gap-x-10 gap-y-8">
+                        {items.map(({ label, inner, href }) => (
+                            <CircleOption key={label} label={label} inner={inner} href={href} large />
+                        ))}
+                    </div>
+                </div>
+            </section>
+        );
+    }
+
     return (
         <section className={`${bgClass} py-10 lg:py-12`}>
-            <div className="max-w-container mx-auto px-6 lg:px-8">
+            <div className="max-w-container mx-auto">
                 <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-center">
                     {/* Image */}
                     <div className={reverse ? 'lg:order-2' : 'lg:order-1'}>
@@ -116,7 +139,7 @@ export const BRAND_ITEMS = [
 
 const TYPE_ICON = (svgChildren) => (
     <span className="flex items-center justify-center w-full h-full text-[#14304E]">
-        <Icon className="w-7 h-7" strokeWidth={1.6}>
+        <Icon className="w-14 h-14" strokeWidth={1.4}>
             {svgChildren}
         </Icon>
     </span>
@@ -124,80 +147,47 @@ const TYPE_ICON = (svgChildren) => (
 
 export const TYPE_ITEMS = [
     {
-        label: 'Shaker',
+        label: 'Wall Cabinets',
         inner: TYPE_ICON(
             <>
-                <rect x="4" y="4" width="16" height="16" rx="1.5" />
-                <rect x="7" y="7" width="10" height="10" rx="0.8" />
+                <rect x="4" y="3" width="16" height="9" rx="1" />
+                <path d="M12 3v9" />
+                <circle cx="10.5" cy="7.5" r="0.5" fill="currentColor" />
+                <circle cx="13.5" cy="7.5" r="0.5" fill="currentColor" />
             </>
         ),
     },
     {
-        label: 'Flat Panel',
-        inner: TYPE_ICON(<rect x="4" y="4" width="16" height="16" rx="1.5" />),
-    },
-    {
-        label: 'Slab',
+        label: 'Base Cabinets',
         inner: TYPE_ICON(
             <>
-                <rect x="4" y="4" width="16" height="16" rx="1.5" />
-                <circle cx="17" cy="12" r="0.6" fill="currentColor" />
+                <path d="M3 8h18" />
+                <rect x="4" y="8" width="16" height="13" rx="1" />
+                <path d="M12 8v13" />
+                <circle cx="10.5" cy="13" r="0.5" fill="currentColor" />
+                <circle cx="13.5" cy="13" r="0.5" fill="currentColor" />
             </>
         ),
     },
     {
-        label: 'Inset',
+        label: 'Tall Cabinets',
         inner: TYPE_ICON(
             <>
-                <rect x="3" y="3" width="18" height="18" rx="1.5" />
-                <rect x="6" y="6" width="12" height="12" rx="0.8" />
-                <rect x="9" y="9" width="6" height="6" rx="0.5" />
+                <rect x="7" y="3" width="10" height="18" rx="1" />
+                <path d="M7 12h10" />
+                <circle cx="14.5" cy="9.5" r="0.5" fill="currentColor" />
+                <circle cx="14.5" cy="14.5" r="0.5" fill="currentColor" />
             </>
         ),
     },
     {
-        label: 'Glass Front',
+        label: 'Vanity Cabinets',
         inner: TYPE_ICON(
             <>
-                <rect x="4" y="4" width="16" height="16" rx="1.5" />
-                <path d="M4 4l16 16M20 4L4 20" strokeWidth={0.8} opacity="0.5" />
+                <rect x="4" y="9" width="16" height="12" rx="1" />
+                <path d="M3 9h18M12 9v12" />
+                <path d="M12 4v3M10.5 4h3" strokeWidth={1.2} />
             </>
-        ),
-    },
-    {
-        label: 'Beadboard',
-        inner: TYPE_ICON(
-            <>
-                <rect x="4" y="4" width="16" height="16" rx="1.5" />
-                <path d="M8 4v16M12 4v16M16 4v16" strokeWidth={0.8} />
-            </>
-        ),
-    },
-    {
-        label: 'Open Shelf',
-        inner: TYPE_ICON(
-            <>
-                <path d="M4 7h16M4 13h16M4 19h16" />
-            </>
-        ),
-    },
-    {
-        label: 'Distressed',
-        inner: TYPE_ICON(
-            <>
-                <rect x="4" y="4" width="16" height="16" rx="1.5" />
-                <path d="M7 8c2 1 4-1 6 0M7 12c2-1 4 1 6 0M7 16c2 1 4-1 6 0" strokeWidth={0.9} />
-            </>
-        ),
-    },
-    {
-        label: 'View All',
-        inner: (
-            <span className="flex items-center justify-center w-full h-full text-[#14304E]">
-                <Icon className="w-6 h-6">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </Icon>
-            </span>
         ),
     },
 ];

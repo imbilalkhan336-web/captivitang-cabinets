@@ -99,7 +99,7 @@ function IconBadge({ size = 'md', children }) {
 export default function ShipNationwide() {
     return (
         <section className="bg-white lg:h-screen lg:min-h-[640px] flex flex-col justify-center py-8 lg:py-6" aria-label="Nationwide shipping">
-            <div className="max-w-container mx-auto px-6 lg:px-8 w-full">
+            <div className="max-w-container mx-auto w-full">
                 <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-12 items-center">
                     {/* Left - Content */}
                     <div>
