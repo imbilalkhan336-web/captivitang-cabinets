@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Icon from '@/Components/Home/Icon';
 import AnimatedNavLink from '@/Components/Home/AnimatedNavLink';
 import ShopCabinetsMenu from '@/Components/Home/ShopCabinetsMenu';
+import MobileMenu from '@/Components/Home/MobileMenu';
 
 const NAV_LINKS = [
     { label: 'Shop Cabinets', mega: true },
@@ -90,59 +91,8 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* Mobile menu panel */}
-            {menuOpen && (
-                <div className="lg:hidden mt-2 pt-3 border-t border-gray-900/10">
-                    <div className="flex flex-col">
-                        {NAV_LINKS.map((link) =>
-                            link.mega ? (
-                                <div key={link.label} className="py-1">
-                                    <p className="py-1.5 text-gray-900 text-[15px] font-semibold">Shop Cabinets</p>
-                                    <div className="pl-3 flex flex-col border-l border-gray-900/10">
-                                        {['By Brand', 'By Type', 'By Color'].map((s) => (
-                                            <a
-                                                key={s}
-                                                href="#"
-                                                onClick={() => setMenuOpen(false)}
-                                                className="py-2 text-gray-700 hover:text-amber-600 text-sm transition-colors"
-                                            >
-                                                {s}
-                                            </a>
-                                        ))}
-                                    </div>
-                                </div>
-                            ) : link.logo ? (
-                                <a
-                                    key={link.label}
-                                    href={link.href}
-                                    onClick={() => setMenuOpen(false)}
-                                    aria-label={link.label}
-                                    className="py-2.5 inline-flex items-center gap-2 text-[#0FA0EA] text-[15px] font-medium"
-                                >
-                                    <img src={link.logo} alt="Affirm" className="h-5 w-auto" />
-                                    Financing
-                                </a>
-                            ) : (
-                                <a
-                                    key={link.label}
-                                    href={link.href}
-                                    onClick={() => setMenuOpen(false)}
-                                    className="py-2.5 text-gray-800 hover:text-amber-600 text-[15px] font-medium transition-colors"
-                                >
-                                    {link.label}
-                                </a>
-                            )
-                        )}
-                        <a
-                            href="#"
-                            onClick={() => setMenuOpen(false)}
-                            className="mt-3 mb-1 inline-flex items-center justify-center px-5 py-3 bg-amber-400 hover:bg-amber-500 text-gray-900 text-sm font-semibold rounded-full transition-colors"
-                        >
-                            Free 3D Design
-                        </a>
-                    </div>
-                </div>
-            )}
+            {/* Mobile menu panel — dynamic drill-down */}
+            {menuOpen && <MobileMenu links={NAV_LINKS} onClose={() => setMenuOpen(false)} />}
             </div>
         </nav>
     );

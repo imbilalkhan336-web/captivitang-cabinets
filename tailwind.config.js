@@ -32,10 +32,15 @@ export default {
                     '0%': { transform: 'translateX(0)' },
                     '100%': { transform: 'translateX(-50%)' },
                 },
+                menuIn: {
+                    '0%': { opacity: '0', transform: 'translateX(14px)' },
+                    '100%': { opacity: '1', transform: 'translateX(0)' },
+                },
             },
             animation: {
                 'offer-in': 'offerIn 500ms ease-out',
                 marquee: 'marquee 90s linear infinite',
+                'menu-in': 'menuIn 220ms ease-out',
             },
         },
     },

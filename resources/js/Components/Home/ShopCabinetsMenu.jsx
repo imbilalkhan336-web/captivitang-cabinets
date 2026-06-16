@@ -1,102 +1,15 @@
 import { useState, useRef } from 'react';
 import Icon from '@/Components/Home/Icon';
-
-/* ---------- Data ---------- */
-
-const BRANDS = [
-    {
-        name: 'Fabuwood',
-        lines: [
-            {
-                name: 'Allure',
-                series: [
-                    { name: 'Galaxy', collections: ['Frost', 'Linen', 'Dove', 'Nickel', 'Cobblestone', 'Pistachio Green', 'Indigo', 'Horizon', 'Timber', 'Desert Oak', 'Truffle', 'Pitch Black'] },
-                    { name: 'Luna', collections: ['Dove', 'Kona', 'Timber', 'Desert Oak', 'Truffle'] },
-                    { name: 'Fusion', collections: ['Dove', 'Oyster', 'Kona', 'Stone', 'Timber'] },
-                    { name: 'Nexus', collections: ['Frost'] },
-                ],
-            },
-            { name: 'Illume', series: [] },
-            { name: 'Ovela', series: [] },
-        ],
-    },
-    { name: 'J&K', lines: [] },
-    { name: 'Modernform', lines: [] },
-    { name: 'Diamond', lines: [] },
-    { name: 'Decora', lines: [] },
-    { name: 'Mantra', lines: [] },
-    { name: 'Tribeca', lines: [] },
-    { name: 'KCD', lines: [] },
-    { name: 'USCD', lines: [] },
-];
-
-const TYPES = [
-    {
-        name: 'Base Cabinets',
-        subs: [
-            { name: 'Single Door Base', count: 14 },
-            { name: 'Double Door Base', count: 15 },
-            { name: 'Sink Base', count: 10 },
-            { name: 'Diagonal Sink Front', count: 2 },
-            { name: 'Diagonal Sink Base', count: 2 },
-            { name: 'Farm Sink', count: 3 },
-            { name: 'Corner Base', count: 4 },
-            { name: 'Easy Reach Base', count: 2 },
-            { name: 'Lazy Susan Base', count: 2 },
-            { name: 'Drawer Bench Seat', count: 3 },
-            { name: 'Return Angle Base', count: 3 },
-            { name: 'Specialty Base', count: 2 },
-            { name: 'Full Height Door Base', count: 21 },
-            { name: 'Oven Cabinet', count: 1 },
-        ],
-    },
-    {
-        name: 'Wall Cabinets',
-        subs: [
-            { name: 'Single Door Wall', count: 28 },
-            { name: 'Double Door Wall', count: 46 },
-            { name: 'Blind Wall', count: 12 },
-            { name: 'Corner Wall', count: 16 },
-            { name: 'Refrigerator Wall', count: 14 },
-            { name: 'Lift-Up Wall', count: 2 },
-            { name: 'Wall With Drawers', count: 4 },
-            { name: 'Appliance Wall', count: 1 },
-            { name: 'Microwave Wall', count: 5 },
-            { name: 'No Door Wall / Matching Interior', count: 20 },
-            { name: 'No Door Corner / Matching Interior', count: 4 },
-            { name: 'Open Shelf / Matching Interior', count: 8 },
-            { name: 'Wall End', count: 16 },
-            { name: 'Wine Racks', count: 8 },
-            { name: 'Wall Organizer', count: 2 },
-        ],
-    },
-    { name: 'Tall Cabinets', subs: [] },
-    { name: 'Vanity Cabinets', subs: [] },
-];
-
-const COLORS = [
-    { name: 'White', hex: '#F5F3EE', border: true },
-    { name: 'Grey', hex: '#7A7C7E' },
-    { name: 'Brown', hex: '#8B5E3C' },
-    { name: 'Blue', hex: '#22466B' },
-    { name: 'Beige', hex: '#C9B89A' },
-    { name: 'Green', hex: '#2E4A3A' },
-    { name: 'Black', hex: '#161616' },
-    { name: 'Red', hex: '#A14D2A' },
-];
+import { BRANDS, TYPES, INCHES, DEPTHS, SHELVES, DRAWERS, finishImage } from '@/Components/Home/shopCatalog';
 
 const TABS = [
     { key: 'brand', label: 'By Brand' },
     { key: 'type', label: 'By Type' },
-    { key: 'color', label: 'By Color' },
+    { key: 'inch', label: 'By Inch' },
+    { key: 'depth', label: 'By Depth' },
+    { key: 'shelf', label: 'By Shelf' },
+    { key: 'drawers', label: 'By Drawers' },
 ];
-
-// Build the door-sample image path for a Fabuwood Allure finish.
-function finishImage(seriesName, finishName) {
-    const slug = finishName.toLowerCase().replace(/\s+/g, '-');
-    const ext = finishName === 'Truffle' ? 'png' : 'webp';
-    return `/images/cabinets/fabuwood/${seriesName.toLowerCase()}-${slug}.${ext}`;
-}
 
 /* ---------- Small pieces ---------- */
 
@@ -253,20 +166,43 @@ function ByType() {
     );
 }
 
-/* ---------- By Color view ---------- */
+/* ---------- Generic facet list view (Inch / Material / Depth / Shelf / Drawers) ---------- */
 
-function ByColor() {
+// Derive the short badge shown inside the circle + the label below it.
+function facetCircle(item) {
+    const label = item.replace(/\s*Cabinets$/i, '');
+    const num = item.match(/^(\d+)\s+(Inch|Deep)?/i);
+    if (num && num[1]) {
+        const unit = (num[2] || '').toLowerCase();
+        const badge = unit === 'inch' || unit === 'deep' ? `${num[1]}"` : num[1];
+        return { badge, numeric: true, label };
+    }
+    return { badge: label.split(' ')[0], numeric: false, label };
+}
+
+function FacetList({ title, items, cta }) {
     return (
-        <div className="grid grid-cols-4 sm:grid-cols-8 gap-4">
-            {COLORS.map((c) => (
-                <a key={c.name} href="#" className="group/c flex flex-col items-center gap-2 text-center">
-                    <span
-                        className={`w-12 h-12 rounded-full ring-1 ring-black/5 shadow-sm transition-transform group-hover/c:scale-105 ${c.border ? 'ring-2 ring-gray-200' : ''}`}
-                        style={{ background: c.hex }}
-                    />
-                    <span className="text-xs text-[#14304E]/75 group-hover/c:text-[#14304E]">{c.name}</span>
+        <div className="flex flex-col min-h-[240px]">
+            <ColTitle>{title}</ColTitle>
+            <div className="flex flex-wrap gap-x-6 gap-y-6 max-h-[420px] overflow-y-auto pr-1 pt-1">
+                {items.map((item) => {
+                    const { badge, numeric, label } = facetCircle(item);
+                    return (
+                        <a key={item} href="#" className="group/f flex flex-col items-center gap-2.5 w-[128px] text-center">
+                            <div className="w-[120px] h-[120px] rounded-full bg-white border border-[#14304E]/15 shadow-[0_8px_20px_rgba(20,48,78,0.10)] flex items-center justify-center transition-all group-hover/f:-translate-y-0.5 group-hover/f:border-amber-400 group-hover/f:shadow-[0_12px_26px_rgba(20,48,78,0.16)]">
+                                <span className={`font-bold text-[#14304E] ${numeric ? 'text-3xl' : 'text-base leading-tight px-2'}`}>{badge}</span>
+                            </div>
+                            <span className="text-sm text-[#14304E]/75 leading-tight group-hover/f:text-[#14304E]">{label}</span>
+                        </a>
+                    );
+                })}
+            </div>
+            <div className="mt-auto pt-5 flex justify-end">
+                <a href="#" className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-amber-400 hover:bg-amber-500 text-gray-900 text-sm font-semibold transition-colors">
+                    {cta}
+                    <Icon className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></Icon>
                 </a>
-            ))}
+            </div>
         </div>
     );
 }
@@ -325,7 +261,10 @@ export default function ShopCabinetsMenu() {
                     <div className="p-5">
                         {tab === 'brand' && <ByBrand />}
                         {tab === 'type' && <ByType />}
-                        {tab === 'color' && <ByColor />}
+                        {tab === 'inch' && <FacetList title="Shop by Inch" items={INCHES} cta="View All Sizes" />}
+                        {tab === 'depth' && <FacetList title="Shop by Depth" items={DEPTHS} cta="View All Depths" />}
+                        {tab === 'shelf' && <FacetList title="Number of Shelves" items={SHELVES} cta="View All" />}
+                        {tab === 'drawers' && <FacetList title="Number of Drawers" items={DRAWERS} cta="View All" />}
                     </div>
                 </div>
               </div>
