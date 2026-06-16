@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import Icon from '@/Components/Home/Icon';
 import AnimatedNavLink from '@/Components/Home/AnimatedNavLink';
+import ShopCabinetsMenu from '@/Components/Home/ShopCabinetsMenu';
 
 const NAV_LINKS = [
-    { label: 'Home', href: '/' },
-    { label: 'Brands', href: '#' },
-    { label: 'Affirm Financing', href: '#' },
+    { label: 'Shop Cabinets', mega: true },
+    { label: 'Affirm Financing', href: '#', logo: '/images/affirm-logo.png' },
     { label: 'Contractor Program', href: '#' },
     { label: 'Testimonials', href: '#' },
     { label: 'About', href: '#' },
@@ -35,9 +35,18 @@ export default function Navbar() {
                 <div className="flex items-center gap-4 lg:gap-6 ml-auto">
                     {/* Nav Links (desktop) */}
                     <div className="hidden lg:flex items-center gap-0">
-                        {NAV_LINKS.map(({ label, href }) => (
-                            <AnimatedNavLink key={label} label={label} href={href} scrolled={true} />
-                        ))}
+                        {NAV_LINKS.map((link) =>
+                            link.mega ? (
+                                <ShopCabinetsMenu key={link.label} />
+                            ) : link.logo ? (
+                                <a key={link.label} href={link.href} aria-label={link.label} className="inline-flex items-center gap-1.5 px-2 text-[15px] font-medium text-[#0FA0EA] hover:text-[#0c8fd4] transition-colors">
+                                    <img src={link.logo} alt="Affirm" className="h-4 w-auto" />
+                                    Financing
+                                </a>
+                            ) : (
+                                <AnimatedNavLink key={link.label} label={link.label} href={link.href} scrolled={true} />
+                            )
+                        )}
                     </div>
 
                     <div className="flex items-center gap-2 sm:gap-3">
@@ -85,16 +94,45 @@ export default function Navbar() {
             {menuOpen && (
                 <div className="lg:hidden mt-2 pt-3 border-t border-gray-900/10">
                     <div className="flex flex-col">
-                        {NAV_LINKS.map(({ label, href }) => (
-                            <a
-                                key={label}
-                                href={href}
-                                onClick={() => setMenuOpen(false)}
-                                className="py-2.5 text-gray-800 hover:text-amber-600 text-[15px] font-medium transition-colors"
-                            >
-                                {label}
-                            </a>
-                        ))}
+                        {NAV_LINKS.map((link) =>
+                            link.mega ? (
+                                <div key={link.label} className="py-1">
+                                    <p className="py-1.5 text-gray-900 text-[15px] font-semibold">Shop Cabinets</p>
+                                    <div className="pl-3 flex flex-col border-l border-gray-900/10">
+                                        {['By Brand', 'By Type', 'By Color'].map((s) => (
+                                            <a
+                                                key={s}
+                                                href="#"
+                                                onClick={() => setMenuOpen(false)}
+                                                className="py-2 text-gray-700 hover:text-amber-600 text-sm transition-colors"
+                                            >
+                                                {s}
+                                            </a>
+                                        ))}
+                                    </div>
+                                </div>
+                            ) : link.logo ? (
+                                <a
+                                    key={link.label}
+                                    href={link.href}
+                                    onClick={() => setMenuOpen(false)}
+                                    aria-label={link.label}
+                                    className="py-2.5 inline-flex items-center gap-2 text-[#0FA0EA] text-[15px] font-medium"
+                                >
+                                    <img src={link.logo} alt="Affirm" className="h-5 w-auto" />
+                                    Financing
+                                </a>
+                            ) : (
+                                <a
+                                    key={link.label}
+                                    href={link.href}
+                                    onClick={() => setMenuOpen(false)}
+                                    className="py-2.5 text-gray-800 hover:text-amber-600 text-[15px] font-medium transition-colors"
+                                >
+                                    {link.label}
+                                </a>
+                            )
+                        )}
                         <a
                             href="#"
                             onClick={() => setMenuOpen(false)}
