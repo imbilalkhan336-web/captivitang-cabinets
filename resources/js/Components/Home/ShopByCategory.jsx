@@ -27,7 +27,7 @@ export default function ShopByCategory({
     if (centered) {
         return (
             <section className={`${bgClass} py-10 lg:py-12`}>
-                <div className="max-w-container mx-auto text-center">
+                <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 text-center">
                     <h2 className="font-display text-2xl md:text-3xl font-bold text-[#14304E] tracking-tight">
                         {title}
                     </h2>
@@ -47,7 +47,7 @@ export default function ShopByCategory({
 
     return (
         <section className={`${bgClass} py-10 lg:py-12`}>
-            <div className="max-w-container mx-auto">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
                 <div className="grid lg:grid-cols-2 gap-6 lg:gap-10 items-center">
                     {/* Image */}
                     <div className={reverse ? 'lg:order-2' : 'lg:order-1'}>

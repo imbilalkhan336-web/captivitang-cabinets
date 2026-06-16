@@ -54,7 +54,7 @@ export default function SampleDoors() {
     return (
         <section className="bg-white py-12 lg:py-16 overflow-hidden" aria-label="Sample doors">
             {/* Heading — centered above the slider */}
-            <div className="max-w-container mx-auto mb-8 text-center">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 mb-8 text-center">
                 <h2 className="font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight">
                     Sample Doors
                 </h2>
@@ -78,7 +78,7 @@ export default function SampleDoors() {
             </div>
 
             {/* CTA — centered below the slider */}
-            <div className="max-w-container mx-auto mt-10 text-center">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 mt-10 text-center">
                 <a
                     href="#"
                     className="inline-flex items-center px-7 py-3 bg-amber-400 hover:bg-amber-500 text-gray-900 text-sm font-semibold rounded-full transition-colors"

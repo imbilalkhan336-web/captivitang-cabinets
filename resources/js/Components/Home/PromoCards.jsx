@@ -24,12 +24,12 @@ function PromoCard({ line1, line2, description, ctaText, href }) {
             className="group block rounded-2xl bg-white p-2 shadow-[0_15px_40px_-12px_rgba(20,48,78,0.25)] hover:shadow-[0_20px_50px_-10px_rgba(20,48,78,0.35)] transition-shadow"
         >
             <div className="rounded-xl border-2 border-dashed border-[#16202E]/25 px-4 py-4 lg:px-6 lg:py-5 text-center">
-                <h3 className="font-display font-extrabold tracking-tight leading-[1.1] text-lg md:text-xl lg:text-[24px] whitespace-nowrap">
+                <h3 className="font-display font-extrabold tracking-tight leading-[1.1] text-lg md:text-xl lg:text-[24px] lg:whitespace-nowrap">
                     <span className={line1.accent ? 'text-[#D97706]' : 'text-[#16202E]'}>{line1.text}</span>{' '}
                     <span className={line2.accent ? 'text-[#D97706]' : 'text-[#16202E]'}>{line2.text}</span>
                 </h3>
 
-                <p className="mt-3 text-[#16202E]/75 text-xs md:text-sm font-semibold tracking-wide whitespace-nowrap">
+                <p className="mt-3 text-[#16202E]/75 text-xs md:text-sm font-semibold tracking-wide lg:whitespace-nowrap">
                     {description}
                 </p>
 
@@ -47,7 +47,7 @@ function PromoCard({ line1, line2, description, ctaText, href }) {
 export default function PromoCards() {
     return (
         <section className="bg-white py-6 lg:py-8" aria-label="Promotions">
-            <div className="max-w-container mx-auto">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
                 <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
                     {CARDS.map((card, i) => (
                         <PromoCard key={i} {...card} />

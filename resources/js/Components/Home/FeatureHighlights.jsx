@@ -39,7 +39,7 @@ const FEATURES = [
 export default function FeatureHighlights() {
     return (
         <section className="bg-[#F5F7FB] py-8 lg:py-10" aria-label="Why choose us">
-            <div className="max-w-container mx-auto">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
                 <div className="flex flex-wrap items-center justify-between gap-6">
                     {FEATURES.map(({ title, desc, icon }) => (
                         <div key={title} className="flex items-center gap-3 flex-1 min-w-[220px]">

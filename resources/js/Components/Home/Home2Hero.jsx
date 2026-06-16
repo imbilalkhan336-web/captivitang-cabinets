@@ -30,7 +30,7 @@ function TrustBadges() {
 
 export default function Home2Hero({ bgImage = '/images/hero-bg-2.png' }) {
     return (
-        <section className="relative min-h-[72vh] flex flex-col overflow-hidden pt-20" aria-label="Hero">
+        <section className="relative min-h-[72vh] flex flex-col overflow-hidden" aria-label="Hero">
             {/* Full-width background image */}
             <div
                 className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -51,19 +51,19 @@ export default function Home2Hero({ bgImage = '/images/hero-bg-2.png' }) {
             {/* Content */}
             <div className="relative z-10 flex-1 flex flex-col">
                 <div className="flex-1 flex items-center">
-                    <div className="w-full max-w-container mx-auto py-10 lg:py-12">
+                    <div className="w-full max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 py-10 lg:py-12">
                         <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-end">
                             {/* LEFT — Heading, script, description */}
                             <div className="lg:col-span-8">
                                 {/* Heading */}
-                                <h1 className="font-sans font-normal text-white tracking-tight text-3xl/[3.5rem] md:text-4xl/[3.5rem] lg:text-[56px]/[3.5rem]">
+                                <h1 className="font-sans font-semibold lg:font-normal text-white tracking-tight text-[34px]/[2.5rem] md:text-5xl/[3.25rem] lg:text-[56px]/[3.5rem]">
                                     Custom Cabinets,
                                     <br />
                                     <span className="text-amber-400 font-normal">Designed</span> for You
                                 </h1>
 
                                 {/* Script tagline */}
-                                <p className="font-great-vibes text-amber-400 text-3xl md:text-4xl lg:text-5xl leading-[1.3] mt-6">
+                                <p className="font-great-vibes text-amber-400 text-3xl md:text-4xl lg:text-5xl leading-[1.3] mt-1 md:mt-6">
                                     Style Without Limits
                                 </p>
 

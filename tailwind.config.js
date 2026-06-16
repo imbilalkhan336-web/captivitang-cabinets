@@ -14,9 +14,8 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['"Roboto Flex"', ...defaultTheme.fontFamily.sans],
-                display: ['Alata', ...defaultTheme.fontFamily.sans],
+                display: ['"Roboto Flex"', ...defaultTheme.fontFamily.sans],
                 serif: ['"Playfair Display"', 'Georgia', 'serif'],
-                alata: ['Alata', ...defaultTheme.fontFamily.sans],
                 allura: ['Allura', 'cursive'],
                 italianno: ['Italianno', 'cursive'],
                 'great-vibes': ['"Great Vibes"', 'cursive'],

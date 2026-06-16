@@ -108,7 +108,7 @@ export default function Gallery() {
         <section className="bg-white" aria-label="Inspiration gallery">
             {/* Gallery */}
             <div className="bg-[#F5F5F5] py-12 lg:py-16">
-                <div className="max-w-container mx-auto">
+                <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
                     {/* Heading */}
                     <div className="text-center mb-10 max-w-3xl mx-auto px-6">
                         <h2 className="font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight">

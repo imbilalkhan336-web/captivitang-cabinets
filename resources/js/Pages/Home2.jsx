@@ -10,6 +10,9 @@ import Gallery from '@/Components/Home/Gallery';
 import AudiencePaths from '@/Components/Home/AudiencePaths';
 import HowItWorks from '@/Components/Home/HowItWorks';
 import Testimonials from '@/Components/Home/Testimonials';
+import Faq from '@/Components/Home/Faq';
+import FooterCTA from '@/Components/Home/FooterCTA';
+import Footer from '@/Components/Home/Footer';
 import StickyCTABar from '@/Components/Home/StickyCTABar';
 
 export default function Home2() {
@@ -52,8 +55,11 @@ export default function Home2() {
                     <AudiencePaths />
                     <HowItWorks />
                     <Testimonials />
+                    <Faq />
                 </main>
 
+                <FooterCTA />
+                <Footer />
                 <StickyCTABar />
             </div>
         </>

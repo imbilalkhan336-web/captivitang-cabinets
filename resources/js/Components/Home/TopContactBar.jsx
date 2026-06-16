@@ -60,7 +60,7 @@ export default function TopContactBar() {
 
     return (
         <div className="w-full bg-black text-white/90 text-xs">
-            <div className="max-w-container mx-auto py-2 flex items-center justify-between gap-4">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 py-2 flex items-center justify-between gap-4">
                 {/* Left - Rotating Offers */}
                 <div className="min-w-0 overflow-hidden">
                     <span key={offerIndex} className="inline-flex items-center gap-1.5 whitespace-nowrap animate-offer-in">

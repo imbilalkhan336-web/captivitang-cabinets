@@ -61,7 +61,7 @@ function PathCard({ eyebrow, title, description, cta, href, image }) {
 export default function AudiencePaths() {
     return (
         <section className="bg-white py-12 lg:py-16" aria-label="Choose your path">
-            <div className="max-w-container mx-auto">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
                 <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
                     {PATHS.map((path) => (
                         <PathCard key={path.eyebrow} {...path} />
