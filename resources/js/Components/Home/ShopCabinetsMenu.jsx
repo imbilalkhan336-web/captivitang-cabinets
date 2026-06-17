@@ -168,6 +168,30 @@ function ByType() {
 
 /* ---------- Generic facet list view (Inch / Material / Depth / Shelf / Drawers) ---------- */
 
+// Cabinet illustration for a "<n> Inch Cabinets" facet, keyed by the number.
+function inchImage(item) {
+    const m = item.match(/^(\d+)/);
+    return m ? `/images/header-icon/shop-by-inches/${m[1]}.png` : null;
+}
+
+// Cabinet illustration for a "<n> Deep Base/Wall Cabinets" facet.
+function depthImage(item) {
+    const m = item.match(/^(\d+)\s+Deep\s+(Base|Wall)/i);
+    return m ? `/images/header-icon/shop-by-depth/${m[1]}-${m[2].toLowerCase()}.png` : null;
+}
+
+// Cabinet illustration for a "<n> Shelf Cabinets" facet, keyed by shelf count.
+function shelfImage(item) {
+    const m = item.match(/^(\d+)/);
+    return m ? `/images/header-icon/shop-by-shelf/${m[1]}.png` : null;
+}
+
+// Cabinet illustration for a "<n> Drawer Cabinets" facet, keyed by drawer count.
+function drawerImage(item) {
+    const m = item.match(/^(\d+)/);
+    return m ? `/images/header-icon/shop-by-drawers/${m[1]}.png` : null;
+}
+
 // Derive the short badge shown inside the circle + the label below it.
 function facetCircle(item) {
     const label = item.replace(/\s*Cabinets$/i, '');
@@ -180,17 +204,22 @@ function facetCircle(item) {
     return { badge: label.split(' ')[0], numeric: false, label };
 }
 
-function FacetList({ title, items, cta }) {
+function FacetList({ title, items, cta, imageSrc }) {
     return (
         <div className="flex flex-col min-h-[240px]">
             <ColTitle>{title}</ColTitle>
             <div className="flex flex-wrap gap-x-6 gap-y-6 max-h-[420px] overflow-y-auto pr-1 pt-1">
                 {items.map((item) => {
                     const { badge, numeric, label } = facetCircle(item);
+                    const img = imageSrc ? imageSrc(item) : null;
                     return (
                         <a key={item} href="#" className="group/f flex flex-col items-center gap-2.5 w-[128px] text-center">
-                            <div className="w-[120px] h-[120px] rounded-full bg-white border border-[#14304E]/15 shadow-[0_8px_20px_rgba(20,48,78,0.10)] flex items-center justify-center transition-all group-hover/f:-translate-y-0.5 group-hover/f:border-amber-400 group-hover/f:shadow-[0_12px_26px_rgba(20,48,78,0.16)]">
-                                <span className={`font-bold text-[#14304E] ${numeric ? 'text-3xl' : 'text-base leading-tight px-2'}`}>{badge}</span>
+                            <div className="w-[120px] h-[120px] rounded-full bg-white border border-[#14304E]/15 shadow-[0_8px_20px_rgba(20,48,78,0.10)] flex items-center justify-center overflow-hidden transition-all group-hover/f:-translate-y-0.5 group-hover/f:border-amber-400 group-hover/f:shadow-[0_12px_26px_rgba(20,48,78,0.16)]">
+                                {img ? (
+                                    <img src={img} alt={label} loading="lazy" className="w-full h-full object-contain p-2.5 transition-transform duration-300 group-hover/f:scale-105" />
+                                ) : (
+                                    <span className={`font-bold text-[#14304E] ${numeric ? 'text-3xl' : 'text-base leading-tight px-2'}`}>{badge}</span>
+                                )}
                             </div>
                             <span className="text-sm text-[#14304E]/75 leading-tight group-hover/f:text-[#14304E]">{label}</span>
                         </a>
@@ -261,10 +290,10 @@ export default function ShopCabinetsMenu() {
                     <div className="p-5">
                         {tab === 'brand' && <ByBrand />}
                         {tab === 'type' && <ByType />}
-                        {tab === 'inch' && <FacetList title="Shop by Inch" items={INCHES} cta="View All Sizes" />}
-                        {tab === 'depth' && <FacetList title="Shop by Depth" items={DEPTHS} cta="View All Depths" />}
-                        {tab === 'shelf' && <FacetList title="Number of Shelves" items={SHELVES} cta="View All" />}
-                        {tab === 'drawers' && <FacetList title="Number of Drawers" items={DRAWERS} cta="View All" />}
+                        {tab === 'inch' && <FacetList title="Shop by Inch" items={INCHES} cta="View All Sizes" imageSrc={inchImage} />}
+                        {tab === 'depth' && <FacetList title="Shop by Depth" items={DEPTHS} cta="View All Depths" imageSrc={depthImage} />}
+                        {tab === 'shelf' && <FacetList title="Number of Shelves" items={SHELVES} cta="View All" imageSrc={shelfImage} />}
+                        {tab === 'drawers' && <FacetList title="Number of Drawers" items={DRAWERS} cta="View All" imageSrc={drawerImage} />}
                     </div>
                 </div>
               </div>

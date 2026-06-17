@@ -1,9 +1,13 @@
 /**
- * Auto-scrolling marquee of Fabuwood Allure cabinet door samples followed by a
- * centered CTA. The door list is rendered twice so the CSS marquee
- * (translateX -50%) loops seamlessly; the animation pauses while the user
- * hovers the row. Hovering a single door zooms it and reveals its name.
+ * Continuously auto-scrolling row of Fabuwood Allure cabinet door samples
+ * followed by a centered CTA. The list is rendered twice so the JS auto-scroll
+ * loops seamlessly (when it passes the halfway point it resets back). Auto-
+ * scroll pauses while the row is hovered. Prev/Next buttons (top-right) also
+ * scroll the row, and it stays swipeable/scrollable directly. Hovering a single
+ * door zooms it and reveals its name.
  */
+import { useEffect, useRef } from 'react';
+
 const SAMPLE_DOORS = [
     { src: '/images/cabinets/fabuwood/galaxy-truffle.png', label: 'Galaxy Truffle' },
     { src: '/images/cabinets/fabuwood/galaxy-frost.webp', label: 'Galaxy Frost' },
@@ -32,7 +36,7 @@ const SAMPLE_DOORS = [
 
 function DoorSample({ src, label, hidden }) {
     return (
-        <div className="group/door relative z-0 hover:z-10 flex-shrink-0" aria-hidden={hidden}>
+        <div className="group/door relative z-0 hover:z-10 flex-shrink-0 snap-start" aria-hidden={hidden}>
             <img
                 src={src}
                 alt={hidden ? '' : `Fabuwood Allure ${label} cabinet door sample`}
@@ -51,6 +55,61 @@ function DoorSample({ src, label, hidden }) {
 }
 
 export default function SampleDoors() {
+    const scrollerRef = useRef(null);
+    const hoverRef = useRef(false); // pointer is over the row
+    const dragRef = useRef(false); // user is dragging the row
+    const dragState = useRef({ startX: 0, startLeft: 0 });
+
+    // Continuous auto-scroll, driven by one rAF loop. Loops seamlessly by
+    // wrapping once it passes the halfway point (the door list is rendered
+    // twice). Pauses while hovered or while the user is grab-scrolling.
+    useEffect(() => {
+        const el = scrollerRef.current;
+        if (!el) return;
+
+        let raf;
+        let last = null;
+        const SPEED = 60; // px per second
+
+        const tick = (now) => {
+            if (last == null) last = now;
+            const dt = (now - last) / 1000;
+            last = now;
+
+            if (!hoverRef.current && !dragRef.current && el.scrollWidth > el.clientWidth) {
+                let next = el.scrollLeft + SPEED * dt;
+                const half = el.scrollWidth / 2;
+                if (next >= half) next -= half;
+                el.scrollLeft = next;
+            }
+            raf = requestAnimationFrame(tick);
+        };
+
+        raf = requestAnimationFrame(tick);
+        return () => cancelAnimationFrame(raf);
+    }, []);
+
+    // Click/touch-and-drag to scroll the row.
+    const onPointerDown = (e) => {
+        const el = scrollerRef.current;
+        if (!el) return;
+        dragRef.current = true;
+        dragState.current = { startX: e.clientX, startLeft: el.scrollLeft };
+        el.setPointerCapture?.(e.pointerId);
+    };
+
+    const onPointerMove = (e) => {
+        if (!dragRef.current) return;
+        const el = scrollerRef.current;
+        el.scrollLeft = dragState.current.startLeft - (e.clientX - dragState.current.startX);
+    };
+
+    const endDrag = (e) => {
+        if (!dragRef.current) return;
+        dragRef.current = false;
+        scrollerRef.current?.releasePointerCapture?.(e.pointerId);
+    };
+
     return (
         <section className="bg-white py-12 lg:py-16 overflow-hidden" aria-label="Sample doors">
             {/* Heading — centered above the slider */}
@@ -63,18 +122,25 @@ export default function SampleDoors() {
                 </p>
             </div>
 
-            {/* Auto-scrolling marquee */}
-            <div className="group relative">
-                <div className="flex w-max gap-4 md:gap-6 animate-marquee group-hover:[animation-play-state:paused]">
-                    {[...SAMPLE_DOORS, ...SAMPLE_DOORS].map((door, i) => (
-                        <DoorSample
-                            key={i}
-                            src={door.src}
-                            label={door.label}
-                            hidden={i >= SAMPLE_DOORS.length}
-                        />
-                    ))}
-                </div>
+            {/* Auto-scrolling, grab-to-scroll door row */}
+            <div
+                ref={scrollerRef}
+                onMouseEnter={() => (hoverRef.current = true)}
+                onMouseLeave={() => (hoverRef.current = false)}
+                onPointerDown={onPointerDown}
+                onPointerMove={onPointerMove}
+                onPointerUp={endDrag}
+                onPointerCancel={endDrag}
+                className="flex gap-4 md:gap-6 overflow-x-auto scroll-auto select-none cursor-grab active:cursor-grabbing [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            >
+                {[...SAMPLE_DOORS, ...SAMPLE_DOORS].map((door, i) => (
+                    <DoorSample
+                        key={i}
+                        src={door.src}
+                        label={door.label}
+                        hidden={i >= SAMPLE_DOORS.length}
+                    />
+                ))}
             </div>
 
             {/* CTA — centered below the slider */}

@@ -88,7 +88,7 @@ export const DEPTHS = [
     '24 Deep Wall Cabinets',
 ];
 
-export const SHELVES = ['1 Shelf Cabinets', '2 Shelf Cabinets', '3 Shelf Cabinets', '4 Shelf Cabinets', '6 Shelf Cabinets', '7 Shelf Cabinets'];
+export const SHELVES = ['1 Shelf Cabinets', '2 Shelf Cabinets', '3 Shelf Cabinets', '4 Shelf Cabinets', '5 Shelf Cabinets', '7 Shelf Cabinets'];
 
 export const DRAWERS = ['1 Drawer Cabinets', '2 Drawer Cabinets', '3 Drawer Cabinets'];
 

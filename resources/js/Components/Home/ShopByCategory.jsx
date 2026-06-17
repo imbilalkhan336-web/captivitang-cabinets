@@ -137,57 +137,25 @@ export const BRAND_ITEMS = [
     },
 ];
 
-const TYPE_ICON = (svgChildren) => (
-    <span className="flex items-center justify-center w-full h-full text-[#14304E]">
-        <Icon className="w-14 h-14" strokeWidth={1.4}>
-            {svgChildren}
-        </Icon>
-    </span>
+const TYPE_ICON = (src, alt) => (
+    <img src={src} alt={alt} className="w-full h-full object-contain p-3" />
 );
 
 export const TYPE_ITEMS = [
     {
         label: 'Wall Cabinets',
-        inner: TYPE_ICON(
-            <>
-                <rect x="4" y="3" width="16" height="9" rx="1" />
-                <path d="M12 3v9" />
-                <circle cx="10.5" cy="7.5" r="0.5" fill="currentColor" />
-                <circle cx="13.5" cy="7.5" r="0.5" fill="currentColor" />
-            </>
-        ),
+        inner: TYPE_ICON('/images/cabinets-typ-icon/wall-cabinets.png', 'Wall cabinets'),
     },
     {
         label: 'Base Cabinets',
-        inner: TYPE_ICON(
-            <>
-                <path d="M3 8h18" />
-                <rect x="4" y="8" width="16" height="13" rx="1" />
-                <path d="M12 8v13" />
-                <circle cx="10.5" cy="13" r="0.5" fill="currentColor" />
-                <circle cx="13.5" cy="13" r="0.5" fill="currentColor" />
-            </>
-        ),
+        inner: TYPE_ICON('/images/cabinets-typ-icon/base-cabinets.png', 'Base cabinets'),
     },
     {
         label: 'Tall Cabinets',
-        inner: TYPE_ICON(
-            <>
-                <rect x="7" y="3" width="10" height="18" rx="1" />
-                <path d="M7 12h10" />
-                <circle cx="14.5" cy="9.5" r="0.5" fill="currentColor" />
-                <circle cx="14.5" cy="14.5" r="0.5" fill="currentColor" />
-            </>
-        ),
+        inner: TYPE_ICON('/images/cabinets-typ-icon/tall-cabinets.png', 'Tall cabinets'),
     },
     {
         label: 'Vanity Cabinets',
-        inner: TYPE_ICON(
-            <>
-                <rect x="4" y="9" width="16" height="12" rx="1" />
-                <path d="M3 9h18M12 9v12" />
-                <path d="M12 4v3M10.5 4h3" strokeWidth={1.2} />
-            </>
-        ),
+        inner: TYPE_ICON('/images/cabinets-typ-icon/vanity-cabinets.png', 'Vanity cabinets'),
     },
 ];
