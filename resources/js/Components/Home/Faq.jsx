@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Icon from '@/Components/Home/Icon';
 
-const FAQS = [
+const DEFAULT_FAQS = [
     {
         q: 'Is the 3D design really free?',
         a: 'Yes—completely free with no obligation. Share your measurements and inspiration, and our designers will create a full 3D rendering of your space along with a detailed quote.',
@@ -64,11 +64,16 @@ function FaqItem({ q, a, isOpen, onToggle }) {
     );
 }
 
-export default function Faq() {
+export default function Faq({
+    faqs = DEFAULT_FAQS,
+    title = 'Frequently Asked Questions',
+    description = 'Everything you need to know about designing, ordering, and receiving your cabinets.',
+    bgClass = 'bg-white',
+}) {
     const [open, setOpen] = useState(0);
 
     return (
-        <section className="bg-white py-16 lg:py-24" aria-label="Frequently asked questions">
+        <section className={`${bgClass} py-16 lg:py-24`} aria-label="Frequently asked questions">
             <div className="max-w-3xl mx-auto px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center">
@@ -76,16 +81,16 @@ export default function Faq() {
                         FAQ
                     </span>
                     <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight leading-tight">
-                        Frequently Asked Questions
+                        {title}
                     </h2>
                     <p className="mt-4 text-[#14304E]/70 text-base md:text-lg leading-relaxed">
-                        Everything you need to know about designing, ordering, and receiving your cabinets.
+                        {description}
                     </p>
                 </div>
 
                 {/* Accordion */}
                 <div className="mt-10">
-                    {FAQS.map((faq, i) => (
+                    {faqs.map((faq, i) => (
                         <FaqItem
                             key={i}
                             q={faq.q}

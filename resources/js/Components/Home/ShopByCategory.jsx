@@ -23,6 +23,7 @@ export default function ShopByCategory({
     reverse = false,
     bgClass = 'bg-white',
     centered = false,
+    largeItems = false,
 }) {
     if (centered) {
         return (
@@ -69,9 +70,9 @@ export default function ShopByCategory({
 
                         <div className="mt-4 h-px bg-[#14304E]/15" aria-hidden="true" />
 
-                        <div className="mt-5 grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-x-3 gap-y-5">
+                        <div className={`mt-5 grid gap-x-3 gap-y-6 ${largeItems ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-3 sm:grid-cols-4 lg:grid-cols-5'}`}>
                             {items.map(({ label, inner, href }) => (
-                                <CircleOption key={label} label={label} inner={inner} href={href} />
+                                <CircleOption key={label} label={label} inner={inner} href={href} large={largeItems} />
                             ))}
                         </div>
                     </div>

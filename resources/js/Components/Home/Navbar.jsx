@@ -6,9 +6,9 @@ import MobileMenu from '@/Components/Home/MobileMenu';
 
 const NAV_LINKS = [
     { label: 'Shop Cabinets', mega: true },
-    { label: 'Affirm Financing', href: '#', logo: '/images/affirm-logo.png' },
-    { label: 'Contractor Program', href: '#' },
-    { label: 'Testimonials', href: '#' },
+    { label: 'Affirm Financing', href: '/financing', logo: '/images/affirm-logo.png' },
+    { label: 'Contractor Program', href: '/contractor-program' },
+    { label: 'Testimonials', href: '/testimonials' },
     { label: 'About', href: '#' },
     { label: 'Specbooks', href: '#' },
     { label: 'Blog', href: '#' },
