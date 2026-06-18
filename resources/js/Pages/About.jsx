@@ -9,7 +9,7 @@ import Icon from '@/Components/Home/Icon';
 
 /* ============================ Hero ============================ */
 
-function AboutHero({ bgImage = '/images/home-hero-bg.png' }) {
+function AboutHero({ bgImage = '/images/kichan-imgs/hero-img5.png' }) {
     return (
         <section className="relative min-h-[52vh] flex flex-col overflow-hidden pt-20" aria-label="About us hero">
             {/* Full-width background image */}
@@ -20,8 +20,8 @@ function AboutHero({ bgImage = '/images/home-hero-bg.png' }) {
             />
 
             {/* Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" aria-hidden="true" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/15" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-black/5" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/5" aria-hidden="true" />
 
             {/* Content */}
             <div className="relative z-10 flex-1 flex flex-col">
@@ -71,15 +71,15 @@ const STATS = [
 
 function Stats() {
     return (
-        <section className="bg-[#374151]" aria-label="Captivating Cabinets by the numbers">
-            <div className="max-w-container mx-auto px-6 lg:px-8 py-12 lg:py-14">
+        <section className="bg-[#F3F4F6] border-y border-[#374151]/10" aria-label="Captivating Cabinets by the numbers">
+            <div className="max-w-container mx-auto px-6 lg:px-8 py-7 lg:py-8">
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                     {STATS.map(({ value, label }) => (
                         <div key={label} className="text-center">
-                            <div className="font-display text-4xl md:text-5xl font-bold text-amber-400 tracking-tight">
+                            <div className="font-display text-4xl md:text-5xl font-bold text-amber-500 tracking-tight">
                                 {value}
                             </div>
-                            <p className="mt-2 text-white/75 text-sm leading-relaxed">{label}</p>
+                            <p className="mt-2 text-[#374151]/70 text-sm leading-relaxed">{label}</p>
                         </div>
                     ))}
                 </div>
@@ -260,7 +260,7 @@ export default function About() {
         <>
             <Head title="About Us | Captivating Cabinets" />
 
-            <div className="bg-gray-950 min-h-screen">
+            <div className="bg-white min-h-screen">
                 <TopContactBar />
                 <Navbar />
                 <AboutHero />
@@ -271,7 +271,7 @@ export default function About() {
                     <HowWeHelp />
                     <Brands />
                 </main>
-                <FooterCTA />
+                <FooterCTA bgImage="/images/kichan-imgs/cta-about.png" />
                 <Footer />
                 <StickyCTABar />
             </div>

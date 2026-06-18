@@ -42,13 +42,13 @@ const COLUMNS = [
         title: 'Resources',
         links: [
             { label: '3D Design Service', href: '#' },
-            { label: 'Specbooks', href: '#' },
+            { label: 'Specbooks', href: '/resources/specbooks' },
             { label: 'Shipping FAQ', href: '#' },
             { label: 'Kitchen Glossary', href: '#' },
-            { label: 'Blog', href: '#' },
+            { label: 'Blog', href: '/blogs' },
             { label: 'Testimonials', href: '/testimonials' },
             { label: 'About', href: '#' },
-            { label: 'Contact', href: '#' },
+            { label: 'Contact', href: '/contact' },
         ],
     },
     {

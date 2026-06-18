@@ -22,3 +22,15 @@ Route::get('/about', function () {
 Route::get('/testimonials', function () {
     return Inertia::render('Testimonials');
 })->name('testimonials');
+
+Route::get('/resources/specbooks', function () {
+    return Inertia::render('Specbooks');
+})->name('specbooks');
+
+Route::get('/blogs', function () {
+    return Inertia::render('Blogs');
+})->name('blogs');
+
+Route::get('/contact', function () {
+    return Inertia::render('Contact');
+})->name('contact');

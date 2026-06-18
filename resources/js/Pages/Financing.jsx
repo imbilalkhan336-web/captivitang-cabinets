@@ -10,7 +10,7 @@ import Icon from '@/Components/Home/Icon';
 
 /* ============================ Hero ============================ */
 
-function FinancingHero({ bgImage = '/images/home-hero-bg.png' }) {
+function FinancingHero({ bgImage = '/images/kichan-imgs/hero-img1.png' }) {
     return (
         <section className="relative min-h-[52vh] flex flex-col overflow-hidden pt-20" aria-label="Financing hero">
             {/* Full-width background image */}
@@ -21,8 +21,8 @@ function FinancingHero({ bgImage = '/images/home-hero-bg.png' }) {
             />
 
             {/* Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" aria-hidden="true" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/15" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-black/5" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/5" aria-hidden="true" />
 
             {/* Content */}
             <div className="relative z-10 flex-1 flex flex-col">
@@ -276,7 +276,7 @@ function FaqItem({ q, a, isOpen, onToggle }) {
                 <span
                     className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full border transition-all ${
                         isOpen
-                            ? 'bg-[#374151] border-[#374151] text-white rotate-180'
+                            ? 'bg-amber-500 border-amber-500 text-white rotate-180'
                             : 'border-[#374151]/25 text-[#374151] group-hover:border-[#374151]/60'
                     }`}
                 >
@@ -331,7 +331,7 @@ function FinancingFaq() {
 
 /* ========================= Closing CTA ========================= */
 
-function FinancingCTA({ bgImage = '/images/home-hero-bg.png' }) {
+function FinancingCTA({ bgImage = '/images/kichan-imgs/cta-financing.png' }) {
     return (
         <section className="relative w-full overflow-hidden" aria-label="Ready to finance your kitchen">
             <div
@@ -396,7 +396,7 @@ export default function Financing() {
         <>
             <Head title="Financing with Affirm | Captivating Cabinets" />
 
-            <div className="bg-gray-950 min-h-screen">
+            <div className="bg-white min-h-screen">
                 <TopContactBar />
                 <Navbar />
                 <FinancingHero />

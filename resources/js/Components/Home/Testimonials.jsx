@@ -41,7 +41,7 @@ function Stars() {
     );
 }
 
-const AVATAR_COLORS = ['bg-[#374151]', 'bg-amber-500', 'bg-gray-500', 'bg-gray-600', 'bg-amber-600', 'bg-gray-700'];
+const AVATAR_COLORS = ['bg-amber-500', 'bg-amber-600', 'bg-amber-400', 'bg-amber-500', 'bg-amber-600', 'bg-amber-400'];
 
 function ReviewCard({ name, text, href, colorIndex }) {
     const initials = name.split(' ').map((w) => w[0]).slice(0, 2).join('');
