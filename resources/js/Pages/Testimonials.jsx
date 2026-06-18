@@ -87,7 +87,7 @@ const REASONS = [
 
 /* ============================ Sections ============================ */
 
-function Header({ bgImage = '/images/home-hero-bg.png' }) {
+function Header({ bgImage = '/images/kichan-imgs/hero-img4.png' }) {
     return (
         <section className="relative min-h-[42vh] flex flex-col overflow-hidden pt-20" aria-label="Client reviews hero">
             {/* Full-width background image */}
@@ -97,8 +97,8 @@ function Header({ bgImage = '/images/home-hero-bg.png' }) {
                 aria-hidden="true"
             />
             {/* Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" aria-hidden="true" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/15" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-black/5" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/5" aria-hidden="true" />
 
             {/* Content */}
             <div className="relative z-10 flex-1 flex flex-col">
@@ -195,7 +195,7 @@ function WhyChoose() {
     );
 }
 
-function CtaSection({ bgImage = '/images/home-hero-bg.png' }) {
+function CtaSection({ bgImage = '/images/kichan-imgs/cta-testimonials.png' }) {
     return (
         <section className="relative w-full overflow-hidden" aria-label="Transform your kitchen">
             <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bgImage})` }} aria-hidden="true" />
@@ -237,7 +237,7 @@ export default function Testimonials() {
         <>
             <Head title="Testimonials | Captivating Cabinets" />
 
-            <div className="bg-gray-950 min-h-screen">
+            <div className="bg-white min-h-screen">
                 <TopContactBar />
                 <Navbar />
                 <main>

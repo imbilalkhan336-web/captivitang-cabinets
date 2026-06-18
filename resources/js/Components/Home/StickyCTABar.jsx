@@ -48,7 +48,7 @@ export default function StickyCTABar() {
                         </a>
                         <a
                             href="#"
-                            className="inline-flex items-center px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#374151] hover:bg-[#4B5563] text-white text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap"
+                            className="inline-flex items-center px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#374151]/10 hover:bg-[#374151]/20 text-[#374151] text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap"
                         >
                             Contractor Program
                         </a>

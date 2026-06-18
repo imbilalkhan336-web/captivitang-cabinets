@@ -20,7 +20,7 @@ export default function Home2() {
         <>
             <Head title="Home 2 | Captivating Cabinets" />
 
-            <div className="bg-gray-950 min-h-screen">
+            <div className="bg-white min-h-screen">
                 <TopContactBar />
                 <Navbar />
                 <Home2Hero bgImage="/images/home-hero-bg.png" />
@@ -31,8 +31,8 @@ export default function Home2() {
                         title="Shop Kitchen Cabinets By Brand"
                         description="From boutique craftsmen to industry leaders — we partner with the brands trusted by designers and contractors nationwide. Choose the maker your kitchen deserves."
                         items={BRAND_ITEMS}
-                        imageSrc="/images/ShopByCategory/shop-by-brand.png"
-                        imageAlt="Bright white and wood kitchen with a large island"
+                        imageSrc="/images/kichan-imgs/shop-by-brand.png"
+                        imageAlt="Warm wood-tone kitchen with a fluted marble island"
                     />
 
                     <ShopByCategory
@@ -46,8 +46,8 @@ export default function Home2() {
                         title="Shop Kitchen Cabinets By Color"
                         description="Classic White Shaker Cabinets? Trendy Green Shades? Find the perfect kitchen cabinets to match your style. Browse by color to create a space that feels just right for you."
                         items={COLOR_ITEMS}
-                        imageSrc="/images/gallery/Gallery-8-Captivating-Cabinets.webp"
-                        imageAlt="Classic kitchen with cream cabinets and a dark granite island"
+                        imageSrc="/images/kichan-imgs/shop-by-color.png"
+                        imageAlt="Classic kitchen with warm cream cabinets and a marble island"
                     />
 
                     <SampleDoors />

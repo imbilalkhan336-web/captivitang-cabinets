@@ -42,7 +42,7 @@ function FaqItem({ q, a, isOpen, onToggle }) {
                 <span
                     className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full border transition-all ${
                         isOpen
-                            ? 'bg-[#374151] border-[#374151] text-white rotate-180'
+                            ? 'bg-amber-500 border-amber-500 text-white rotate-180'
                             : 'border-[#374151]/25 text-[#374151] group-hover:border-[#374151]/60'
                     }`}
                 >

@@ -10,9 +10,9 @@ const NAV_LINKS = [
     { label: 'Contractor Program', href: '/contractor-program' },
     { label: 'Testimonials', href: '/testimonials' },
     { label: 'About', href: '/about' },
-    { label: 'Specbooks', href: '#' },
-    { label: 'Blog', href: '#' },
-    { label: 'Contact', href: '#' },
+    { label: 'Specbooks', href: '/resources/specbooks' },
+    { label: 'Blog', href: '/blogs' },
+    { label: 'Contact', href: '/contact' },
 ];
 
 export default function Navbar() {

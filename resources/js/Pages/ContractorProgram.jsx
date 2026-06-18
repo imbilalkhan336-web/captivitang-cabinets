@@ -34,7 +34,7 @@ function FaqItem({ q, a, isOpen, onToggle }) {
                 <span
                     className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full border transition-all ${
                         isOpen
-                            ? 'bg-[#374151] border-[#374151] text-white rotate-180'
+                            ? 'bg-amber-500 border-amber-500 text-white rotate-180'
                             : 'border-[#374151]/25 text-[#374151] group-hover:border-[#374151]/60'
                     }`}
                 >
@@ -258,7 +258,7 @@ function ApplyForm() {
 
 /* ===== Hero + sticky form (right) + program content ===== */
 
-function HeroApply({ bgImage = '/images/home-hero-bg.png' }) {
+function HeroApply({ bgImage = '/images/kichan-imgs/hero-img2.png' }) {
     const [openFaq, setOpenFaq] = useState(0);
 
     return (
@@ -266,8 +266,8 @@ function HeroApply({ bgImage = '/images/home-hero-bg.png' }) {
             {/* Hero background — covers the top hero region, then fades into white */}
             <div className="absolute inset-x-0 top-0 h-[820px] sm:h-[660px] lg:h-[460px] overflow-hidden" aria-hidden="true">
                 <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bgImage})` }} />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/15" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/15" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-black/5" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/5" />
             </div>
 
             <div className="relative max-w-container mx-auto px-6 lg:px-8 pt-16 lg:pt-20 pb-4 lg:pb-6">
@@ -384,13 +384,13 @@ export default function ContractorProgram() {
         <>
             <Head title="Contractor Program | Captivating Cabinets" />
 
-            <div className="bg-gray-950 min-h-screen">
+            <div className="bg-white min-h-screen">
                 <TopContactBar />
                 <Navbar />
                 <main>
                     <HeroApply />
                 </main>
-                <FooterCTA />
+                <FooterCTA bgImage="/images/kichan-imgs/cta-contractor.png" />
                 <Footer />
                 <StickyCTABar />
             </div>

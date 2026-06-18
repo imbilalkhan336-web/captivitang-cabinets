@@ -2,18 +2,18 @@ import { useState, useEffect, useCallback } from 'react';
 import Icon from '@/Components/Home/Icon';
 
 const GALLERY_IMAGES = [
-    { src: '/images/gallery/Gallery-2--Captivating-Cabinets.webp', alt: 'Modern white shaker kitchen cabinets with quartz countertops and stainless steel appliances' },
-    { src: '/images/gallery/Gallery-3--Captivating-Cabinets.webp', alt: 'Contemporary two-tone kitchen design with dark lower cabinets and white upper cabinets' },
-    { src: '/images/gallery/Gallery-3-Driftwood.webp', alt: 'Coastal driftwood finish kitchen cabinets with natural texture and modern coastal design' },
-    { src: '/images/gallery/Gallery-21-Driftwood-Captivating-Cabinets.webp', alt: 'Natural driftwood finish kitchen cabinets with organic wood grain texture and modern hardware' },
-    { src: '/images/gallery/Gallery-4--Captivating-Cabinets.webp', alt: 'Luxury kitchen featuring premium wood cabinets with marble island and designer lighting' },
-    { src: '/images/gallery/Gallery-5--Captivating-Cabinets.webp', alt: 'Traditional kitchen with classic raised panel cabinets and decorative hardware' },
-    { src: '/images/gallery/Gallery-6--Captivating-Cabinets.webp', alt: 'Bright modern kitchen with white cabinets, large island, and natural light' },
-    { src: '/images/gallery/Gallery-13-Captivating-Cabinets.webp', alt: 'Elegant kitchen remodel featuring custom cabinetry with premium finishes and modern design' },
-    { src: '/images/gallery/Gallery-8-Captivating-Cabinets.webp', alt: 'Elegant transitional kitchen with gray cabinets and gold hardware accents' },
-    { src: '/images/gallery/Gallery-9-Captivating-Cabinets.webp', alt: 'Rustic farmhouse kitchen featuring distressed wood cabinets and vintage fixtures' },
-    { src: '/images/gallery/Gallery-10-Captivating-Cabinets.webp', alt: 'Contemporary open concept kitchen with sleek flat-panel cabinets and modern appliances' },
-    { src: '/images/gallery/Gallery-11-Captivating-Cabinets.webp', alt: 'Custom kitchen design with premium cabinetry, waterfall edge counters, and integrated storage solutions' },
+    { src: '/images/kichan-imgs/gallery-01.png', alt: 'Warm wood kitchen with fluted island and built-in pantry cabinetry' },
+    { src: '/images/kichan-imgs/gallery-02.png', alt: 'Two-tone kitchen with light cabinets, marble backsplash, and bar seating' },
+    { src: '/images/kichan-imgs/gallery-03.png', alt: 'Bright kitchen with glass-front upper cabinets and brass hardware' },
+    { src: '/images/kichan-imgs/gallery-04.png', alt: 'Cream cabinetry with glass display doors and integrated lighting' },
+    { src: '/images/kichan-imgs/gallery-05.png', alt: 'Soft white kitchen with open shelving and a stone waterfall island' },
+    { src: '/images/kichan-imgs/gallery-06.png', alt: 'Transitional kitchen with paneled cabinets and a large center island' },
+    { src: '/images/kichan-imgs/gallery-07.png', alt: 'Elegant kitchen with floor-to-ceiling cabinetry and gold accents' },
+    { src: '/images/kichan-imgs/gallery-08.png', alt: 'Modern wood-tone kitchen with a quartz island and pendant lighting' },
+    { src: '/images/kichan-imgs/gallery-09.png', alt: 'Contemporary kitchen featuring sleek cabinetry and natural light' },
+    { src: '/images/kichan-imgs/gallery-10.png', alt: 'Custom kitchen with refined finishes and a spacious work island' },
+    { src: '/images/kichan-imgs/gallery-11.png', alt: 'Designer kitchen with premium cabinetry and a marble countertop' },
+    { src: '/images/kichan-imgs/gallery-12.png', alt: 'Luxury kitchen with built-in storage and a statement island' },
 ];
 
 function Lightbox({ index, onClose, onPrev, onNext }) {
@@ -131,6 +131,7 @@ export default function Gallery() {
                                 <img
                                     src={img.src}
                                     alt={img.alt}
+                                    loading="lazy"
                                     className="w-full h-full object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
                                 />
                             </button>
