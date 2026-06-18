@@ -18,12 +18,12 @@ function ColumnItem({ label, active, onMouseEnter, hasChildren }) {
         <button
             onMouseEnter={onMouseEnter}
             className={`group/i w-full flex items-center justify-between gap-2 px-3 py-2 rounded-lg text-[15px] text-left transition-colors ${
-                active ? 'bg-amber-50 text-[#14304E] font-semibold' : 'text-[#14304E]/70 hover:bg-[#14304E]/[0.04] hover:text-[#14304E]'
+                active ? 'bg-amber-50 text-[#374151] font-semibold' : 'text-[#374151]/70 hover:bg-[#374151]/[0.04] hover:text-[#374151]'
             }`}
         >
             <span className="truncate">{label}</span>
             {hasChildren && (
-                <Icon className={`w-4 h-4 flex-shrink-0 transition-all ${active ? 'text-amber-500 translate-x-0' : 'text-[#14304E]/20 group-hover/i:text-[#14304E]/40'}`}>
+                <Icon className={`w-4 h-4 flex-shrink-0 transition-all ${active ? 'text-amber-500 translate-x-0' : 'text-[#374151]/20 group-hover/i:text-[#374151]/40'}`}>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </Icon>
             )}
@@ -32,7 +32,7 @@ function ColumnItem({ label, active, onMouseEnter, hasChildren }) {
 }
 
 function ColTitle({ children }) {
-    return <p className="px-3 mb-2.5 text-[13px] font-bold text-[#14304E]">{children}</p>;
+    return <p className="px-3 mb-2.5 text-[13px] font-bold text-[#374151]">{children}</p>;
 }
 
 /* ---------- By Brand view ---------- */
@@ -52,7 +52,7 @@ function ByBrand() {
     const selectLine = (i) => { setLineIdx(i); setSeriesIdx(0); };
 
     return (
-        <div className="grid grid-cols-[220px_180px_170px_1fr] divide-x divide-[#14304E]/8">
+        <div className="grid grid-cols-[220px_180px_170px_1fr] divide-x divide-[#374151]/8">
             {/* Brands */}
             <div className="pr-3">
                 <ColTitle>Brands</ColTitle>
@@ -81,7 +81,7 @@ function ByBrand() {
                         <ColumnItem key={s.name} label={s.name} active={i === seriesIdx} hasChildren onMouseEnter={() => setSeriesIdx(i)} />
                     ))
                 ) : (
-                    <p className="px-3 py-2 text-xs text-[#14304E]/40">Coming soon</p>
+                    <p className="px-3 py-2 text-xs text-[#374151]/40">Coming soon</p>
                 )}
             </div>
 
@@ -93,7 +93,7 @@ function ByBrand() {
                         <div className="grid grid-cols-6 gap-2.5 max-h-[480px] overflow-y-auto pr-1">
                             {activeSeries.collections.map((c) => (
                                 <a key={c} href="#" className="group/f block">
-                                    <div className="aspect-[3/4] rounded-md overflow-hidden bg-[#14304E]/5 ring-1 ring-[#14304E]/10 p-1">
+                                    <div className="aspect-[3/4] rounded-md overflow-hidden bg-[#374151]/5 ring-1 ring-[#374151]/10 p-1">
                                         <img
                                             src={finishImage(activeSeries.name, c)}
                                             alt={`Fabuwood Allure ${activeSeries.name} ${c}`}
@@ -113,7 +113,7 @@ function ByBrand() {
                         </div>
                     </>
                 ) : (
-                    <div className="h-full flex items-center justify-center text-sm text-[#14304E]/40">
+                    <div className="h-full flex items-center justify-center text-sm text-[#374151]/40">
                         Select a series to view finishes
                     </div>
                 )}
@@ -130,7 +130,7 @@ function ByType() {
     const subs = type.subs || [];
 
     return (
-        <div className="grid grid-cols-[220px_1fr] divide-x divide-[#14304E]/8">
+        <div className="grid grid-cols-[220px_1fr] divide-x divide-[#374151]/8">
             {/* Type list */}
             <div className="pr-3">
                 <ColTitle>Cabinet Types</ColTitle>
@@ -146,7 +146,7 @@ function ByType() {
                     <>
                         <div className="grid grid-cols-3 gap-x-3 gap-y-0.5 max-h-[420px] overflow-y-auto pr-1">
                             {subs.map((s) => (
-                                <a key={s.name} href="#" className="block px-3 py-2 rounded-md text-sm text-gray-900 hover:bg-[#14304E]/[0.04] hover:text-[#14304E] transition-colors truncate">
+                                <a key={s.name} href="#" className="block px-3 py-2 rounded-md text-sm text-gray-900 hover:bg-[#374151]/[0.04] hover:text-[#374151] transition-colors truncate">
                                     {s.name}
                                 </a>
                             ))}
@@ -159,7 +159,7 @@ function ByType() {
                         </div>
                     </>
                 ) : (
-                    <p className="px-3 py-2 text-sm text-[#14304E]/40">Coming soon</p>
+                    <p className="px-3 py-2 text-sm text-[#374151]/40">Coming soon</p>
                 )}
             </div>
         </div>
@@ -214,14 +214,14 @@ function FacetList({ title, items, cta, imageSrc }) {
                     const img = imageSrc ? imageSrc(item) : null;
                     return (
                         <a key={item} href="#" className="group/f flex flex-col items-center gap-2.5 w-[128px] text-center">
-                            <div className="w-[120px] h-[120px] rounded-full bg-white border border-[#14304E]/15 shadow-[0_8px_20px_rgba(20,48,78,0.10)] flex items-center justify-center overflow-hidden transition-all group-hover/f:-translate-y-0.5 group-hover/f:border-amber-400 group-hover/f:shadow-[0_12px_26px_rgba(20,48,78,0.16)]">
+                            <div className="w-[120px] h-[120px] rounded-full bg-white border border-[#374151]/15 shadow-[0_8px_20px_rgba(55,65,81,0.10)] flex items-center justify-center overflow-hidden transition-all group-hover/f:-translate-y-0.5 group-hover/f:border-amber-400 group-hover/f:shadow-[0_12px_26px_rgba(55,65,81,0.16)]">
                                 {img ? (
                                     <img src={img} alt={label} loading="lazy" className="w-full h-full object-contain p-2.5 transition-transform duration-300 group-hover/f:scale-105" />
                                 ) : (
-                                    <span className={`font-bold text-[#14304E] ${numeric ? 'text-3xl' : 'text-base leading-tight px-2'}`}>{badge}</span>
+                                    <span className={`font-bold text-[#374151] ${numeric ? 'text-3xl' : 'text-base leading-tight px-2'}`}>{badge}</span>
                                 )}
                             </div>
-                            <span className="text-sm text-[#14304E]/75 leading-tight group-hover/f:text-[#14304E]">{label}</span>
+                            <span className="text-sm text-[#374151]/75 leading-tight group-hover/f:text-[#374151]">{label}</span>
                         </a>
                     );
                 })}
@@ -268,16 +268,16 @@ export default function ShopCabinetsMenu() {
                 onMouseLeave={scheduleClose}
             >
               <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
-                <div className="rounded-2xl bg-white shadow-2xl ring-1 ring-[#14304E]/10 overflow-hidden">
+                <div className="rounded-2xl bg-white shadow-2xl ring-1 ring-[#374151]/10 overflow-hidden">
                     {/* Tabs */}
-                    <div className="flex items-center gap-1 px-5 pt-4 border-b border-[#14304E]/8">
+                    <div className="flex items-center gap-1 px-5 pt-4 border-b border-[#374151]/8">
                         {TABS.map((t) => (
                             <button
                                 key={t.key}
                                 onMouseEnter={() => setTab(t.key)}
                                 onClick={() => setTab(t.key)}
                                 className={`relative px-4 py-2.5 text-sm font-semibold transition-colors ${
-                                    tab === t.key ? 'text-[#14304E]' : 'text-[#14304E]/55 hover:text-[#14304E]'
+                                    tab === t.key ? 'text-[#374151]' : 'text-[#374151]/55 hover:text-[#374151]'
                                 }`}
                             >
                                 {t.label}

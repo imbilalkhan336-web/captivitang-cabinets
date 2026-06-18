@@ -27,7 +27,7 @@ export default function StickyCTABar() {
             }`}
             aria-hidden={!visible}
         >
-            <div className="bg-white/60 backdrop-blur-xl border-t border-white/60 text-[#14304E] shadow-[0_-8px_30px_rgba(0,0,0,0.12)]">
+            <div className="bg-white/60 backdrop-blur-xl border-t border-white/60 text-[#374151] shadow-[0_-8px_30px_rgba(0,0,0,0.12)]">
                 <div className="max-w-container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap items-center justify-center md:justify-between gap-x-6 gap-y-3">
                     <p className="hidden md:block font-display text-base lg:text-lg font-semibold tracking-tight">
                         Not sure where to start? <span className="text-amber-600">Choose your direction.</span>
@@ -36,7 +36,7 @@ export default function StickyCTABar() {
                     <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 md:ml-auto">
                         <a
                             href="#"
-                            className="inline-flex items-center px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full border border-[#14304E]/25 hover:border-[#14304E]/60 hover:bg-[#14304E]/5 text-[#14304E] text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap"
+                            className="inline-flex items-center px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full border border-[#374151]/25 hover:border-[#374151]/60 hover:bg-[#374151]/5 text-[#374151] text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap"
                         >
                             Browse Cabinets
                         </a>
@@ -48,7 +48,7 @@ export default function StickyCTABar() {
                         </a>
                         <a
                             href="#"
-                            className="inline-flex items-center px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#14304E] hover:bg-[#1d426b] text-white text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap"
+                            className="inline-flex items-center px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#374151] hover:bg-[#4B5563] text-white text-xs sm:text-sm font-semibold transition-colors whitespace-nowrap"
                         >
                             Contractor Program
                         </a>

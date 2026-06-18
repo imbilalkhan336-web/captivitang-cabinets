@@ -66,7 +66,7 @@ const COLUMNS = [
 export default function Footer() {
     const year = 2026;
     return (
-        <footer className="bg-[#F5F7FB] text-[#14304E] border-t border-[#14304E]/10">
+        <footer className="bg-[#F3F4F6] text-[#374151] border-t border-[#374151]/10">
             <div className="max-w-container mx-auto px-6 lg:px-8 py-14 lg:py-16">
                 <div className="grid gap-10 lg:gap-8 sm:grid-cols-2 lg:grid-cols-5">
                     {/* Brand */}
@@ -78,7 +78,7 @@ export default function Footer() {
                                 className="h-10 w-auto"
                             />
                         </a>
-                        <p className="mt-4 text-[#14304E]/60 text-sm leading-relaxed max-w-xs">
+                        <p className="mt-4 text-[#374151]/60 text-sm leading-relaxed max-w-xs">
                             Premium cabinetry with complimentary 3D design, contractor pricing, and nationwide delivery.
                         </p>
 
@@ -91,7 +91,7 @@ export default function Footer() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     aria-label={label}
-                                    className="w-9 h-9 flex items-center justify-center rounded-full bg-[#14304E]/8 text-[#14304E] hover:bg-amber-400 hover:text-gray-900 transition-colors"
+                                    className="w-9 h-9 flex items-center justify-center rounded-full bg-[#374151]/8 text-[#374151] hover:bg-amber-400 hover:text-gray-900 transition-colors"
                                 >
                                     <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="currentColor" aria-hidden="true">
                                         <path d={path} />
@@ -104,13 +104,13 @@ export default function Footer() {
                     {/* Link columns */}
                     {COLUMNS.map(({ title, links }) => (
                         <nav key={title} aria-label={title}>
-                            <h3 className="text-[#14304E] text-sm font-semibold tracking-wide uppercase">{title}</h3>
+                            <h3 className="text-[#374151] text-sm font-semibold tracking-wide uppercase">{title}</h3>
                             <ul className="mt-4 space-y-2.5">
                                 {links.map(({ label, href }) => (
                                     <li key={label}>
                                         <a
                                             href={href}
-                                            className="text-[#14304E]/65 hover:text-amber-600 text-sm transition-colors"
+                                            className="text-[#374151]/65 hover:text-amber-600 text-sm transition-colors"
                                         >
                                             {label}
                                         </a>
@@ -123,9 +123,9 @@ export default function Footer() {
             </div>
 
             {/* Bottom bar */}
-            <div className="border-t border-[#14304E]/10">
+            <div className="border-t border-[#374151]/10">
                 <div className="max-w-container mx-auto px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <p className="text-[#14304E]/50 text-xs order-2 sm:order-1">
+                    <p className="text-[#374151]/50 text-xs order-2 sm:order-1">
                         © {year} Captivating Cabinets. All rights reserved.
                     </p>
                     <div className="order-1 sm:order-2">

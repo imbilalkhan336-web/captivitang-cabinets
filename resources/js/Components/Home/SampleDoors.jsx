@@ -114,10 +114,10 @@ export default function SampleDoors() {
         <section className="bg-white py-12 lg:py-16 overflow-hidden" aria-label="Sample doors">
             {/* Heading — centered above the slider */}
             <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 mb-8 text-center">
-                <h2 className="font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight">
+                <h2 className="font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight">
                     Sample Doors
                 </h2>
-                <p className="mt-2 text-[#14304E]/70 text-base md:text-lg">
+                <p className="mt-2 text-[#374151]/70 text-base md:text-lg">
                     The first piece of your new kitchen
                 </p>
             </div>

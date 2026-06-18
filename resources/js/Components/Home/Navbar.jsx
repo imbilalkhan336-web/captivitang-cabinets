@@ -9,7 +9,7 @@ const NAV_LINKS = [
     { label: 'Affirm Financing', href: '/financing', logo: '/images/affirm-logo.png' },
     { label: 'Contractor Program', href: '/contractor-program' },
     { label: 'Testimonials', href: '/testimonials' },
-    { label: 'About', href: '#' },
+    { label: 'About', href: '/about' },
     { label: 'Specbooks', href: '#' },
     { label: 'Blog', href: '#' },
     { label: 'Contact', href: '#' },

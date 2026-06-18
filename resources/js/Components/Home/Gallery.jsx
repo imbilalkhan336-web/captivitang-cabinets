@@ -111,10 +111,10 @@ export default function Gallery() {
                 <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
                     {/* Heading */}
                     <div className="text-center mb-10 max-w-3xl mx-auto px-6">
-                        <h2 className="font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight">
+                        <h2 className="font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight">
                             Kitchen Inspiration
                         </h2>
-                        <p className="mt-3 text-[#14304E]/70 text-base md:text-lg leading-relaxed">
+                        <p className="mt-3 text-[#374151]/70 text-base md:text-lg leading-relaxed">
                             Explore our collection of beautiful kitchen designs featuring premium cabinetry from our trusted brands—crafted to inspire your next project.
                         </p>
                     </div>

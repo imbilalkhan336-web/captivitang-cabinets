@@ -4,12 +4,12 @@ function CircleOption({ inner, label, href = '#', large = false }) {
     const size = large ? 'w-[140px] h-[140px]' : 'w-[88px] h-[88px]';
     return (
         <a href={href} className="group flex flex-col items-center gap-3 text-center">
-            <div className={`${size} rounded-full bg-white border border-[#14304E]/20 shadow-[0_10px_24px_rgba(20,48,78,0.12)] p-2 flex items-center justify-center transition-all group-hover:-translate-y-0.5 group-hover:border-[#14304E]/40`}>
+            <div className={`${size} rounded-full bg-white border border-[#374151]/20 shadow-[0_10px_24px_rgba(55,65,81,0.12)] p-2 flex items-center justify-center transition-all group-hover:-translate-y-0.5 group-hover:border-[#374151]/40`}>
                 <div className="w-full h-full rounded-full overflow-hidden ring-1 ring-black/5 flex items-center justify-center">
                     {inner}
                 </div>
             </div>
-            <span className={`${large ? 'text-base' : 'text-sm'} text-[#14304E] font-medium`}>{label}</span>
+            <span className={`${large ? 'text-base' : 'text-sm'} text-[#374151] font-medium`}>{label}</span>
         </a>
     );
 }
@@ -29,10 +29,10 @@ export default function ShopByCategory({
         return (
             <section className={`${bgClass} py-10 lg:py-12`}>
                 <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 text-center">
-                    <h2 className="font-display text-2xl md:text-3xl font-bold text-[#14304E] tracking-tight">
+                    <h2 className="font-display text-2xl md:text-3xl font-bold text-[#374151] tracking-tight">
                         {title}
                     </h2>
-                    <p className="mt-3 text-[#14304E]/75 text-base leading-relaxed max-w-2xl mx-auto">
+                    <p className="mt-3 text-[#374151]/75 text-base leading-relaxed max-w-2xl mx-auto">
                         {description}
                     </p>
 
@@ -61,14 +61,14 @@ export default function ShopByCategory({
 
                     {/* Content */}
                     <div className={reverse ? 'lg:order-1' : 'lg:order-2'}>
-                        <h2 className="font-display text-2xl md:text-3xl font-bold text-[#14304E] tracking-tight">
+                        <h2 className="font-display text-2xl md:text-3xl font-bold text-[#374151] tracking-tight">
                             {title}
                         </h2>
-                        <p className="mt-3 text-[#14304E]/75 text-base leading-relaxed max-w-xl">
+                        <p className="mt-3 text-[#374151]/75 text-base leading-relaxed max-w-xl">
                             {description}
                         </p>
 
-                        <div className="mt-4 h-px bg-[#14304E]/15" aria-hidden="true" />
+                        <div className="mt-4 h-px bg-[#374151]/15" aria-hidden="true" />
 
                         <div className={`mt-5 grid gap-x-3 gap-y-6 ${largeItems ? 'grid-cols-2 sm:grid-cols-4' : 'grid-cols-3 sm:grid-cols-4 lg:grid-cols-5'}`}>
                             {items.map(({ label, inner, href }) => (
@@ -103,7 +103,7 @@ export const COLOR_ITEMS = [
     {
         label: 'View All',
         inner: (
-            <span className="flex items-center justify-center w-full h-full text-[#14304E]">
+            <span className="flex items-center justify-center w-full h-full text-[#374151]">
                 <Icon className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </Icon>
@@ -129,7 +129,7 @@ export const BRAND_ITEMS = [
     {
         label: 'View All',
         inner: (
-            <span className="flex items-center justify-center w-full h-full text-[#14304E]">
+            <span className="flex items-center justify-center w-full h-full text-[#374151]">
                 <Icon className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </Icon>

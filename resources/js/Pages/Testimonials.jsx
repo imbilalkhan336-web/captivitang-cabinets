@@ -87,31 +87,31 @@ const REASONS = [
 
 /* ============================ Sections ============================ */
 
-function Header() {
+function Header({ bgImage = '/images/home-hero-bg.png' }) {
     return (
-        <section className="bg-white pt-28 pb-14 lg:pt-32 lg:pb-16" aria-label="Client reviews">
-            <div className="max-w-container mx-auto px-6 lg:px-8 text-center">
-                <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
-                    Client Reviews
-                </span>
-                <h1 className="mt-3 font-display text-4xl md:text-5xl font-bold text-[#14304E] tracking-tight leading-tight">
-                    What Our Customers Say
-                </h1>
-                <p className="mt-4 max-w-2xl mx-auto text-[#14304E]/70 text-base md:text-lg leading-relaxed">
-                    Real testimonials from homeowners, contractors, and builders who transformed their spaces with Captivating Cabinets. See why clients trust us for premium cabinetry, free 3D design services, and exceptional customer support.
-                </p>
+        <section className="relative min-h-[42vh] flex flex-col overflow-hidden pt-20" aria-label="Client reviews hero">
+            {/* Full-width background image */}
+            <div
+                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                style={{ backgroundImage: `url(${bgImage})` }}
+                aria-hidden="true"
+            />
+            {/* Gradient overlays */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/15" aria-hidden="true" />
 
-                {/* Google reviews badge */}
-                <div className="mt-8 inline-flex items-center gap-3 rounded-2xl bg-white border border-[#14304E]/10 shadow-[0_10px_30px_rgba(20,48,78,0.08)] px-5 py-3">
-                    <div className="w-10 h-10 rounded-xl bg-[#F5F7FB] flex items-center justify-center">
-                        <GoogleG className="w-5 h-5" />
-                    </div>
-                    <div className="text-left">
-                        <div className="flex items-center gap-2">
-                            <span className="font-bold text-[#14304E] leading-none">5.0</span>
-                            <Stars />
+            {/* Content */}
+            <div className="relative z-10 flex-1 flex flex-col">
+                <div className="flex-1 flex items-center">
+                    <div className="w-full max-w-container mx-auto px-6 lg:px-8 pt-10 lg:pt-12 pb-10 lg:pb-14">
+                        <div className="max-w-2xl">
+                            <h1 className="font-sans font-normal text-white text-[44px] leading-[48px] md:text-[56px] md:leading-[56px]">
+                                What Our <span className="text-amber-400">Customers Say</span>
+                            </h1>
+                            <p className="mt-5 text-white/85 text-lg leading-relaxed max-w-xl">
+                                Real testimonials from homeowners, contractors, and builders who transformed their spaces with Captivating Cabinets. See why clients trust us for premium cabinetry, free 3D design services, and exceptional customer support.
+                            </p>
                         </div>
-                        <p className="mt-1 text-xs text-[#14304E]/55 leading-none">50+ Google Reviews</p>
                     </div>
                 </div>
             </div>
@@ -121,19 +121,19 @@ function Header() {
 
 function TestimonialCard({ name, date, quote }) {
     return (
-        <div className="mb-5 break-inside-avoid rounded-2xl bg-white border border-[#14304E]/10 shadow-[0_10px_30px_rgba(20,48,78,0.06)] p-6">
+        <div className="flex h-full flex-col rounded-2xl bg-white border border-[#374151]/10 shadow-[0_10px_30px_rgba(55,65,81,0.06)] p-6">
             <div className="flex items-center justify-between">
                 <Stars />
                 <GoogleG className="w-5 h-5" />
             </div>
-            <p className="mt-3 text-[#14304E]/80 text-[15px] leading-relaxed">“{quote}”</p>
+            <p className="mt-3 flex-1 text-[#374151]/80 text-[15px] leading-relaxed">“{quote}”</p>
             <div className="mt-5 flex items-center gap-3">
-                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#14304E] text-amber-400 flex items-center justify-center font-display font-bold text-sm">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-amber-400 text-gray-900 flex items-center justify-center font-display font-bold text-sm">
                     {initials(name)}
                 </div>
                 <div>
-                    <p className="text-sm font-semibold text-[#14304E]">{name}</p>
-                    <p className="text-xs text-[#14304E]/50">{date} · Google Review</p>
+                    <p className="text-sm font-semibold text-[#374151]">{name}</p>
+                    <p className="text-xs text-[#374151]/50">{date} · Google Review</p>
                 </div>
             </div>
         </div>
@@ -142,18 +142,18 @@ function TestimonialCard({ name, date, quote }) {
 
 function Reviews() {
     return (
-        <section className="bg-[#F5F7FB] py-16 lg:py-24" aria-label="Customer reviews">
+        <section className="bg-[#F3F4F6] py-16 lg:py-24" aria-label="Customer reviews">
             <div className="max-w-container mx-auto px-6 lg:px-8">
                 <div className="text-center max-w-2xl mx-auto">
-                    <h2 className="font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight leading-tight">
+                    <h2 className="font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                         Customer Reviews
                     </h2>
-                    <p className="mt-4 text-[#14304E]/70 text-base md:text-lg leading-relaxed">
+                    <p className="mt-4 text-[#374151]/70 text-base md:text-lg leading-relaxed">
                         Hear from real customers who have transformed their kitchens with our premium cabinetry and design services.
                     </p>
                 </div>
 
-                <div className="mt-12 columns-1 sm:columns-2 lg:columns-3 gap-5">
+                <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
                     {TESTIMONIALS.map((t) => (
                         <TestimonialCard key={t.name + t.date} {...t} />
                     ))}
@@ -171,7 +171,7 @@ function WhyChoose() {
                     <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
                         Why Choose Us
                     </span>
-                    <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight leading-tight">
+                    <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                         Why customers choose Captivating Cabinets
                     </h2>
                 </div>
@@ -180,13 +180,13 @@ function WhyChoose() {
                     {REASONS.map(({ num, title, body }) => (
                         <div
                             key={num}
-                            className="flex flex-col rounded-2xl bg-white border border-[#14304E]/10 shadow-[0_10px_30px_rgba(20,48,78,0.06)] p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_48px_rgba(20,48,78,0.12)]"
+                            className="flex flex-col rounded-2xl bg-white border border-[#374151]/10 shadow-[0_10px_30px_rgba(55,65,81,0.06)] p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_48px_rgba(55,65,81,0.12)]"
                         >
-                            <span className="flex items-center justify-center w-14 h-14 rounded-2xl bg-[#14304E] text-amber-400 font-display text-xl font-bold shadow-lg shadow-[#14304E]/20">
+                            <span className="flex items-center justify-center w-14 h-14 rounded-2xl bg-gray-100 text-amber-600 ring-1 ring-gray-200 font-display text-xl font-bold">
                                 {num}
                             </span>
-                            <h3 className="mt-5 font-display text-lg font-bold text-[#14304E] tracking-tight">{title}</h3>
-                            <p className="mt-2 text-[#14304E]/70 text-[15px] leading-relaxed">{body}</p>
+                            <h3 className="mt-5 font-display text-lg font-bold text-[#374151] tracking-tight">{title}</h3>
+                            <p className="mt-2 text-[#374151]/70 text-[15px] leading-relaxed">{body}</p>
                         </div>
                     ))}
                 </div>

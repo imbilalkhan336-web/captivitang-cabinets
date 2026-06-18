@@ -41,28 +41,28 @@ function Stars() {
     );
 }
 
-const AVATAR_COLORS = ['bg-[#14304E]', 'bg-amber-500', 'bg-teal-700', 'bg-rose-600', 'bg-indigo-600', 'bg-emerald-600'];
+const AVATAR_COLORS = ['bg-[#374151]', 'bg-amber-500', 'bg-gray-500', 'bg-gray-600', 'bg-amber-600', 'bg-gray-700'];
 
 function ReviewCard({ name, text, href, colorIndex }) {
     const initials = name.split(' ').map((w) => w[0]).slice(0, 2).join('');
     return (
-        <article className="flex h-full flex-col rounded-2xl bg-white border border-[#14304E]/10 shadow-[0_10px_30px_rgba(20,48,78,0.06)] p-6">
+        <article className="flex h-full flex-col rounded-2xl bg-white border border-[#374151]/10 shadow-[0_10px_30px_rgba(55,65,81,0.06)] p-6">
             <div className="flex items-center justify-between">
                 <Stars />
                 <GoogleG className="w-5 h-5" />
             </div>
-            <p className="mt-4 text-[#14304E]/80 text-[15px] leading-relaxed flex-1">“{text}”</p>
-            <div className="mt-5 pt-4 border-t border-[#14304E]/10 flex items-center gap-3">
+            <p className="mt-4 text-[#374151]/80 text-[15px] leading-relaxed flex-1">“{text}”</p>
+            <div className="mt-5 pt-4 border-t border-[#374151]/10 flex items-center gap-3">
                 <span className={`flex items-center justify-center w-10 h-10 rounded-full text-white text-sm font-semibold ${AVATAR_COLORS[colorIndex % AVATAR_COLORS.length]}`}>
                     {initials}
                 </span>
                 <div className="flex-1 min-w-0">
-                    <p className="text-[#14304E] text-sm font-semibold truncate">{name}</p>
+                    <p className="text-[#374151] text-sm font-semibold truncate">{name}</p>
                     <a
                         href={href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#14304E]/50 hover:text-amber-600 text-xs transition-colors inline-flex items-center gap-1"
+                        className="text-[#374151]/50 hover:text-amber-600 text-xs transition-colors inline-flex items-center gap-1"
                     >
                         View on Google
                         <Icon className="w-3 h-3">
@@ -116,7 +116,7 @@ export default function Testimonials() {
     };
 
     return (
-        <section className="bg-[#F5F7FB] py-16 lg:py-24" aria-label="Customer reviews">
+        <section className="bg-[#F3F4F6] py-16 lg:py-24" aria-label="Customer reviews">
             <div className="max-w-container mx-auto px-6 lg:px-8">
                 {/* Header */}
                 <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
@@ -124,14 +124,14 @@ export default function Testimonials() {
                         <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
                             Reviews
                         </span>
-                        <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight leading-tight">
+                        <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                             What Our Customers Say
                         </h2>
                         <div className="mt-4 flex items-center gap-3">
                             <GoogleG className="w-6 h-6" />
-                            <span className="text-[#14304E] font-bold">5.0</span>
+                            <span className="text-[#374151] font-bold">5.0</span>
                             <Stars />
-                            <span className="text-[#14304E]/60 text-sm">· 50+ Google Reviews</span>
+                            <span className="text-[#374151]/60 text-sm">· 50+ Google Reviews</span>
                         </div>
                     </div>
 
@@ -140,14 +140,14 @@ export default function Testimonials() {
                         <button
                             onClick={prev}
                             aria-label="Previous reviews"
-                            className="w-11 h-11 flex items-center justify-center rounded-full bg-white border border-[#14304E]/15 text-[#14304E] hover:bg-[#14304E] hover:text-white transition-colors"
+                            className="w-11 h-11 flex items-center justify-center rounded-full bg-white border border-[#374151]/15 text-[#374151] hover:bg-[#374151] hover:text-white transition-colors"
                         >
                             <Icon className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></Icon>
                         </button>
                         <button
                             onClick={next}
                             aria-label="Next reviews"
-                            className="w-11 h-11 flex items-center justify-center rounded-full bg-white border border-[#14304E]/15 text-[#14304E] hover:bg-[#14304E] hover:text-white transition-colors"
+                            className="w-11 h-11 flex items-center justify-center rounded-full bg-white border border-[#374151]/15 text-[#374151] hover:bg-[#374151] hover:text-white transition-colors"
                         >
                             <Icon className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></Icon>
                         </button>
@@ -181,7 +181,7 @@ export default function Testimonials() {
                             onClick={() => setIndex(i)}
                             aria-label={`Go to slide ${i + 1}`}
                             className={`h-2 rounded-full transition-all ${
-                                i === index ? 'w-6 bg-amber-500' : 'w-2 bg-[#14304E]/20 hover:bg-[#14304E]/40'
+                                i === index ? 'w-6 bg-amber-500' : 'w-2 bg-[#374151]/20 hover:bg-[#374151]/40'
                             }`}
                         />
                     ))}

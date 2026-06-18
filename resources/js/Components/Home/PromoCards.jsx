@@ -21,7 +21,7 @@ function PromoCard({ line1, line2, description, ctaText, href }) {
     return (
         <a
             href={href}
-            className="group block rounded-2xl bg-white p-2 shadow-[0_15px_40px_-12px_rgba(20,48,78,0.25)] hover:shadow-[0_20px_50px_-10px_rgba(20,48,78,0.35)] transition-shadow"
+            className="group block rounded-2xl bg-white p-2 shadow-[0_15px_40px_-12px_rgba(55,65,81,0.25)] hover:shadow-[0_20px_50px_-10px_rgba(55,65,81,0.35)] transition-shadow"
         >
             <div className="rounded-xl border-2 border-dashed border-[#16202E]/25 px-4 py-4 lg:px-6 lg:py-5 text-center">
                 <h3 className="font-display font-extrabold tracking-tight leading-[1.1] text-lg md:text-xl lg:text-[24px] lg:whitespace-nowrap">

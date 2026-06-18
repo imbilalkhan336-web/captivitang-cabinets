@@ -71,7 +71,7 @@ const STATS = [
 
 function Stats() {
     return (
-        <section className="bg-[#14304E]" aria-label="Captivating Cabinets by the numbers">
+        <section className="bg-[#374151]" aria-label="Captivating Cabinets by the numbers">
             <div className="max-w-container mx-auto px-6 lg:px-8 py-12 lg:py-14">
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                     {STATS.map(({ value, label }) => (
@@ -100,7 +100,7 @@ function OurStory() {
                         <img
                             src="/images/financing/easy-steps.png"
                             alt="Warm wood-tone kitchen with island seating"
-                            className="w-full aspect-[4/3] object-cover rounded-2xl shadow-[0_20px_50px_rgba(20,48,78,0.16)]"
+                            className="w-full aspect-[4/3] object-cover rounded-2xl shadow-[0_20px_50px_rgba(55,65,81,0.16)]"
                         />
                         <div className="hidden md:block pointer-events-none absolute -bottom-5 -left-5 w-28 h-28 rounded-2xl bg-amber-400/15 -z-10" aria-hidden="true" />
                     </div>
@@ -110,13 +110,13 @@ function OurStory() {
                         <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
                             Our Story
                         </span>
-                        <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight leading-tight">
+                        <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                             Built to make great kitchens attainable
                         </h2>
-                        <p className="mt-4 text-[#14304E]/70 text-base md:text-lg leading-relaxed">
+                        <p className="mt-4 text-[#374151]/70 text-base md:text-lg leading-relaxed">
                             Captivating Cabinets started with a simple belief: a beautiful, well-built kitchen shouldn't require a showroom budget. For years we watched homeowners and contractors pay steep markups for cabinets that came from the same factories we could source directly.
                         </p>
-                        <p className="mt-4 text-[#14304E]/70 text-base md:text-lg leading-relaxed">
+                        <p className="mt-4 text-[#374151]/70 text-base md:text-lg leading-relaxed">
                             So we cut out the middlemen. Today we curate nine premium cabinet brands, pair every order with complimentary 3D design, and ship straight to your door—nationwide. Whether you're remodeling a single kitchen or running dozens of projects a year, you get the same honest pricing and hands-on support.
                         </p>
                     </div>
@@ -153,16 +153,16 @@ const VALUES = [
 
 function Values() {
     return (
-        <section className="bg-[#F5F7FB] py-16 lg:py-24" aria-label="What we stand for">
+        <section className="bg-[#F3F4F6] py-16 lg:py-24" aria-label="What we stand for">
             <div className="max-w-container mx-auto px-6 lg:px-8">
                 <div className="text-center max-w-2xl mx-auto">
                     <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
                         What We Stand For
                     </span>
-                    <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight leading-tight">
+                    <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                         Values that shape every order
                     </h2>
-                    <p className="mt-4 text-[#14304E]/70 text-base md:text-lg leading-relaxed">
+                    <p className="mt-4 text-[#374151]/70 text-base md:text-lg leading-relaxed">
                         We measure success by the kitchens we help create and the relationships we build along the way.
                     </p>
                 </div>
@@ -171,13 +171,13 @@ function Values() {
                     {VALUES.map(({ title, body, icon }) => (
                         <div
                             key={title}
-                            className="flex flex-col rounded-2xl bg-white border border-[#14304E]/10 shadow-[0_10px_30px_rgba(20,48,78,0.06)] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_48px_rgba(20,48,78,0.12)]"
+                            className="flex flex-col rounded-2xl bg-white border border-[#374151]/10 shadow-[0_10px_30px_rgba(55,65,81,0.06)] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_48px_rgba(55,65,81,0.12)]"
                         >
                             <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-amber-50 text-amber-600 ring-1 ring-amber-100">
                                 <Icon className="w-6 h-6">{icon}</Icon>
                             </span>
-                            <h3 className="mt-4 font-display text-base font-bold text-[#14304E] tracking-tight">{title}</h3>
-                            <p className="mt-1.5 text-[#14304E]/70 text-sm leading-relaxed">{body}</p>
+                            <h3 className="mt-4 font-display text-base font-bold text-[#374151] tracking-tight">{title}</h3>
+                            <p className="mt-1.5 text-[#374151]/70 text-sm leading-relaxed">{body}</p>
                         </div>
                     ))}
                 </div>
@@ -215,7 +215,7 @@ function HowWeHelp() {
                     <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
                         How We Help
                     </span>
-                    <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight leading-tight">
+                    <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                         From idea to installed—simplified
                     </h2>
                 </div>
@@ -224,13 +224,13 @@ function HowWeHelp() {
                     {STEPS.map(({ title, body }, i) => (
                         <div
                             key={title}
-                            className="relative flex flex-col rounded-2xl bg-white border border-[#14304E]/10 shadow-[0_10px_30px_rgba(20,48,78,0.06)] p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_48px_rgba(20,48,78,0.12)]"
+                            className="relative flex flex-col rounded-2xl bg-white border border-[#374151]/10 shadow-[0_10px_30px_rgba(55,65,81,0.06)] p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_48px_rgba(55,65,81,0.12)]"
                         >
                             <span className="flex items-center justify-center w-11 h-11 rounded-full bg-amber-400 text-gray-900 font-display text-lg font-bold">
                                 {i + 1}
                             </span>
-                            <h3 className="mt-4 font-display text-lg font-bold text-[#14304E] tracking-tight">{title}</h3>
-                            <p className="mt-2 text-[#14304E]/70 text-[15px] leading-relaxed">{body}</p>
+                            <h3 className="mt-4 font-display text-lg font-bold text-[#374151] tracking-tight">{title}</h3>
+                            <p className="mt-2 text-[#374151]/70 text-[15px] leading-relaxed">{body}</p>
                         </div>
                     ))}
                 </div>
@@ -248,7 +248,7 @@ function Brands() {
             description="We partner with the most trusted names in cabinetry—so you get the right look, build, and price for every project."
             items={BRAND_ITEMS}
             centered
-            bgClass="bg-[#F5F7FB]"
+            bgClass="bg-[#F3F4F6]"
         />
     );
 }

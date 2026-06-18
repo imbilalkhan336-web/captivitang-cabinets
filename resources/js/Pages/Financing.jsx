@@ -123,7 +123,7 @@ const STEPS = [
 
 function HowItWorksFinancing() {
     return (
-        <section className="relative bg-[#F5F7FB] py-16 lg:py-24" aria-label="How financing works">
+        <section className="relative bg-[#F3F4F6] py-16 lg:py-24" aria-label="How financing works">
             <div className="relative max-w-container mx-auto px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
                     {/* Image — left, sticks while the steps scroll, releases at the last card */}
@@ -131,7 +131,7 @@ function HowItWorksFinancing() {
                         <img
                             src="/images/financing/easy-steps.png"
                             alt="Warm wood-tone kitchen with island seating"
-                            className="w-full aspect-[4/3] object-cover rounded-2xl shadow-[0_20px_50px_rgba(20,48,78,0.16)]"
+                            className="w-full aspect-[4/3] object-cover rounded-2xl shadow-[0_20px_50px_rgba(55,65,81,0.16)]"
                         />
                         <div className="hidden md:block pointer-events-none absolute -bottom-5 -left-5 w-28 h-28 rounded-2xl bg-amber-400/15 -z-10" aria-hidden="true" />
                     </div>
@@ -141,7 +141,7 @@ function HowItWorksFinancing() {
                         <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
                             How It Works
                         </span>
-                        <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight leading-tight">
+                        <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                             Three easy steps to finance
                         </h2>
 
@@ -149,10 +149,10 @@ function HowItWorksFinancing() {
                             {STEPS.map(({ title, body }) => (
                                 <div
                                     key={title}
-                                    className="relative flex flex-col rounded-2xl bg-white border border-[#14304E]/10 shadow-[0_10px_30px_rgba(20,48,78,0.06)] p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_48px_rgba(20,48,78,0.12)]"
+                                    className="relative flex flex-col rounded-2xl bg-white border border-[#374151]/10 shadow-[0_10px_30px_rgba(55,65,81,0.06)] p-7 lg:p-8 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_22px_48px_rgba(55,65,81,0.12)]"
                                 >
-                                    <h3 className="font-display text-xl font-bold text-[#14304E] tracking-tight">{title}</h3>
-                                    <p className="mt-3 text-[#14304E]/70 text-[15px] leading-relaxed">{body}</p>
+                                    <h3 className="font-display text-xl font-bold text-[#374151] tracking-tight">{title}</h3>
+                                    <p className="mt-3 text-[#374151]/70 text-[15px] leading-relaxed">{body}</p>
                                 </div>
                             ))}
                         </div>
@@ -179,18 +179,18 @@ function ExamplePayments() {
                     <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
                         Example Payments
                     </span>
-                    <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight leading-tight">
+                    <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                         See what your monthly payment could be
                     </h2>
-                    <p className="mt-4 text-[#14304E]/70 text-base md:text-lg leading-relaxed">
+                    <p className="mt-4 text-[#374151]/70 text-base md:text-lg leading-relaxed">
                         Estimated monthly payments at 0% APR. Your actual rate (0%–30% APR) and terms are based on your credit.
                     </p>
                 </div>
 
-                <div className="mt-12 overflow-x-auto rounded-2xl border border-[#14304E]/10 shadow-[0_10px_30px_rgba(20,48,78,0.06)]">
+                <div className="mt-12 overflow-x-auto rounded-2xl border border-[#374151]/10 shadow-[0_10px_30px_rgba(55,65,81,0.06)]">
                     <table className="w-full min-w-[640px] text-left bg-white">
                         <thead>
-                            <tr className="bg-gray-200 text-[#14304E]">
+                            <tr className="bg-gray-200 text-[#374151]">
                                 <th className="px-5 py-4 text-sm font-semibold">Purchase total</th>
                                 {TERMS.map((t) => (
                                     <th key={t} className="px-5 py-4 text-sm font-semibold whitespace-nowrap">
@@ -201,16 +201,16 @@ function ExamplePayments() {
                         </thead>
                         <tbody>
                             {TOTALS.map((total, i) => (
-                                <tr key={total} className="bg-white border-t border-[#14304E]/10">
-                                    <td className="px-5 py-4 font-display font-bold text-[#14304E] whitespace-nowrap">
+                                <tr key={total} className="bg-white border-t border-[#374151]/10">
+                                    <td className="px-5 py-4 font-display font-bold text-[#374151] whitespace-nowrap">
                                         {money(total)}
                                     </td>
                                     {TERMS.map((t) => (
-                                        <td key={t} className="px-5 py-4 text-[#14304E]/80 whitespace-nowrap">
-                                            <span className="font-semibold text-[#14304E]">
+                                        <td key={t} className="px-5 py-4 text-[#374151]/80 whitespace-nowrap">
+                                            <span className="font-semibold text-[#374151]">
                                                 {money(Math.round((total / t) * 100) / 100)}
                                             </span>
-                                            <span className="text-[#14304E]/50 text-sm">/mo</span>
+                                            <span className="text-[#374151]/50 text-sm">/mo</span>
                                         </td>
                                     ))}
                                 </tr>
@@ -219,7 +219,7 @@ function ExamplePayments() {
                     </table>
                 </div>
 
-                <p className="mt-4 text-center text-[#14304E]/50 text-xs">
+                <p className="mt-4 text-center text-[#374151]/50 text-xs">
                     Figures are illustrative estimates and not an offer of credit. Payment options through Affirm are subject to eligibility.
                 </p>
             </div>
@@ -266,18 +266,18 @@ const FAQS = [
 
 function FaqItem({ q, a, isOpen, onToggle }) {
     return (
-        <div className="border-b border-[#14304E]/12">
+        <div className="border-b border-[#374151]/12">
             <button
                 onClick={onToggle}
                 className="w-full flex items-center justify-between gap-4 py-5 text-left group"
                 aria-expanded={isOpen}
             >
-                <span className="font-display text-lg font-semibold text-[#14304E] tracking-tight">{q}</span>
+                <span className="font-display text-lg font-semibold text-[#374151] tracking-tight">{q}</span>
                 <span
                     className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full border transition-all ${
                         isOpen
-                            ? 'bg-[#14304E] border-[#14304E] text-white rotate-180'
-                            : 'border-[#14304E]/25 text-[#14304E] group-hover:border-[#14304E]/60'
+                            ? 'bg-[#374151] border-[#374151] text-white rotate-180'
+                            : 'border-[#374151]/25 text-[#374151] group-hover:border-[#374151]/60'
                     }`}
                 >
                     <Icon className="w-4 h-4">
@@ -291,7 +291,7 @@ function FaqItem({ q, a, isOpen, onToggle }) {
                 }`}
             >
                 <div className="overflow-hidden">
-                    <p className="pb-5 pr-12 text-[#14304E]/70 text-[15px] leading-relaxed">{a}</p>
+                    <p className="pb-5 pr-12 text-[#374151]/70 text-[15px] leading-relaxed">{a}</p>
                 </div>
             </div>
         </div>
@@ -301,14 +301,14 @@ function FaqItem({ q, a, isOpen, onToggle }) {
 function FinancingFaq() {
     const [open, setOpen] = useState(0);
     return (
-        <section className="bg-[#F5F7FB] py-16 lg:py-24" aria-label="Financing FAQ">
+        <section className="bg-[#F3F4F6] py-16 lg:py-24" aria-label="Financing FAQ">
             <div className="max-w-3xl mx-auto px-6 lg:px-8">
                 <div className="text-center">
                     <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">FAQ</span>
-                    <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight leading-tight">
+                    <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                         Financing questions, answered
                     </h2>
-                    <p className="mt-4 text-[#14304E]/70 text-base md:text-lg leading-relaxed">
+                    <p className="mt-4 text-[#374151]/70 text-base md:text-lg leading-relaxed">
                         Everything you need to know about paying for your cabinets over time with Affirm.
                     </p>
                 </div>
@@ -374,9 +374,9 @@ function FinancingCTA({ bgImage = '/images/home-hero-bg.png' }) {
 
 function Disclaimer() {
     return (
-        <section className="bg-white border-t border-[#14304E]/10" aria-label="Financing disclaimer">
+        <section className="bg-white border-t border-[#374151]/10" aria-label="Financing disclaimer">
             <div className="max-w-container mx-auto px-6 lg:px-8 py-8">
-                <p className="text-[#14304E]/45 text-xs leading-relaxed max-w-4xl">
+                <p className="text-[#374151]/45 text-xs leading-relaxed max-w-4xl">
                     Payment options through Affirm are subject to an eligibility check and are provided by these
                     lending partners: affirm.com/lenders. Options depend on your purchase amount, and a down payment
                     may be required. APRs range from 0% to 30%. Estimated payment amounts shown on this page exclude

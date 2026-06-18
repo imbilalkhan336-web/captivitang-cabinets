@@ -95,7 +95,7 @@ export default function MobileMenu({ links, onClose }) {
                     >
                         <Icon className="w-5 h-5"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></Icon>
                     </button>
-                    <span className="font-semibold text-[#14304E]">{current.title}</span>
+                    <span className="font-semibold text-[#374151]">{current.title}</span>
                 </div>
             )}
 
@@ -114,7 +114,7 @@ export default function MobileMenu({ links, onClose }) {
                     <div className="grid grid-cols-3 gap-3 px-1 py-2">
                         {current.finishes.collections.map((f) => (
                             <a key={f} href="#" onClick={onClose} className="block">
-                                <div className="aspect-[3/4] rounded-md overflow-hidden bg-[#14304E]/5 ring-1 ring-[#14304E]/10 p-1">
+                                <div className="aspect-[3/4] rounded-md overflow-hidden bg-[#374151]/5 ring-1 ring-[#374151]/10 p-1">
                                     <img
                                         src={finishImage(current.finishes.seriesName, f)}
                                         alt={`${current.finishes.seriesName} ${f}`}

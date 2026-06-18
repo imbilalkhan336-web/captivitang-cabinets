@@ -30,20 +30,20 @@ const DEFAULT_FAQS = [
 
 function FaqItem({ q, a, isOpen, onToggle }) {
     return (
-        <div className="border-b border-[#14304E]/12">
+        <div className="border-b border-[#374151]/12">
             <button
                 onClick={onToggle}
                 className="w-full flex items-center justify-between gap-4 py-5 text-left group"
                 aria-expanded={isOpen}
             >
-                <span className="font-display text-lg font-semibold text-[#14304E] tracking-tight">
+                <span className="font-display text-lg font-semibold text-[#374151] tracking-tight">
                     {q}
                 </span>
                 <span
                     className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full border transition-all ${
                         isOpen
-                            ? 'bg-[#14304E] border-[#14304E] text-white rotate-180'
-                            : 'border-[#14304E]/25 text-[#14304E] group-hover:border-[#14304E]/60'
+                            ? 'bg-[#374151] border-[#374151] text-white rotate-180'
+                            : 'border-[#374151]/25 text-[#374151] group-hover:border-[#374151]/60'
                     }`}
                 >
                     <Icon className="w-4 h-4">
@@ -57,7 +57,7 @@ function FaqItem({ q, a, isOpen, onToggle }) {
                 }`}
             >
                 <div className="overflow-hidden">
-                    <p className="pb-5 pr-12 text-[#14304E]/70 text-[15px] leading-relaxed">{a}</p>
+                    <p className="pb-5 pr-12 text-[#374151]/70 text-[15px] leading-relaxed">{a}</p>
                 </div>
             </div>
         </div>
@@ -80,10 +80,10 @@ export default function Faq({
                     <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
                         FAQ
                     </span>
-                    <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight leading-tight">
+                    <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                         {title}
                     </h2>
-                    <p className="mt-4 text-[#14304E]/70 text-base md:text-lg leading-relaxed">
+                    <p className="mt-4 text-[#374151]/70 text-base md:text-lg leading-relaxed">
                         {description}
                     </p>
                 </div>

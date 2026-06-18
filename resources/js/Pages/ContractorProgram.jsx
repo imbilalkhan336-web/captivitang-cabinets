@@ -24,18 +24,18 @@ const HERO_FEATURES = [
 
 function FaqItem({ q, a, isOpen, onToggle }) {
     return (
-        <div className="border-b border-[#14304E]/12">
+        <div className="border-b border-[#374151]/12">
             <button
                 onClick={onToggle}
                 className="w-full flex items-center justify-between gap-4 py-5 text-left group"
                 aria-expanded={isOpen}
             >
-                <span className="font-display text-lg font-semibold text-[#14304E] tracking-tight">{q}</span>
+                <span className="font-display text-lg font-semibold text-[#374151] tracking-tight">{q}</span>
                 <span
                     className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full border transition-all ${
                         isOpen
-                            ? 'bg-[#14304E] border-[#14304E] text-white rotate-180'
-                            : 'border-[#14304E]/25 text-[#14304E] group-hover:border-[#14304E]/60'
+                            ? 'bg-[#374151] border-[#374151] text-white rotate-180'
+                            : 'border-[#374151]/25 text-[#374151] group-hover:border-[#374151]/60'
                     }`}
                 >
                     <Icon className="w-4 h-4">
@@ -49,7 +49,7 @@ function FaqItem({ q, a, isOpen, onToggle }) {
                 }`}
             >
                 <div className="overflow-hidden">
-                    <p className="pb-5 pr-12 text-[#14304E]/70 text-[15px] leading-relaxed">{a}</p>
+                    <p className="pb-5 pr-12 text-[#374151]/70 text-[15px] leading-relaxed">{a}</p>
                 </div>
             </div>
         </div>
@@ -58,7 +58,7 @@ function FaqItem({ q, a, isOpen, onToggle }) {
 
 function HeroText() {
     return (
-        <div className="order-1 lg:col-span-7 lg:row-start-1 lg:min-h-[440px] lg:flex lg:flex-col lg:justify-center">
+        <div className="order-1 lg:col-span-7 lg:row-start-1 lg:min-h-[360px] lg:flex lg:flex-col lg:justify-center">
             <span className="inline-block text-amber-400 text-xs font-bold uppercase tracking-[0.22em]">
                 Contractor Program
             </span>
@@ -158,8 +158,8 @@ const CONTRACTOR_FAQS = [
 
 /* ====================== Application form ====================== */
 
-const FIELD = 'w-full rounded-xl border border-[#14304E]/15 bg-[#F8FAFC] px-4 py-2.5 text-sm text-[#14304E] placeholder:text-[#14304E]/40 shadow-sm transition-colors hover:border-[#14304E]/25 focus:bg-white focus:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400/25';
-const LABEL = 'block text-sm font-medium text-[#14304E] mb-1.5';
+const FIELD = 'w-full rounded-xl border border-[#374151]/15 bg-[#F9FAFB] px-4 py-2.5 text-sm text-[#374151] placeholder:text-[#374151]/40 shadow-sm transition-colors hover:border-[#374151]/25 focus:bg-white focus:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-400/25 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none';
+const LABEL = 'block text-sm font-medium text-[#374151] mb-1.5';
 
 const AUDIENCE_OPTIONS = ['General Contractor', 'Home Builder', 'Remodeler', 'Kitchen & Bath Designer', 'Architect / Designer', 'Property Manager', 'Homeowner', 'Other'];
 const PROJECT_OPTIONS = ['1–5', '6–10', '11–25', '26–50', '50+'];
@@ -182,18 +182,18 @@ function SelectField({ label, options, required = false }) {
             <span className={LABEL}>{label}{required && ' *'}</span>
             <Listbox value={value} onChange={setValue}>
                 <div className="relative">
-                    <ListboxButton className={`${FIELD} group flex items-center justify-between gap-2 text-left ${value ? 'text-[#14304E]' : 'text-[#14304E]/40'}`}>
+                    <ListboxButton className={`${FIELD} group flex items-center justify-between gap-2 text-left ${value ? 'text-[#374151]' : 'text-[#374151]/40'}`}>
                         <span className="truncate">{value || 'Select…'}</span>
-                        <Icon className="w-4 h-4 flex-shrink-0 text-[#14304E]/45 transition-transform group-data-[open]:rotate-180">
+                        <Icon className="w-4 h-4 flex-shrink-0 text-[#374151]/45 transition-transform group-data-[open]:rotate-180">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </Icon>
                     </ListboxButton>
-                    <ListboxOptions className="absolute z-30 mt-2 w-full max-h-60 overflow-auto rounded-xl border border-[#14304E]/10 bg-white p-1.5 shadow-[0_20px_50px_rgba(20,48,78,0.18)] focus:outline-none">
+                    <ListboxOptions className="absolute z-30 mt-2 w-full max-h-60 overflow-auto rounded-xl border border-[#374151]/10 bg-white p-1.5 shadow-[0_20px_50px_rgba(55,65,81,0.18)] focus:outline-none">
                         {options.map((o) => (
                             <ListboxOption
                                 key={o}
                                 value={o}
-                                className="group flex cursor-pointer select-none items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm text-[#14304E] transition-colors data-[focus]:bg-amber-50 data-[focus]:text-amber-700 data-[selected]:font-semibold"
+                                className="group flex cursor-pointer select-none items-center justify-between gap-2 rounded-lg px-3 py-2 text-sm text-[#374151] transition-colors data-[focus]:bg-amber-50 data-[focus]:text-amber-700 data-[selected]:font-semibold"
                             >
                                 <span className="truncate">{o}</span>
                                 <Icon className="w-4 h-4 flex-shrink-0 text-amber-500 opacity-0 group-data-[selected]:opacity-100">
@@ -210,20 +210,20 @@ function SelectField({ label, options, required = false }) {
 
 function ApplyForm() {
     return (
-        <div className="rounded-2xl bg-white shadow-[0_20px_50px_rgba(20,48,78,0.16)] ring-1 ring-[#14304E]/10 p-6 sm:p-7">
-            <h3 className="font-display text-xl font-bold text-[#14304E] tracking-tight">Join Our Program</h3>
-            <p className="mt-1 text-[#14304E]/60 text-sm">
+        <div className="rounded-2xl bg-white shadow-[0_20px_50px_rgba(55,65,81,0.16)] ring-1 ring-[#374151]/10 p-6 sm:p-7">
+            <h3 className="font-display text-xl font-bold text-[#374151] tracking-tight">Join Our Program</h3>
+            <p className="mt-1 text-[#374151]/60 text-sm">
                 Apply in minutes—a dedicated account manager will reach out.
             </p>
 
             <form className="mt-5 space-y-4" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid sm:grid-cols-2 gap-4">
                     <Field id="cp-name" label="Full name" required placeholder="Jane Contractor" />
-                    <Field id="cp-phone" label="Phone number" type="tel" required placeholder="(609) 900-3358" />
+                    <Field id="cp-phone" label="Phone number" type="number" required placeholder="6099003358" />
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                     <Field id="cp-email" label="E-mail" type="email" required placeholder="jane@acme.com" />
-                    <Field id="cp-zip" label="Zip code" required placeholder="08550" />
+                    <Field id="cp-zip" label="Zip code" type="number" required placeholder="08550" />
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                     <SelectField id="cp-audience" label="Best describes you" options={AUDIENCE_OPTIONS} required />
@@ -239,8 +239,8 @@ function ApplyForm() {
                 </div>
 
                 {/* Consent */}
-                <label className="flex items-start gap-3 text-xs text-[#14304E]/60 leading-relaxed">
-                    <input type="checkbox" required className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-[#14304E]/30 text-amber-500 focus:ring-amber-400/30" />
+                <label className="flex items-start gap-3 text-xs text-[#374151]/60 leading-relaxed">
+                    <input type="checkbox" required className="mt-0.5 h-4 w-4 flex-shrink-0 rounded border-[#374151]/30 text-amber-500 focus:ring-amber-400/30" />
                     <span>
                         I agree to the <a href="#" className="text-amber-600 hover:underline">Privacy Policy</a> and{' '}
                         <a href="#" className="text-amber-600 hover:underline">Terms</a>.
@@ -264,35 +264,35 @@ function HeroApply({ bgImage = '/images/home-hero-bg.png' }) {
     return (
         <section className="relative bg-white" aria-label="Contractor program">
             {/* Hero background — covers the top hero region, then fades into white */}
-            <div className="absolute inset-x-0 top-0 h-[860px] sm:h-[700px] lg:h-[600px] overflow-hidden" aria-hidden="true">
+            <div className="absolute inset-x-0 top-0 h-[820px] sm:h-[660px] lg:h-[460px] overflow-hidden" aria-hidden="true">
                 <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bgImage})` }} />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/15" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/15" />
             </div>
 
-            <div className="relative max-w-container mx-auto px-6 lg:px-8 pt-16 lg:pt-20 pb-8 lg:pb-12">
-                <div className="grid gap-x-10 lg:gap-x-14 gap-y-12 lg:grid-cols-12">
+            <div className="relative max-w-container mx-auto px-6 lg:px-8 pt-16 lg:pt-20 pb-4 lg:pb-6">
+                <div className="grid gap-x-10 lg:gap-x-14 gap-y-6 lg:grid-cols-12">
                     {/* Hero text — row 1, left */}
                     <HeroText />
 
                     {/* Form — right, sticky, spans both rows */}
-                    <aside id="apply" className="order-2 lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-2 lg:-mt-24">
-                        <div className="lg:sticky lg:top-12">
+                    <aside id="apply" className="order-2 lg:col-span-5 lg:col-start-8 lg:row-start-1 lg:row-span-2 lg:-mt-12">
+                        <div className="lg:sticky lg:top-16">
                             <ApplyForm />
                         </div>
                     </aside>
 
                     {/* Program content — row 2, left */}
-                    <div className="order-3 lg:col-span-7 lg:col-start-1 lg:row-start-2 pt-6 lg:pt-12 space-y-14">
+                    <div className="order-3 lg:col-span-7 lg:col-start-1 lg:row-start-2 pt-2 lg:pt-4 space-y-14">
                         {/* Why partner */}
                         <div>
                             <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
                                 Why Partner With Us
                             </span>
-                            <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight leading-tight">
+                            <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                                 Built for builders, contractors, and the trade
                             </h2>
-                            <p className="mt-4 text-[#14304E]/70 text-base md:text-lg leading-relaxed">
+                            <p className="mt-4 text-[#374151]/70 text-base md:text-lg leading-relaxed">
                                 Whether you're a builder, contractor, or industry professional, our program cuts your overhead and elevates every project—free kitchen designs, floor plans, 3D renderings, elevations, and door-sample packages included.
                             </p>
 
@@ -300,18 +300,18 @@ function HeroApply({ bgImage = '/images/home-hero-bg.png' }) {
                                 {BENEFITS.map(({ title, body, icon }) => (
                                     <div
                                         key={title}
-                                        className="flex flex-col rounded-2xl bg-white border border-[#14304E]/10 shadow-[0_10px_30px_rgba(20,48,78,0.06)] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(20,48,78,0.12)]"
+                                        className="flex flex-col rounded-2xl bg-white border border-[#374151]/10 shadow-[0_10px_30px_rgba(55,65,81,0.06)] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(55,65,81,0.12)]"
                                     >
                                         <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-amber-50 text-amber-600 ring-1 ring-amber-100">
                                             <Icon className="w-6 h-6">{icon}</Icon>
                                         </span>
-                                        <h3 className="mt-4 font-display text-base font-bold text-[#14304E] tracking-tight">{title}</h3>
-                                        <p className="mt-1.5 text-[#14304E]/70 text-sm leading-relaxed">{body}</p>
+                                        <h3 className="mt-4 font-display text-base font-bold text-[#374151] tracking-tight">{title}</h3>
+                                        <p className="mt-1.5 text-[#374151]/70 text-sm leading-relaxed">{body}</p>
                                     </div>
                                 ))}
                             </div>
 
-                            <h3 className="mt-10 font-display text-lg font-bold text-[#14304E] tracking-tight">What's included</h3>
+                            <h3 className="mt-10 font-display text-lg font-bold text-[#374151] tracking-tight">What's included</h3>
                             <ul className="mt-4 grid sm:grid-cols-2 gap-x-6 gap-y-3">
                                 {PROGRAM_PERKS.map((perk) => (
                                     <li key={perk} className="flex items-start gap-3">
@@ -320,7 +320,7 @@ function HeroApply({ bgImage = '/images/home-hero-bg.png' }) {
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                                             </Icon>
                                         </span>
-                                        <span className="text-[#14304E] text-[15px] leading-relaxed">{perk}</span>
+                                        <span className="text-[#374151] text-[15px] leading-relaxed">{perk}</span>
                                     </li>
                                 ))}
                             </ul>
@@ -331,19 +331,19 @@ function HeroApply({ bgImage = '/images/home-hero-bg.png' }) {
                             <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
                                 Workflows & Services
                             </span>
-                            <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight leading-tight">
+                            <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                                 Designed to save you time
                             </h2>
 
                             <div className="mt-8 space-y-4">
                                 {SERVICES.map(({ title, body, icon }) => (
-                                    <div key={title} className="flex items-start gap-4 rounded-2xl bg-white border border-[#14304E]/10 shadow-[0_10px_30px_rgba(20,48,78,0.06)] p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(20,48,78,0.12)]">
+                                    <div key={title} className="flex items-start gap-4 rounded-2xl bg-white border border-[#374151]/10 shadow-[0_10px_30px_rgba(55,65,81,0.06)] p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(55,65,81,0.12)]">
                                         <span className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-amber-50 text-amber-600 ring-1 ring-amber-100">
                                             <Icon className="w-6 h-6">{icon}</Icon>
                                         </span>
                                         <div>
-                                            <h3 className="font-display text-base font-bold text-[#14304E] tracking-tight">{title}</h3>
-                                            <p className="mt-1.5 text-[#14304E]/70 text-sm leading-relaxed">{body}</p>
+                                            <h3 className="font-display text-base font-bold text-[#374151] tracking-tight">{title}</h3>
+                                            <p className="mt-1.5 text-[#374151]/70 text-sm leading-relaxed">{body}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -355,7 +355,7 @@ function HeroApply({ bgImage = '/images/home-hero-bg.png' }) {
                             <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
                                 FAQ
                             </span>
-                            <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#14304E] tracking-tight leading-tight">
+                            <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                                 Frequently asked questions
                             </h2>
                             <div className="mt-6">
