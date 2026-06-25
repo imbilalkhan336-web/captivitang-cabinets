@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import { usePage } from '@inertiajs/react';
 import Icon from '@/Components/Home/Icon';
-import { BRANDS, TYPES, INCHES, DEPTHS, SHELVES, DRAWERS, finishImage } from '@/Components/Home/shopCatalog';
+import { BRANDS, TYPES, INCHES, DEPTHS, SHELVES, DRAWERS, finishImage, brandHref } from '@/Components/Home/shopCatalog';
 
 const facetNode = (label, title, items) => ({
     label,
@@ -10,31 +11,36 @@ const facetNode = (label, title, items) => ({
 
 /* ---------- Build the navigable node tree from the catalog ---------- */
 
-const byBrandNode = {
+const buildByBrandNode = (brands) => ({
     label: 'By Brand',
     title: 'Shop by Brand',
-    items: BRANDS.map((b) =>
-        b.lines.length
+    items: [
+        { label: 'View All Brands', href: '/cabinet-brands' },
+    ].concat(brands.map((b) =>
+        (b.lines || []).length
             ? {
                   label: b.name,
                   title: b.name,
-                  items: b.lines.map((line) =>
-                      line.series.length
-                          ? {
-                                label: line.name,
-                                title: `${b.name} ${line.name}`,
-                                items: line.series.map((s) => ({
-                                    label: s.name,
-                                    title: `${line.name} ${s.name}`,
-                                    finishes: { seriesName: s.name, collections: s.collections },
-                                })),
-                            }
-                          : { label: line.name, href: '#' }
-                  ),
+                  items: [
+                      { label: `View all ${b.name}`, href: brandHref(b) },
+                      ...b.lines.map((line) =>
+                          line.series.length
+                              ? {
+                                    label: line.name,
+                                    title: `${b.name} ${line.name}`,
+                                    items: line.series.map((s) => ({
+                                        label: s.name,
+                                        title: `${line.name} ${s.name}`,
+                                        finishes: { seriesName: s.name, collections: s.collections, images: s.images },
+                                    })),
+                                }
+                              : { label: line.name, href: brandHref(b) }
+                      ),
+                  ],
               }
-            : { label: b.name, href: '#' }
-    ),
-};
+            : { label: b.name, href: brandHref(b) }
+    )),
+});
 
 const byTypeNode = {
     label: 'By Type',
@@ -46,18 +52,18 @@ const byTypeNode = {
     ),
 };
 
-const shopNode = {
+const buildShopNode = (brands) => ({
     label: 'Shop Cabinets',
     title: 'Shop Cabinets',
     items: [
-        byBrandNode,
+        buildByBrandNode(brands),
         byTypeNode,
         facetNode('By Inch', 'Shop by Inch', INCHES),
         facetNode('By Depth', 'Shop by Depth', DEPTHS),
         facetNode('By Shelf', 'Number of Shelves', SHELVES),
         facetNode('By Drawers', 'Number of Drawers', DRAWERS),
     ],
-};
+});
 
 /* ---------- Component ---------- */
 
@@ -66,6 +72,15 @@ function hasChildren(node) {
 }
 
 export default function MobileMenu({ links, onClose }) {
+    // Overlay auto-scanned folder images onto brands that have no static lines.
+    const shopFinishes = usePage().props.shopFinishes || {};
+    const brands = BRANDS.map((b) => {
+        if (b.lines && b.lines.length) return b;
+        const fin = shopFinishes[b.slug];
+        return fin && fin.length ? { ...b, lines: [{ name: 'Collections', series: fin }] } : b;
+    });
+    const shopNode = buildShopNode(brands);
+
     // Root screen built from the navbar links
     const rootItems = links.map((link) =>
         link.mega
@@ -112,17 +127,20 @@ export default function MobileMenu({ links, onClose }) {
                     </div>
                 ) : current.finishes ? (
                     <div className="grid grid-cols-3 gap-3 px-1 py-2">
-                        {current.finishes.collections.map((f) => (
-                            <a key={f} href="#" onClick={onClose} className="block">
+                        {(current.finishes.images
+                            ? current.finishes.images.map((img, i) => ({ key: img, img, label: `${current.finishes.seriesName} ${i + 1}` }))
+                            : current.finishes.collections.map((f) => ({ key: f, img: finishImage(current.finishes.seriesName, f), label: `${current.finishes.seriesName} ${f}` }))
+                        ).map((f) => (
+                            <a key={f.key} href="#" onClick={onClose} className="block">
                                 <div className="aspect-[3/4] rounded-md overflow-hidden bg-[#374151]/5 ring-1 ring-[#374151]/10 p-1">
                                     <img
-                                        src={finishImage(current.finishes.seriesName, f)}
-                                        alt={`${current.finishes.seriesName} ${f}`}
+                                        src={f.img}
+                                        alt={f.label}
                                         loading="lazy"
                                         className="w-full h-full object-contain"
                                     />
                                 </div>
-                                <p className="mt-1 text-[11px] text-gray-900 font-medium truncate">{current.finishes.seriesName} {f}</p>
+                                <p className="mt-1 text-[11px] text-gray-900 font-medium truncate">{f.label}</p>
                             </a>
                         ))}
                     </div>
@@ -154,7 +172,7 @@ export default function MobileMenu({ links, onClose }) {
                         {/* CTA on the root screen */}
                         {current.isRoot && (
                             <a
-                                href="#"
+                                href="/design-service"
                                 onClick={onClose}
                                 className="mt-3 mb-3 inline-flex items-center justify-center px-5 py-3 bg-amber-400 hover:bg-amber-500 text-gray-900 text-sm font-semibold rounded-full transition-colors"
                             >

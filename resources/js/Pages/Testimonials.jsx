@@ -97,13 +97,13 @@ function Header({ bgImage = '/images/kichan-imgs/hero-img4.png' }) {
                 aria-hidden="true"
             />
             {/* Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-black/5" aria-hidden="true" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/5" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/15" aria-hidden="true" />
 
             {/* Content */}
             <div className="relative z-10 flex-1 flex flex-col">
                 <div className="flex-1 flex items-center">
-                    <div className="w-full max-w-container mx-auto px-6 lg:px-8 pt-10 lg:pt-12 pb-10 lg:pb-14">
+                    <div className="w-full max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 pt-10 lg:pt-12 pb-10 lg:pb-14">
                         <div className="max-w-2xl">
                             <h1 className="font-sans font-normal text-white text-[44px] leading-[48px] md:text-[56px] md:leading-[56px]">
                                 What Our <span className="text-amber-400">Customers Say</span>
@@ -143,7 +143,7 @@ function TestimonialCard({ name, date, quote }) {
 function Reviews() {
     return (
         <section className="bg-[#F3F4F6] py-16 lg:py-24" aria-label="Customer reviews">
-            <div className="max-w-container mx-auto px-6 lg:px-8">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
                 <div className="text-center max-w-2xl mx-auto">
                     <h2 className="font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                         Customer Reviews
@@ -166,7 +166,7 @@ function Reviews() {
 function WhyChoose() {
     return (
         <section className="bg-white py-16 lg:py-24" aria-label="Why customers choose us">
-            <div className="max-w-container mx-auto px-6 lg:px-8">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
                 <div className="text-center max-w-2xl mx-auto">
                     <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
                         Why Choose Us
@@ -202,7 +202,7 @@ function CtaSection({ bgImage = '/images/kichan-imgs/cta-testimonials.png' }) {
             <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/15" aria-hidden="true" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/15" aria-hidden="true" />
 
-            <div className="relative max-w-container mx-auto px-6 lg:px-8 py-16 lg:py-20">
+            <div className="relative max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 py-16 lg:py-20">
                 <div className="max-w-2xl mx-auto text-center">
                     <h2 className="font-display font-bold text-white tracking-tight leading-tight text-2xl md:text-3xl lg:text-[34px]">
                         Transform your kitchen with <span className="text-amber-400">premium cabinets</span>
@@ -211,7 +211,7 @@ function CtaSection({ bgImage = '/images/kichan-imgs/cta-testimonials.png' }) {
                         Join hundreds of happy homeowners and contractors. Get a free 3D design or unlock exclusive trade pricing today.
                     </p>
                     <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-                        <a href="#" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-amber-400 hover:bg-amber-500 text-gray-900 font-semibold rounded-full transition-colors text-sm shadow-lg shadow-amber-400/20">
+                        <a href="/design-service" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-amber-400 hover:bg-amber-500 text-gray-900 font-semibold rounded-full transition-colors text-sm shadow-lg shadow-amber-400/20">
                             <Icon className="w-4 h-4">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                             </Icon>

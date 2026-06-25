@@ -6,7 +6,7 @@ const CARDS = [
         line2: { text: 'KITCHEN DESIGN', accent: false },
         description: 'BY EXPERIENCED DESIGNERS FOR OVER 20 YEARS IN THE BUSINESS',
         ctaText: 'EXPLORE MORE',
-        href: '#',
+        href: '/design-service',
     },
     {
         line1: { text: 'KITCHEN', accent: false },
