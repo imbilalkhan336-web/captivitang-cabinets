@@ -12,11 +12,11 @@ function Hero({ bgImage = '/images/kichan-imgs/hero-img7.png' }) {
     return (
         <section className="relative min-h-[42vh] flex flex-col overflow-hidden pt-20" aria-label="Blog hero">
             <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bgImage})` }} aria-hidden="true" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-black/5" aria-hidden="true" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/5" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/15" aria-hidden="true" />
 
             <div className="relative z-10 flex-1 flex items-center">
-                <div className="w-full max-w-container mx-auto px-6 lg:px-8 pt-10 lg:pt-12 pb-10 lg:pb-14">
+                <div className="w-full max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 pt-10 lg:pt-12 pb-10 lg:pb-14">
                     <div className="max-w-2xl">
                         <span className="inline-block text-amber-400 text-xs font-bold uppercase tracking-[0.22em]">
                             Blog
@@ -37,18 +37,18 @@ function Hero({ bgImage = '/images/kichan-imgs/hero-img7.png' }) {
 /* ============================ Data ============================ */
 
 const THUMBS = [
-    '/images/gallery/Gallery-8-Captivating-Cabinets.webp',
-    '/images/gallery/Gallery-2--Captivating-Cabinets.webp',
-    '/images/gallery/Gallery-3--Captivating-Cabinets.webp',
-    '/images/gallery/Gallery-4--Captivating-Cabinets.webp',
-    '/images/gallery/Gallery-5--Captivating-Cabinets.webp',
-    '/images/gallery/Gallery-6--Captivating-Cabinets.webp',
-    '/images/gallery/Gallery-9-Captivating-Cabinets.webp',
-    '/images/gallery/Gallery-10-Captivating-Cabinets.webp',
-    '/images/gallery/Gallery-11-Captivating-Cabinets.webp',
-    '/images/gallery/Gallery-13-Captivating-Cabinets.webp',
-    '/images/gallery/Gallery-21-Driftwood-Captivating-Cabinets.webp',
-    '/images/gallery/Gallery-3-Driftwood.webp',
+    '/images/kichan-imgs/blog-01.png',
+    '/images/kichan-imgs/blog-02.png',
+    '/images/kichan-imgs/blog-03.png',
+    '/images/kichan-imgs/blog-04.png',
+    '/images/kichan-imgs/blog-05.png',
+    '/images/kichan-imgs/blog-06.png',
+    '/images/kichan-imgs/blog-07.png',
+    '/images/kichan-imgs/blog-08.png',
+    '/images/kichan-imgs/blog-09.png',
+    '/images/kichan-imgs/blog-10.png',
+    '/images/kichan-imgs/blog-11.png',
+    '/images/kichan-imgs/blog-12.png',
 ];
 
 const POSTS = [
@@ -94,7 +94,7 @@ function PostCard({ title, date, img }) {
 function PostsGrid() {
     return (
         <section className="bg-[#F3F4F6] py-16 lg:py-24" aria-label="Blog posts">
-            <div className="max-w-container mx-auto px-6 lg:px-8">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                     {POSTS.map((p, i) => (
                         <PostCard key={p.title} title={p.title} date={p.date} img={THUMBS[i % THUMBS.length]} />

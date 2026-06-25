@@ -59,12 +59,12 @@ export default function Hero({ bgImage = '/images/hero-bg.jpg' }) {
 
                                 {/* CTA Buttons */}
                                 <div className="flex flex-wrap gap-3 mb-10">
-                                    <button className="inline-flex items-center gap-2 px-5 py-3 bg-amber-400 hover:bg-amber-500 text-gray-900 font-semibold rounded-full transition-colors text-sm">
+                                    <a href="/design-service" className="inline-flex items-center gap-2 px-5 py-3 bg-amber-400 hover:bg-amber-500 text-gray-900 font-semibold rounded-full transition-colors text-sm">
                                         <Icon className="w-4 h-4">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                                         </Icon>
                                         Get Free 3D Design
-                                    </button>
+                                    </a>
                                     <button className="inline-flex items-center gap-2 px-5 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-full border border-white/30 transition-colors backdrop-blur-sm text-sm">
                                         <Icon className="w-4 h-4">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

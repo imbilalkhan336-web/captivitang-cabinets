@@ -14,7 +14,7 @@ const DEFAULT_TITLE = (
 );
 
 const DEFAULT_BUTTONS = [
-    { label: 'Get Free 3D Design', icon: CTA_ICONS.design, href: '#', primary: true },
+    { label: 'Get Free 3D Design', icon: CTA_ICONS.design, href: '/design-service', primary: true },
     { label: 'Contractor Program', icon: CTA_ICONS.contractor, href: '/contractor-program' },
 ];
 

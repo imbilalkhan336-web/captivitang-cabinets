@@ -19,7 +19,7 @@ import StickyCTABar from '@/Components/Home/StickyCTABar';
 export default function Home2() {
     return (
         <>
-            <Head title="Home 2 | Captivating Cabinets" />
+            <Head title="Captivating Cabinets | Premium Kitchen Cabinets" />
 
             <div className="bg-white min-h-screen">
                 <TopContactBar />

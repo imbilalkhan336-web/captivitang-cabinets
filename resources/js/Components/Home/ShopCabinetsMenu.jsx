@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
+import { usePage } from '@inertiajs/react';
 import Icon from '@/Components/Home/Icon';
-import { BRANDS, TYPES, STYLES, INCHES, DEPTHS, SHELVES, DRAWERS, finishImage } from '@/Components/Home/shopCatalog';
+import { BRANDS, TYPES, STYLES, INCHES, DEPTHS, SHELVES, DRAWERS, finishImage, brandHref } from '@/Components/Home/shopCatalog';
 
 const TABS = [
     { key: 'brand', label: 'By Brand' },
@@ -46,23 +47,44 @@ function FeaturePanel({ image, title, subtitle, cta, href }) {
     );
 }
 
+// Brands that have dedicated per-line landing pages (e.g. /brands/fabuwood/illume).
+const LINE_PAGE_BRANDS = { fabuwood: ['allure', 'illume', 'ovela'] };
+
+// Normalize a series name to match the anchor ids used on the Brand page.
+const norm = (s) => s.replace(/[^a-z0-9]/gi, '').toLowerCase();
+
+// URL for a brand line's landing page, or null when no dedicated page exists.
+function lineHref(brand, line) {
+    const valid = LINE_PAGE_BRANDS[brand.slug];
+    if (valid && line && valid.includes(line.name.toLowerCase())) {
+        return `${brandHref(brand)}/${line.name.toLowerCase()}`;
+    }
+    return null;
+}
+
 /* ---------- Small pieces ---------- */
 
-function ColumnItem({ label, active, onMouseEnter, hasChildren }) {
-    return (
-        <button
-            onMouseEnter={onMouseEnter}
-            className={`group/i w-full flex items-center justify-between gap-2 px-3 py-2 rounded-lg text-[15px] text-left transition-colors ${
-                active ? 'bg-amber-50 text-[#374151] font-semibold' : 'text-[#374151]/70 hover:bg-[#374151]/[0.04] hover:text-[#374151]'
-            }`}
-        >
+function ColumnItem({ label, active, onMouseEnter, hasChildren, href }) {
+    const cls = `group/i w-full flex items-center justify-between gap-2 px-3 py-2 rounded-lg text-[15px] text-left transition-colors ${
+        active ? 'bg-amber-50 text-[#374151] font-semibold' : 'text-[#374151]/70 hover:bg-[#374151]/[0.04] hover:text-[#374151]'
+    }`;
+    const inner = (
+        <>
             <span className="truncate">{label}</span>
             {hasChildren && (
                 <Icon className={`w-4 h-4 flex-shrink-0 transition-all ${active ? 'text-amber-500 translate-x-0' : 'text-[#374151]/20 group-hover/i:text-[#374151]/40'}`}>
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </Icon>
             )}
-        </button>
+        </>
+    );
+
+    // When an href is provided the row navigates on click while still
+    // driving the hover-preview via onMouseEnter.
+    return href ? (
+        <a href={href} onMouseEnter={onMouseEnter} className={cls}>{inner}</a>
+    ) : (
+        <button onMouseEnter={onMouseEnter} className={cls}>{inner}</button>
     );
 }
 
@@ -77,23 +99,43 @@ function ByBrand() {
     const [lineIdx, setLineIdx] = useState(0);
     const [seriesIdx, setSeriesIdx] = useState(0);
 
-    const brand = BRANDS[brandIdx];
+    const shopFinishes = usePage().props.shopFinishes || {};
+    // Overlay auto-scanned folder images onto brands that have no static lines.
+    const brands = BRANDS.map((b) => {
+        if (b.lines && b.lines.length) return b;
+        const fin = shopFinishes[b.slug];
+        return fin && fin.length ? { ...b, lines: [{ name: 'Collections', series: fin }] } : b;
+    });
+
+    const brand = brands[brandIdx];
     const lines = brand.lines || [];
     const line = lines[lineIdx];
     const series = (line && line.series) || [];
     const activeSeries = series[seriesIdx];
+    const finishes = activeSeries
+        ? (activeSeries.images
+            ? activeSeries.images.map((img, i) => ({ key: img, img, label: `${activeSeries.name} ${i + 1}` }))
+            : (activeSeries.collections || []).map((c) => ({ key: c, img: finishImage(activeSeries.name, c), label: `${activeSeries.name} ${c}` })))
+        : [];
 
     const selectBrand = (i) => { setBrandIdx(i); setLineIdx(0); setSeriesIdx(0); };
     const selectLine = (i) => { setLineIdx(i); setSeriesIdx(0); };
+
+    const lineUrl = lineHref(brand, line);
+    const seriesUrl = (s) => (lineUrl ? `${lineUrl}#series-${norm(`${line.name} ${s.name}`)}` : undefined);
 
     return (
         <div className="grid grid-cols-[180px_180px_170px_1fr] divide-x divide-[#374151]/8 h-full">
             {/* Brands */}
             <div className="pr-3 overflow-y-auto">
                 <ColTitle>Brands</ColTitle>
-                {BRANDS.map((b, i) => (
-                    <ColumnItem key={b.name} label={b.name} active={i === brandIdx} hasChildren={b.lines.length > 0} onMouseEnter={() => selectBrand(i)} />
+                {brands.map((b, i) => (
+                    <ColumnItem key={b.name} label={b.name} active={i === brandIdx} hasChildren={(b.lines || []).length > 0} href={brandHref(b)} onMouseEnter={() => selectBrand(i)} />
                 ))}
+                <a href="/cabinet-brands" className="mt-1 flex items-center gap-1.5 px-3 py-2 text-sm text-amber-600 hover:text-amber-700 font-semibold">
+                    View All Brands
+                    <Icon className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></Icon>
+                </a>
             </div>
 
             {/* Lines */}
@@ -101,10 +143,10 @@ function ByBrand() {
                 <ColTitle>{brand.name} Series</ColTitle>
                 {lines.length > 0 ? (
                     lines.map((l, i) => (
-                        <ColumnItem key={l.name} label={l.name} active={i === lineIdx} hasChildren={(l.series || []).length > 0} onMouseEnter={() => selectLine(i)} />
+                        <ColumnItem key={l.name} label={l.name} active={i === lineIdx} hasChildren={(l.series || []).length > 0} href={lineHref(brand, l)} onMouseEnter={() => selectLine(i)} />
                     ))
                 ) : (
-                    <a href="#" className="block px-3 py-2 text-sm text-amber-600 hover:text-amber-700 font-semibold">Browse {brand.name} →</a>
+                    <a href={brandHref(brand)} className="block px-3 py-2 text-sm text-amber-600 hover:text-amber-700 font-semibold">Browse {brand.name} →</a>
                 )}
             </div>
 
@@ -113,7 +155,7 @@ function ByBrand() {
                 <ColTitle>{line ? `${line.name} Styles` : 'Styles'}</ColTitle>
                 {series.length > 0 ? (
                     series.map((s, i) => (
-                        <ColumnItem key={s.name} label={s.name} active={i === seriesIdx} hasChildren onMouseEnter={() => setSeriesIdx(i)} />
+                        <ColumnItem key={s.name} label={s.name} active={i === seriesIdx} hasChildren href={seriesUrl(s)} onMouseEnter={() => setSeriesIdx(i)} />
                     ))
                 ) : (
                     <p className="px-3 py-2 text-xs text-[#374151]/40">Coming soon</p>
@@ -125,20 +167,30 @@ function ByBrand() {
                 {activeSeries ? (
                     <>
                         <ColTitle>{activeSeries.name} Finishes</ColTitle>
-                        <div className="grid grid-cols-5 gap-2.5 flex-1 min-h-0 overflow-y-auto pr-1 content-start">
-                            {activeSeries.collections.map((c) => (
-                                <a key={c} href="#" className="group/f block">
-                                    <div className="aspect-[3/4] rounded-md overflow-hidden bg-[#374151]/5 ring-1 ring-[#374151]/10 p-1">
-                                        <img
-                                            src={finishImage(activeSeries.name, c)}
-                                            alt={`Fabuwood Allure ${activeSeries.name} ${c}`}
-                                            loading="lazy"
-                                            className="w-full h-full object-contain transition-transform duration-300 group-hover/f:scale-105"
-                                        />
-                                    </div>
-                                    <p className="mt-1.5 text-[11px] text-gray-900 font-medium truncate">{activeSeries.name} {c}</p>
-                                </a>
-                            ))}
+                        {finishes.length ? (
+                            <div className="grid grid-cols-6 gap-2.5 max-h-[480px] overflow-y-auto pr-1">
+                                {finishes.map((f) => (
+                                    <a key={f.key} href={seriesUrl(activeSeries) || '#'} className="group/f block">
+                                        <div className="aspect-[3/4] rounded-md overflow-hidden bg-[#374151]/5 ring-1 ring-[#374151]/10 p-1">
+                                            <img
+                                                src={f.img}
+                                                alt={f.label}
+                                                loading="lazy"
+                                                className="w-full h-full object-contain transition-transform duration-300 group-hover/f:scale-105"
+                                            />
+                                        </div>
+                                        <p className="mt-1.5 text-[11px] text-gray-900 font-medium truncate">{f.label}</p>
+                                    </a>
+                                ))}
+                            </div>
+                        ) : (
+                            <p className="px-1 py-3 text-sm text-[#374151]/40">Images coming soon</p>
+                        )}
+                        <div className="mt-auto pt-4 flex justify-end">
+                            <a href={lineUrl || '#'} className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-amber-400 hover:bg-amber-500 text-gray-900 text-sm font-semibold transition-colors">
+                                View All {activeSeries.name}
+                                <Icon className="w-4 h-4"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></Icon>
+                            </a>
                         </div>
                     </>
                 ) : (

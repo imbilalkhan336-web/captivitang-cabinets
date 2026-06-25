@@ -6,6 +6,7 @@ import Footer from '@/Components/Home/Footer';
 import StickyCTABar from '@/Components/Home/StickyCTABar';
 import ShopByCategory from '@/Components/Home/ShopByCategory';
 import HeroGoogleBadge from '@/Components/Home/HeroGoogleBadge';
+import Faq from '@/Components/Home/Faq';
 import Icon from '@/Components/Home/Icon';
 
 /* ============================ Hero ============================ */
@@ -21,8 +22,8 @@ function FinancingHero({ bgImage = '/images/kichan-imgs/hero-img1.png' }) {
             />
 
             {/* Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-black/5" aria-hidden="true" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/5" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/15" aria-hidden="true" />
 
             {/* Content */}
             <div className="relative z-10 flex-1 flex flex-col">
@@ -57,7 +58,7 @@ function FinancingHero({ bgImage = '/images/kichan-imgs/hero-img1.png' }) {
                                     </Icon>
                                     Start Shopping
                                 </a>
-                                <a href="#" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-white/90 text-gray-900 font-semibold rounded-full transition-colors text-sm whitespace-nowrap">
+                                <a href="/design-service" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-white/90 text-gray-900 font-semibold rounded-full transition-colors text-sm whitespace-nowrap">
                                     <Icon className="w-4 h-4">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                                     </Icon>
@@ -124,7 +125,7 @@ const STEPS = [
 function HowItWorksFinancing() {
     return (
         <section className="relative bg-[#F3F4F6] py-16 lg:py-24" aria-label="How financing works">
-            <div className="relative max-w-container mx-auto px-6 lg:px-8">
+            <div className="relative max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
                 <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
                     {/* Image — left, sticks while the steps scroll, releases at the last card */}
                     <div className="relative lg:sticky lg:top-24">
@@ -174,7 +175,7 @@ const money = (n) =>
 function ExamplePayments() {
     return (
         <section className="bg-white py-16 lg:py-24" aria-label="Example monthly payments">
-            <div className="max-w-container mx-auto px-6 lg:px-8">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
                 <div className="text-center max-w-2xl mx-auto">
                     <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
                         Example Payments
@@ -264,71 +265,6 @@ const FAQS = [
     },
 ];
 
-function FaqItem({ q, a, isOpen, onToggle }) {
-    return (
-        <div className="border-b border-[#374151]/12">
-            <button
-                onClick={onToggle}
-                className="w-full flex items-center justify-between gap-4 py-5 text-left group"
-                aria-expanded={isOpen}
-            >
-                <span className="font-display text-lg font-semibold text-[#374151] tracking-tight">{q}</span>
-                <span
-                    className={`flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full border transition-all ${
-                        isOpen
-                            ? 'bg-amber-500 border-amber-500 text-white rotate-180'
-                            : 'border-[#374151]/25 text-[#374151] group-hover:border-[#374151]/60'
-                    }`}
-                >
-                    <Icon className="w-4 h-4">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </Icon>
-                </span>
-            </button>
-            <div
-                className={`grid transition-all duration-300 ease-out ${
-                    isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
-                }`}
-            >
-                <div className="overflow-hidden">
-                    <p className="pb-5 pr-12 text-[#374151]/70 text-[15px] leading-relaxed">{a}</p>
-                </div>
-            </div>
-        </div>
-    );
-}
-
-function FinancingFaq() {
-    const [open, setOpen] = useState(0);
-    return (
-        <section className="bg-[#F3F4F6] py-16 lg:py-24" aria-label="Financing FAQ">
-            <div className="max-w-3xl mx-auto px-6 lg:px-8">
-                <div className="text-center">
-                    <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">FAQ</span>
-                    <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
-                        Financing questions, answered
-                    </h2>
-                    <p className="mt-4 text-[#374151]/70 text-base md:text-lg leading-relaxed">
-                        Everything you need to know about paying for your cabinets over time with Affirm.
-                    </p>
-                </div>
-
-                <div className="mt-10">
-                    {FAQS.map((faq, i) => (
-                        <FaqItem
-                            key={i}
-                            q={faq.q}
-                            a={faq.a}
-                            isOpen={open === i}
-                            onToggle={() => setOpen(open === i ? -1 : i)}
-                        />
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
-}
-
 /* ========================= Closing CTA ========================= */
 
 function FinancingCTA({ bgImage = '/images/kichan-imgs/cta-financing.png' }) {
@@ -342,7 +278,7 @@ function FinancingCTA({ bgImage = '/images/kichan-imgs/cta-financing.png' }) {
             <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/15" aria-hidden="true" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/15" aria-hidden="true" />
 
-            <div className="relative max-w-container mx-auto px-6 lg:px-8 py-16 lg:py-20">
+            <div className="relative max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 py-16 lg:py-20">
                 <div className="max-w-2xl mx-auto text-center">
                     <h2 className="font-display font-bold text-white tracking-tight leading-tight text-2xl md:text-3xl lg:text-[34px]">
                         Ready to finance your <span className="text-amber-400">dream kitchen?</span>
@@ -357,7 +293,7 @@ function FinancingCTA({ bgImage = '/images/kichan-imgs/cta-financing.png' }) {
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                             </Icon>
                         </a>
-                        <a href="#" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-white/90 text-gray-900 font-semibold rounded-full transition-colors text-sm">
+                        <a href="/design-service" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white hover:bg-white/90 text-gray-900 font-semibold rounded-full transition-colors text-sm">
                             <Icon className="w-4 h-4">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                             </Icon>
@@ -375,7 +311,7 @@ function FinancingCTA({ bgImage = '/images/kichan-imgs/cta-financing.png' }) {
 function Disclaimer() {
     return (
         <section className="bg-white border-t border-[#374151]/10" aria-label="Financing disclaimer">
-            <div className="max-w-container mx-auto px-6 lg:px-8 py-8">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 py-8">
                 <p className="text-[#374151]/45 text-xs leading-relaxed max-w-4xl">
                     Payment options through Affirm are subject to an eligibility check and are provided by these
                     lending partners: affirm.com/lenders. Options depend on your purchase amount, and a down payment
@@ -404,7 +340,12 @@ export default function Financing() {
                     <WhyAffirm />
                     <HowItWorksFinancing />
                     <ExamplePayments />
-                    <FinancingFaq />
+                    <Faq
+                        faqs={FAQS}
+                        title="Financing questions, answered"
+                        description="Everything you need to know about paying for your cabinets over time with Affirm."
+                        bgClass="bg-[#F3F4F6]"
+                    />
                 </main>
                 <FinancingCTA />
                 <Footer />

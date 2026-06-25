@@ -72,7 +72,7 @@ export default function Navbar() {
                         </a>
 
                         {/* CTA */}
-                        <a href="#" className="hidden md:inline-flex px-5 py-2.5 bg-amber-400 hover:bg-amber-500 text-gray-900 text-sm font-semibold rounded-full transition-colors whitespace-nowrap">
+                        <a href="/design-service" className="hidden md:inline-flex px-5 py-2.5 bg-amber-400 hover:bg-amber-500 text-gray-900 text-sm font-semibold rounded-full transition-colors whitespace-nowrap">
                             Free 3D Design
                         </a>
 

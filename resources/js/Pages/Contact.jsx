@@ -15,11 +15,11 @@ function Hero({ bgImage = '/images/kichan-imgs/hero-contact.png' }) {
     return (
         <section className="relative min-h-[42vh] flex flex-col overflow-hidden pt-20" aria-label="Contact hero">
             <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bgImage})` }} aria-hidden="true" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-black/5" aria-hidden="true" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/5" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/15" aria-hidden="true" />
 
             <div className="relative z-10 flex-1 flex items-center">
-                <div className="w-full max-w-container mx-auto px-6 lg:px-8 pt-10 lg:pt-12 pb-10 lg:pb-14">
+                <div className="w-full max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 pt-10 lg:pt-12 pb-10 lg:pb-14">
                     <div className="max-w-2xl">
                         <span className="inline-block text-amber-400 text-xs font-bold uppercase tracking-[0.22em]">
                             Contact Us
@@ -66,7 +66,7 @@ const DETAILS = [
 function ContactSection() {
     return (
         <section className="bg-white py-16 lg:py-24" aria-label="Contact details">
-            <div className="max-w-container mx-auto px-6 lg:px-8">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
                 <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
                     {/* Left — details */}
                     <div>
@@ -176,7 +176,7 @@ const HELP = [
 function HowCanWeHelp() {
     return (
         <section className="bg-[#F3F4F6] py-16 lg:py-24" aria-label="How can we help">
-            <div className="max-w-container mx-auto px-6 lg:px-8">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
                 <div className="text-center max-w-2xl mx-auto">
                     <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
                         Support

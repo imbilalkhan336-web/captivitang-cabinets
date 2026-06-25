@@ -58,10 +58,13 @@ function FaqItem({ q, a, isOpen, onToggle }) {
 function HeroText() {
     return (
         <div className="order-1 lg:col-span-7 lg:row-start-1 lg:min-h-[360px] lg:flex lg:flex-col lg:justify-center">
-            <h1 className="font-sans font-normal text-white text-[44px] leading-[48px] md:text-[56px] md:leading-[56px]">
-                Contractor <span className="text-amber-400">Program</span>
+            <span className="inline-block text-amber-400 text-xs font-bold uppercase tracking-[0.22em]">
+                Contractor Program
+            </span>
+            <h1 className="mt-4 font-sans font-semibold lg:font-normal text-white tracking-tight text-[34px]/[2.5rem] md:text-5xl/[3.25rem] lg:text-[56px]/[3.5rem]">
+                Wholesale Cabinet <span className="text-amber-400">Contractor</span> Program
             </h1>
-            <p className="mt-5 text-white/85 text-lg leading-relaxed max-w-xl">
+            <p className="mt-3 text-white/85 text-lg leading-relaxed max-w-xl">
                 Join our exclusive contractor program and unlock wholesale pricing, complimentary 3D design services, dedicated support, and priority delivery.
             </p>
 
@@ -254,7 +257,7 @@ function ApplyForm() {
 
 /* ===== Hero + sticky form (right) + program content ===== */
 
-function HeroApply({ bgImage = '/images/kichan-imgs/hero-img2.png' }) {
+function HeroApply({ bgImage = '/images/contractor-program.png' }) {
     const [openFaq, setOpenFaq] = useState(0);
 
     return (
@@ -262,8 +265,8 @@ function HeroApply({ bgImage = '/images/kichan-imgs/hero-img2.png' }) {
             {/* Hero background — covers the top hero region, then fades into white */}
             <div className="absolute inset-x-0 top-0 h-[820px] sm:h-[660px] lg:h-[460px] overflow-hidden" aria-hidden="true">
                 <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bgImage})` }} />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-black/5" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/5" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/15" />
             </div>
 
             <div className="relative max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 pt-16 lg:pt-20 pb-4 lg:pb-6">

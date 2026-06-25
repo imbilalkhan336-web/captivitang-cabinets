@@ -21,7 +21,7 @@ const STEPS = [
         description:
             "Work with our expert designers to create a 3D visualization of your dream kitchen. We'll help you plan every detail, from layout to finishes—completely free of charge.",
         cta: 'Get Free 3D Design',
-        href: '#',
+        href: '/design-service',
     },
     {
         num: '03',

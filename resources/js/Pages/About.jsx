@@ -20,13 +20,13 @@ function AboutHero({ bgImage = '/images/kichan-imgs/hero-img5.png' }) {
             />
 
             {/* Gradient overlays */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/20 to-black/5" aria-hidden="true" />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/5" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-black/10" aria-hidden="true" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/15" aria-hidden="true" />
 
             {/* Content */}
             <div className="relative z-10 flex-1 flex flex-col">
                 <div className="flex-1 flex items-center">
-                    <div className="w-full max-w-container mx-auto px-6 lg:px-8 pt-10 lg:pt-12 pb-4 lg:pb-6">
+                    <div className="w-full max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 pt-10 lg:pt-12 pb-4 lg:pb-6">
                         <div className="max-w-2xl">
                             <span className="inline-block text-amber-400 text-xs font-bold uppercase tracking-[0.22em]">
                                 About Captivating Cabinets
@@ -39,7 +39,7 @@ function AboutHero({ bgImage = '/images/kichan-imgs/hero-img5.png' }) {
                             </p>
 
                             <div className="mt-8 flex flex-wrap items-center gap-3">
-                                <a href="/contractor-program" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-amber-400 hover:bg-amber-500 text-gray-900 font-semibold rounded-full transition-colors text-sm shadow-lg shadow-amber-400/20 whitespace-nowrap">
+                                <a href="/design-service" className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-amber-400 hover:bg-amber-500 text-gray-900 font-semibold rounded-full transition-colors text-sm shadow-lg shadow-amber-400/20 whitespace-nowrap">
                                     <Icon className="w-4 h-4">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                                     </Icon>
@@ -72,7 +72,7 @@ const STATS = [
 function Stats() {
     return (
         <section className="bg-[#F3F4F6] border-y border-[#374151]/10" aria-label="Captivating Cabinets by the numbers">
-            <div className="max-w-container mx-auto px-6 lg:px-8 py-7 lg:py-8">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 py-7 lg:py-8">
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
                     {STATS.map(({ value, label }) => (
                         <div key={label} className="text-center">
@@ -93,7 +93,7 @@ function Stats() {
 function OurStory() {
     return (
         <section id="our-story" className="relative bg-white py-16 lg:py-24" aria-label="Our story">
-            <div className="relative max-w-container mx-auto px-6 lg:px-8">
+            <div className="relative max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
                 <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
                     {/* Image */}
                     <div className="relative">
@@ -154,7 +154,7 @@ const VALUES = [
 function Values() {
     return (
         <section className="bg-[#F3F4F6] py-16 lg:py-24" aria-label="What we stand for">
-            <div className="max-w-container mx-auto px-6 lg:px-8">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
                 <div className="text-center max-w-2xl mx-auto">
                     <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
                         What We Stand For
@@ -210,7 +210,7 @@ const STEPS = [
 function HowWeHelp() {
     return (
         <section className="bg-white py-16 lg:py-24" aria-label="How we help">
-            <div className="max-w-container mx-auto px-6 lg:px-8">
+            <div className="max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0">
                 <div className="text-center max-w-2xl mx-auto">
                     <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
                         How We Help
