@@ -7,7 +7,7 @@ const PATHS = [
         description: 'Free 3D renderings, expert guidance, and premium cabinetry delivered to your door.',
         cta: 'Get Free 3D Design',
         href: '#',
-        image: '/images/gallery/Gallery-6--Captivating-Cabinets.webp',
+        image: '/images/kichan-imgs/gallery-01.png',
     },
     {
         eyebrow: 'For Contractors',
@@ -15,7 +15,7 @@ const PATHS = [
         description: 'Exclusive contractor pricing, dedicated support, and priority fulfillment.',
         cta: 'Contractor Program',
         href: '#',
-        image: '/images/gallery/Gallery-4--Captivating-Cabinets.webp',
+        image: '/images/kichan-imgs/gallery-07.png',
     },
 ];
 

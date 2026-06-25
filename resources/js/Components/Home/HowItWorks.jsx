@@ -64,11 +64,7 @@ function StepCard({ num, title, description, cta, href }) {
 
 export default function HowItWorks() {
     return (
-        <section className="relative bg-white py-16 lg:py-24 overflow-hidden" aria-label="How it works">
-            {/* Soft ambient accents */}
-            <div className="pointer-events-none absolute -top-24 -right-24 w-80 h-80 rounded-full bg-amber-400/10 blur-3xl" aria-hidden="true" />
-            <div className="pointer-events-none absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-[#374151]/10 blur-3xl" aria-hidden="true" />
-
+        <section className="bg-white py-16 lg:py-24" aria-label="How it works">
             <div className="relative max-w-container mx-auto px-6 lg:px-8">
                 {/* Header */}
                 <div className="text-center max-w-2xl mx-auto">

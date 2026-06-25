@@ -2,10 +2,12 @@ import { useState } from 'react';
 import Icon from '@/Components/Home/Icon';
 import AnimatedNavLink from '@/Components/Home/AnimatedNavLink';
 import ShopCabinetsMenu from '@/Components/Home/ShopCabinetsMenu';
+import OurBrandsMenu from '@/Components/Home/OurBrandsMenu';
 import MobileMenu from '@/Components/Home/MobileMenu';
 
 const NAV_LINKS = [
     { label: 'Shop Cabinets', mega: true },
+    { label: 'Our Brands', brands: true },
     { label: 'Affirm Financing', href: '/financing', logo: '/images/affirm-logo.png' },
     { label: 'Contractor Program', href: '/contractor-program' },
     { label: 'Testimonials', href: '/testimonials' },
@@ -39,6 +41,8 @@ export default function Navbar() {
                         {NAV_LINKS.map((link) =>
                             link.mega ? (
                                 <ShopCabinetsMenu key={link.label} />
+                            ) : link.brands ? (
+                                <OurBrandsMenu key={link.label} />
                             ) : link.logo ? (
                                 <a key={link.label} href={link.href} aria-label={link.label} className="inline-flex items-center gap-1.5 px-2 text-[15px] font-medium text-[#0FA0EA] hover:text-[#0c8fd4] transition-colors">
                                     <img src={link.logo} alt="Affirm" className="h-4 w-auto" />

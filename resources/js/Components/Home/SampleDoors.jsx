@@ -131,7 +131,7 @@ export default function SampleDoors() {
                 onPointerMove={onPointerMove}
                 onPointerUp={endDrag}
                 onPointerCancel={endDrag}
-                className="flex gap-4 md:gap-6 overflow-x-auto scroll-auto select-none cursor-grab active:cursor-grabbing [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                className="flex items-center gap-4 md:gap-6 py-10 overflow-x-auto scroll-auto select-none cursor-grab active:cursor-grabbing [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             >
                 {[...SAMPLE_DOORS, ...SAMPLE_DOORS].map((door, i) => (
                     <DoorSample

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Icon from '@/Components/Home/Icon';
-import { BRANDS, TYPES, INCHES, DEPTHS, SHELVES, DRAWERS, finishImage } from '@/Components/Home/shopCatalog';
+import { BRANDS, TYPES, STYLES, INCHES, DEPTHS, SHELVES, DRAWERS, finishImage } from '@/Components/Home/shopCatalog';
 
 const facetNode = (label, title, items) => ({
     label,
@@ -46,12 +46,19 @@ const byTypeNode = {
     ),
 };
 
+const brandsNode = {
+    label: 'Our Brands',
+    title: 'Our Brands',
+    items: BRANDS.map((b) => ({ label: b.name, href: '#' })),
+};
+
 const shopNode = {
     label: 'Shop Cabinets',
     title: 'Shop Cabinets',
     items: [
         byBrandNode,
         byTypeNode,
+        facetNode('By Style', 'Browse by Style', STYLES.map((s) => s.name)),
         facetNode('By Inch', 'Shop by Inch', INCHES),
         facetNode('By Depth', 'Shop by Depth', DEPTHS),
         facetNode('By Shelf', 'Number of Shelves', SHELVES),
@@ -70,6 +77,8 @@ export default function MobileMenu({ links, onClose }) {
     const rootItems = links.map((link) =>
         link.mega
             ? shopNode
+            : link.brands
+            ? brandsNode
             : link.logo
             ? { label: 'Financing', href: link.href, logo: link.logo }
             : { label: link.label, href: link.href }

@@ -3,9 +3,8 @@ import { Listbox, ListboxButton, ListboxOptions, ListboxOption } from '@headless
 import { Head } from '@inertiajs/react';
 import TopContactBar from '@/Components/Home/TopContactBar';
 import Navbar from '@/Components/Home/Navbar';
-import FooterCTA from '@/Components/Home/FooterCTA';
+import FooterCTA, { CTA_ICONS } from '@/Components/Home/FooterCTA';
 import Footer from '@/Components/Home/Footer';
-import StickyCTABar from '@/Components/Home/StickyCTABar';
 import Icon from '@/Components/Home/Icon';
 
 const ARROW = (
@@ -59,11 +58,8 @@ function FaqItem({ q, a, isOpen, onToggle }) {
 function HeroText() {
     return (
         <div className="order-1 lg:col-span-7 lg:row-start-1 lg:min-h-[360px] lg:flex lg:flex-col lg:justify-center">
-            <span className="inline-block text-amber-400 text-xs font-bold uppercase tracking-[0.22em]">
-                Contractor Program
-            </span>
-            <h1 className="mt-4 font-sans font-normal text-white text-[44px] leading-[48px] md:text-[56px] md:leading-[56px]">
-                Wholesale Cabinet <span className="text-amber-400">Contractor</span> Program
+            <h1 className="font-sans font-normal text-white text-[44px] leading-[48px] md:text-[56px] md:leading-[56px]">
+                Contractor <span className="text-amber-400">Program</span>
             </h1>
             <p className="mt-5 text-white/85 text-lg leading-relaxed max-w-xl">
                 Join our exclusive contractor program and unlock wholesale pricing, complimentary 3D design services, dedicated support, and priority delivery.
@@ -270,7 +266,7 @@ function HeroApply({ bgImage = '/images/kichan-imgs/hero-img2.png' }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/5" />
             </div>
 
-            <div className="relative max-w-container mx-auto px-6 lg:px-8 pt-16 lg:pt-20 pb-4 lg:pb-6">
+            <div className="relative max-w-container mx-auto px-4 sm:px-6 min-[1440px]:px-0 pt-16 lg:pt-20 pb-4 lg:pb-6">
                 <div className="grid gap-x-10 lg:gap-x-14 gap-y-6 lg:grid-cols-12">
                     {/* Hero text — row 1, left */}
                     <HeroText />
@@ -286,10 +282,7 @@ function HeroApply({ bgImage = '/images/kichan-imgs/hero-img2.png' }) {
                     <div className="order-3 lg:col-span-7 lg:col-start-1 lg:row-start-2 pt-2 lg:pt-4 space-y-14">
                         {/* Why partner */}
                         <div>
-                            <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
-                                Why Partner With Us
-                            </span>
-                            <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
+                            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                                 Built for builders, contractors, and the trade
                             </h2>
                             <p className="mt-4 text-[#374151]/70 text-base md:text-lg leading-relaxed">
@@ -302,7 +295,7 @@ function HeroApply({ bgImage = '/images/kichan-imgs/hero-img2.png' }) {
                                         key={title}
                                         className="flex flex-col rounded-2xl bg-white border border-[#374151]/10 shadow-[0_10px_30px_rgba(55,65,81,0.06)] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(55,65,81,0.12)]"
                                     >
-                                        <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-amber-50 text-amber-600 ring-1 ring-amber-100">
+                                        <span className="flex items-center justify-center w-12 h-12 rounded-xl bg-[#BDD7F0] text-[#1E3A5F]">
                                             <Icon className="w-6 h-6">{icon}</Icon>
                                         </span>
                                         <h3 className="mt-4 font-display text-base font-bold text-[#374151] tracking-tight">{title}</h3>
@@ -328,17 +321,14 @@ function HeroApply({ bgImage = '/images/kichan-imgs/hero-img2.png' }) {
 
                         {/* Workflows & services */}
                         <div>
-                            <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
-                                Workflows & Services
-                            </span>
-                            <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
+                            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                                 Designed to save you time
                             </h2>
 
                             <div className="mt-8 space-y-4">
                                 {SERVICES.map(({ title, body, icon }) => (
                                     <div key={title} className="flex items-start gap-4 rounded-2xl bg-white border border-[#374151]/10 shadow-[0_10px_30px_rgba(55,65,81,0.06)] p-5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(55,65,81,0.12)]">
-                                        <span className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-amber-50 text-amber-600 ring-1 ring-amber-100">
+                                        <span className="flex-shrink-0 flex items-center justify-center w-12 h-12 rounded-xl bg-[#BDD7F0] text-[#1E3A5F]">
                                             <Icon className="w-6 h-6">{icon}</Icon>
                                         </span>
                                         <div>
@@ -352,10 +342,7 @@ function HeroApply({ bgImage = '/images/kichan-imgs/hero-img2.png' }) {
 
                         {/* FAQ */}
                         <div>
-                            <span className="inline-block text-amber-600 text-xs font-bold uppercase tracking-[0.22em]">
-                                FAQ
-                            </span>
-                            <h2 className="mt-3 font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
+                            <h2 className="font-display text-3xl md:text-4xl font-bold text-[#374151] tracking-tight leading-tight">
                                 Frequently asked questions
                             </h2>
                             <div className="mt-6">
@@ -390,9 +377,14 @@ export default function ContractorProgram() {
                 <main>
                     <HeroApply />
                 </main>
-                <FooterCTA bgImage="/images/kichan-imgs/cta-contractor.png" />
+                <FooterCTA
+                    bgImage="/images/kichan-imgs/cta-contractor.png"
+                    title={<>Have questions? <span className="text-amber-400">Give us a call</span></>}
+                    buttons={[
+                        { label: '(609) 900-3358', icon: CTA_ICONS.phone, href: 'tel:+16099003358', primary: true },
+                    ]}
+                />
                 <Footer />
-                <StickyCTABar />
             </div>
         </>
     );

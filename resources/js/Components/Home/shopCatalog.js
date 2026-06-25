@@ -4,6 +4,8 @@
 export const BRANDS = [
     {
         name: 'Fabuwood',
+        logo: '/images/brand-img/Fabuwood Cabinets.png',
+        blurb: 'Premium frameless & framed kitchen cabinetry',
         lines: [
             {
                 name: 'Allure',
@@ -18,14 +20,14 @@ export const BRANDS = [
             { name: 'Ovela', series: [] },
         ],
     },
-    { name: 'J&K', lines: [] },
-    { name: 'Modernform', lines: [] },
-    { name: 'Diamond', lines: [] },
-    { name: 'Decora', lines: [] },
-    { name: 'Mantra', lines: [] },
-    { name: 'Tribeca', lines: [] },
-    { name: 'KCD', lines: [] },
-    { name: 'USCD', lines: [] },
+    { name: 'J&K', logo: '/images/brand-img/jk-logo.png', blurb: 'Affordable all-wood cabinetry', lines: [] },
+    { name: 'Modernform', logo: '/images/brand-img/modernform-logo.png', blurb: 'Sleek contemporary designs', lines: [] },
+    { name: 'Diamond', logo: '/images/brand-img/diamond-logo.jpg', blurb: 'Trusted American craftsmanship', lines: [] },
+    { name: 'Decora', logo: '/images/brand-img/decora-cabinet.jpg', blurb: 'Designer styles & finishes', lines: [] },
+    { name: 'Mantra', logo: '/images/brand-img/mantra-logo.png', blurb: 'Modern frameless cabinets', lines: [] },
+    { name: 'Tribeca', logo: '/images/brand-img/tribeca-logo.png', blurb: 'Urban-inspired cabinetry', lines: [] },
+    { name: 'KCD', logo: '/images/brand-img/kcd-logo.svg', blurb: 'Value-driven ready-to-assemble', lines: [] },
+    { name: 'USCD', logo: '/images/brand-img/uscd-logo.jpg', blurb: 'US Cabinet Depot essentials', lines: [] },
 ];
 
 export const TYPES = [
@@ -70,6 +72,15 @@ export const TYPES = [
     },
     { name: 'Tall Cabinets', subs: [] },
     { name: 'Vanity Cabinets', subs: [] },
+];
+
+export const STYLES = [
+    { name: 'Modern', image: '/images/cabinets/fabuwood/galaxy-pitch-black.webp' },
+    { name: 'Raised Panel', image: '/images/cabinets/fabuwood/luna-desert-oak.webp' },
+    { name: 'Shaker', image: '/images/cabinets/fabuwood/galaxy-dove.webp' },
+    { name: 'Slim Shaker', image: '/images/cabinets/fabuwood/galaxy-frost.webp' },
+    { name: 'Transitional', image: '/images/cabinets/fabuwood/galaxy-nickel.webp' },
+    { name: 'Traditional', image: '/images/cabinets/fabuwood/galaxy-truffle.png' },
 ];
 
 export const INCHES = [6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 48, 60].map((n) => `${n} Inch Cabinets`);

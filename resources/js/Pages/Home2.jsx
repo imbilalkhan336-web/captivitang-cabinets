@@ -11,6 +11,7 @@ import AudiencePaths from '@/Components/Home/AudiencePaths';
 import HowItWorks from '@/Components/Home/HowItWorks';
 import Testimonials from '@/Components/Home/Testimonials';
 import Faq from '@/Components/Home/Faq';
+import PopularSearches from '@/Components/Home/PopularSearches';
 import FooterCTA from '@/Components/Home/FooterCTA';
 import Footer from '@/Components/Home/Footer';
 import StickyCTABar from '@/Components/Home/StickyCTABar';
@@ -56,6 +57,7 @@ export default function Home2() {
                     <HowItWorks />
                     <Testimonials />
                     <Faq />
+                    <PopularSearches />
                 </main>
 
                 <FooterCTA />

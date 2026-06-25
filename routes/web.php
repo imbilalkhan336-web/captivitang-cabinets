@@ -15,6 +15,10 @@ Route::get('/contractor-program', function () {
     return Inertia::render('ContractorProgram');
 })->name('contractor-program');
 
+Route::get('/cabinet-brands', function () {
+    return Inertia::render('CabinetBrands');
+})->name('cabinet-brands');
+
 Route::get('/about', function () {
     return Inertia::render('About');
 })->name('about');
