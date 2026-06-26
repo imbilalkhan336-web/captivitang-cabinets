@@ -12,7 +12,7 @@ use Inertia\Inertia;
  */
 function brand_gallery(string $slug): array
 {
-    // Ordered series definitions per brand: [display name, line, folder path].
+    // Fabuwood uses a curated, ordered layout so its lines group correctly.
     $layouts = [
         'fabuwood' => [
             ['Allure Galaxy', 'Allure', 'allure/Galaxy Cabinets'],
@@ -27,31 +27,111 @@ function brand_gallery(string $slug): array
         ],
     ];
 
-    if (! isset($layouts[$slug])) {
+    if (isset($layouts[$slug])) {
+        $base = public_path("images/brands/{$slug}");
+        $root = "/images/brands/{$slug}";
+        $series = [];
+
+        foreach ($layouts[$slug] as [$name, $line, $rel]) {
+            $dir = $base . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $rel);
+            $images = [];
+
+            if (is_dir($dir)) {
+                $files = scandir($dir) ?: [];
+                sort($files);
+                foreach ($files as $file) {
+                    if (preg_match('/\.(png|jpe?g|webp|avif)$/i', $file)) {
+                        // URL-encode each path segment so spaces/commas resolve.
+                        $segments = array_map('rawurlencode', array_merge(explode('/', $rel), [$file]));
+                        $images[] = $root . '/' . implode('/', $segments);
+                    }
+                }
+            }
+
+            $series[] = ['name' => $name, 'line' => $line, 'images' => $images];
+        }
+
+        return $series;
+    }
+
+    // All other brands are auto-scanned. Folder names differ from slugs, so map
+    // them, then group images by their folder (one or two levels deep).
+    return scanned_brand_gallery($slug);
+}
+
+/*
+ * Generic two-level scanner for non-Fabuwood brands. A folder that directly
+ * holds images becomes one series; a folder of sub-folders yields one series
+ * per sub-folder (with the parent folder as its "line").
+ */
+function scanned_brand_gallery(string $slug): array
+{
+    $folders = [
+        'jk' => 'j&k',
+        'modernform' => 'Modernform',
+        'diamond' => 'Diamond',
+        'decora' => 'Decorá',
+        'mantra' => 'Mantra',
+        'tribeca' => 'Tribeca',
+        'kcd' => 'KCD',
+        'uscd' => 'USDC',
+    ];
+
+    $folder = $folders[$slug] ?? $slug;
+    $base = public_path("images/brands/{$folder}");
+    $root = "/images/brands/" . rawurlencode($folder);
+
+    if (! is_dir($base)) {
         return [];
     }
 
-    $base = public_path("images/brands/{$slug}");
-    $root = "/images/brands/{$slug}";
-    $series = [];
-
-    foreach ($layouts[$slug] as [$name, $line, $rel]) {
-        $dir = $base . DIRECTORY_SEPARATOR . str_replace('/', DIRECTORY_SEPARATOR, $rel);
+    // Return [imageFilenames, subDirNames] for a directory.
+    $scan = function (string $dir): array {
         $images = [];
-
-        if (is_dir($dir)) {
-            $files = scandir($dir) ?: [];
-            sort($files);
-            foreach ($files as $file) {
-                if (preg_match('/\.(png|jpe?g|webp|avif)$/i', $file)) {
-                    // URL-encode each path segment so spaces/commas resolve.
-                    $segments = array_map('rawurlencode', array_merge(explode('/', $rel), [$file]));
-                    $images[] = $root . '/' . implode('/', $segments);
-                }
+        $subdirs = [];
+        $entries = scandir($dir) ?: [];
+        sort($entries);
+        foreach ($entries as $e) {
+            if ($e === '.' || $e === '..') {
+                continue;
+            }
+            $path = $dir . DIRECTORY_SEPARATOR . $e;
+            if (is_dir($path)) {
+                $subdirs[] = $e;
+            } elseif (preg_match('/\.(png|jpe?g|webp|avif)$/i', $e)) {
+                $images[] = $e;
             }
         }
+        return [$images, $subdirs];
+    };
 
-        $series[] = ['name' => $name, 'line' => $line, 'images' => $images];
+    $series = [];
+    [, $tops] = $scan($base);
+
+    foreach ($tops as $top) {
+        $topDir = $base . DIRECTORY_SEPARATOR . $top;
+        $topUrl = $root . '/' . rawurlencode($top);
+        [$imgs, $subs] = $scan($topDir);
+
+        if ($imgs) {
+            $series[] = [
+                'name' => $top,
+                'line' => '',
+                'images' => array_map(fn ($f) => $topUrl . '/' . rawurlencode($f), $imgs),
+            ];
+        }
+
+        foreach ($subs as $sub) {
+            [$simgs] = $scan($topDir . DIRECTORY_SEPARATOR . $sub);
+            if ($simgs) {
+                $subUrl = $topUrl . '/' . rawurlencode($sub);
+                $series[] = [
+                    'name' => $sub,
+                    'line' => $top,
+                    'images' => array_map(fn ($f) => $subUrl . '/' . rawurlencode($f), $simgs),
+                ];
+            }
+        }
     }
 
     return $series;
@@ -96,10 +176,6 @@ Route::get('/contact', function () {
 Route::get('/design-service', function () {
     return Inertia::render('DesignService');
 })->name('design-service');
-
-Route::get('/cabinet-brands', function () {
-    return Inertia::render('Brands');
-})->name('cabinet-brands');
 
 Route::get('/brands/{slug}', function (string $slug) {
     return Inertia::render('Brand', [

@@ -29,6 +29,7 @@ const BRANDS = {
     fabuwood: {
         name: 'Fabuwood',
         logo: '/images/brand-img/Fabuwood Cabinets.png',
+        heroBg: '/images/brands/fabuwood/fabuwood-hero-bg.png',
         aboutImage: '/images/cabinets/fabuwood/echo-timber-dove-hero.jpg',
         tagline: 'Premium framed cabinetry, exceptional value',
         intro: 'One of America’s fastest-growing cabinet brands—celebrated for all-wood construction, designer finishes, and quick nationwide shipping.',
@@ -174,6 +175,7 @@ const BRANDS = {
     jk: {
         name: 'J&K Cabinetry',
         logo: '/images/brand-img/jk-logo.png',
+        heroBg: '/images/kichan-imgs/gallery-02.png',
         tagline: 'All-wood cabinetry with timeless door styles',
         intro: 'Solid wood doors, dovetail drawers, and a wide range of classic-to-transitional styles—dependable cabinetry trusted on countless kitchens.',
         about: [
@@ -190,6 +192,7 @@ const BRANDS = {
     modernform: {
         name: 'Modernform',
         logo: '/images/brand-img/modernform-logo.png',
+        heroBg: '/images/kichan-imgs/gallery-04.png',
         tagline: 'Sleek frameless European-style cabinets',
         intro: 'Frameless full-access construction with flat-panel doors and matte finishes—clean, contemporary, and engineered for maximum storage.',
         about: [
@@ -206,6 +209,7 @@ const BRANDS = {
     diamond: {
         name: 'Diamond',
         logo: '/images/brand-img/diamond-logo.jpg',
+        heroBg: '/images/kichan-imgs/gallery-06.png',
         tagline: 'Semi-custom cabinetry built to fit your life',
         intro: 'Semi-custom sizing, smart organization, and furniture-grade finishes backed by a limited lifetime warranty.',
         about: [
@@ -222,6 +226,7 @@ const BRANDS = {
     decora: {
         name: 'Decora',
         logo: '/images/brand-img/decora-cabinet.jpg',
+        heroBg: '/images/kichan-imgs/gallery-08.png',
         tagline: 'Designer-inspired semi-custom cabinetry',
         intro: 'On-trend finishes, premium hardware, and personalized organization for kitchens that feel designed, not assembled.',
         about: [
@@ -238,6 +243,7 @@ const BRANDS = {
     mantra: {
         name: 'Mantra',
         logo: '/images/brand-img/mantra-logo.png',
+        heroBg: '/images/kichan-imgs/gallery-10.png',
         tagline: 'Frameless, full-access cabinets that ship fast',
         intro: 'Full-access frameless design with soft-close everything and quick assembly—modern cabinetry without the wait.',
         about: [
@@ -254,6 +260,7 @@ const BRANDS = {
     tribeca: {
         name: 'Tribeca',
         logo: '/images/brand-img/tribeca-logo.png',
+        heroBg: '/images/kichan-imgs/gallery-12.png',
         tagline: 'Modern cabinetry with clean, urban styling',
         intro: 'Contemporary door styles, durable finishes, and great value—an easy way to bring a fresh, modern look home.',
         about: [
@@ -270,6 +277,7 @@ const BRANDS = {
     kcd: {
         name: 'KCD',
         logo: '/images/brand-img/kcd-logo.svg',
+        heroBg: '/images/kichan-imgs/shop-by-brand.png',
         tagline: 'Quality RTA cabinets at wholesale value',
         intro: 'Ready-to-assemble cabinetry with all-wood boxes and budget-friendly pricing—quality you can build yourself.',
         about: [
@@ -286,6 +294,7 @@ const BRANDS = {
     uscd: {
         name: 'US Cabinet Depot',
         logo: '/images/brand-img/uscd-logo.jpg',
+        heroBg: '/images/kichan-imgs/shop-by-color.png',
         tagline: 'Dependable cabinetry with a wide selection',
         intro: 'All-plywood options, a broad range of styles and colors, and honest value pricing across every collection.',
         about: [
@@ -334,7 +343,7 @@ const FABUWOOD_LINES = {
 
 function Hero({ brand, line }) {
     const meta = line ? FABUWOOD_LINES[line] : null;
-    const bg = meta ? meta.bg : '/images/brands/fabuwood/fabuwood-hero-bg.png';
+    const bg = meta ? meta.bg : (brand.heroBg || '/images/kichan-imgs/hero-about.png');
     return (
         <section className="relative min-h-[46vh] flex flex-col overflow-hidden pt-20" aria-label={`${brand.name} hero`}>
             <div className="absolute inset-0 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: `url(${bg})` }} aria-hidden="true" />
@@ -764,7 +773,19 @@ export default function Brand({ slug, line = null, gallery = [] }) {
                 <main>
                     <Hero brand={brand} line={line} />
                     <PromoCards />
-                    {brand.series ? <SeriesExplorer brand={brand} galleryByKey={galleryByKey} line={line} /> : <Collections brand={brand} />}
+                    {brand.series ? (
+                        <SeriesExplorer brand={brand} galleryByKey={galleryByKey} line={line} />
+                    ) : (
+                        <>
+                            {brand.about && <Overview brand={brand} />}
+                            {brand.highlights && <Highlights brand={brand} />}
+                            {withImages.length ? (
+                                <CollectionGalleries brandName={brand.name} items={withImages} />
+                            ) : (
+                                <Collections brand={brand} />
+                            )}
+                        </>
+                    )}
                     {brand.faqs && (
                         <Faq
                             faqs={brand.faqs}
